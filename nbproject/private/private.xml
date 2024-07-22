@@ -3,11 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Programs/NetBeansProjects/TicTacToe/src/Model/GameBoard.java</file>
-            <file>file:/D:/Programs/NetBeansProjects/TicTacToe/src/Views/GameBoardView.java</file>
-            <file>file:/D:/Programs/NetBeansProjects/TicTacToe/src/Model/Player.java</file>
-            <file>file:/D:/Programs/NetBeansProjects/TicTacToe/src/tictactoe/TicTacToe.java</file>
-            <file>file:/D:/Programs/NetBeansProjects/TicTacToe/src/Controllers/GameController.java</file>
+            <file>file:/C:/Dev/Java/TicTacToeJavaFX/src/Controllers/LosePageController.java</file>
+            <file>file:/C:/Dev/Java/TicTacToeJavaFX/src/Controllers/WinPageController.java</file>
+            <file>file:/C:/Dev/Java/TicTacToeJavaFX/src/tictactoe/TicTacToe.java</file>
+            <file>file:/C:/Dev/Java/TicTacToeJavaFX/src/Views/DrawPage.fxml</file>
+            <file>file:/C:/Dev/Java/TicTacToeJavaFX/src/Controllers/DrawPageController.java</file>
+            <file>file:/C:/Dev/Java/TicTacToeJavaFX/src/Views/WinPage.fxml</file>
+            <file>file:/C:/Dev/Java/TicTacToeJavaFX/src/Views/LosePage.fxml</file>
         </group>
     </open-files>
 </project-private>
