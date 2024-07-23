@@ -1,6 +1,7 @@
 package Views;
 
 import Controllers.ChangeSceneController;
+import Controllers.LocalGameInitController;
 import javafx.event.EventHandler;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -21,9 +22,9 @@ public class ChooseXOPageClass extends AnchorPane {
     protected final Text txtTimer3;
     protected final Text txtTimer2;
     protected final Text txtTimer1;
-
+    LocalGameInitController   localGameInitController;  
     public ChooseXOPageClass() {
-
+        
         btnBackChooseXOView = new ImageView();
         back = new ImageView();
         text = new Text();
@@ -34,7 +35,8 @@ public class ChooseXOPageClass extends AnchorPane {
         txtTimer3 = new Text();
         txtTimer2 = new Text();
         txtTimer1 = new Text();
-
+        
+        localGameInitController = new LocalGameInitController(imageX, imageO);
         setId("AnchorPane");
         setMaxHeight(700.0);
         setMaxWidth(600.0);
@@ -69,16 +71,15 @@ public class ChooseXOPageClass extends AnchorPane {
         text.setStrokeWidth(0.0);
         text.setText("CHOOSE");
         text.setFont(new Font("Rockwell Bold Italic", 64.0));
-
+        
+        
         imageX.setFitHeight(188.0);
         imageX.setFitWidth(157.0);
         imageX.setLayoutX(82.0);
         imageX.setLayoutY(266.0);
         imageX.setPickOnBounds(true);
         imageX.setPreserveRatio(true);
-        imageX.setOnMouseClicked((MouseEvent event) -> {
-            ChangeSceneController.switchScene(new GameBoardView(),event);
-        });
+  
         imageX.setImage(new Image(getClass().getResource("/Images/xx.png").toExternalForm()));
 
         imageO.setFitHeight(183.0);
@@ -89,6 +90,9 @@ public class ChooseXOPageClass extends AnchorPane {
         imageO.setPreserveRatio(true);
         imageO.setImage(new Image(getClass().getResource("/Images/oo.png").toExternalForm()));
 
+        
+        
+      
         text0.setLayoutX(272.0);
         text0.setLayoutY(373.0);
         text0.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
@@ -106,7 +110,7 @@ public class ChooseXOPageClass extends AnchorPane {
 
         txtTimer3.setLayoutX(275.0);
         txtTimer3.setLayoutY(663.0);
-        txtTimer3.setOpacity(0.0);
+        txtTimer3.setOpacity(1);
         txtTimer3.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
         txtTimer3.setStrokeWidth(0.0);
         txtTimer3.setText("3");

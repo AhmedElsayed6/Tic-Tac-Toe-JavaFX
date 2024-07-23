@@ -3,14 +3,28 @@ package Model;
 public class Cell {
 
     int value;
-    
-   public Cell(){value = 2; }
-    public int getValue(){return value;}
-    public void setValue(int input){
-        value = input ; 
+     Player player;
+
+    public Player getPlayer() {
+        return player;
     }
-  //  Player player = null;
-    
-    
-    
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+  
+
+    public Cell() {
+        value = 2;
+        player = null;
+    }
+
+    public int getValue() {
+        return value;
+    }
+
+    public void setValue(int input) {
+        value = input;
+    }
+
 }
