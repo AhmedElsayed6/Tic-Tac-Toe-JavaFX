@@ -33,7 +33,6 @@ public class GameController {
         gb = new GameBoard();
         setScoreBoard();
         setImageViewHandlers();
-        gb.printBoard();
 
     }
 
@@ -57,6 +56,7 @@ public class GameController {
             i.setDisable(true);
         }
     }
+    
     public void enableAllImageViews() {
         for (ImageView i : imageViewList) {
             if(i.getImage()==null)
@@ -188,7 +188,6 @@ public class GameController {
             imageViewList.get(i).setOnMouseClicked(event -> {
                  System.out.println(gb.checkValidCell(row, col));
                 handleImageViewClick(row, col, index);
-                 gb.printBoard();
                  System.out.println(gb.checkValidCell(row, col));
                   ai.playAi();
             });

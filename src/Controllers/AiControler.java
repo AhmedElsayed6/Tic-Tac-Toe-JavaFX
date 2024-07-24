@@ -85,7 +85,7 @@ public class AiControler {
     }
 
     public int[] initializeBoard() {
-        return new int[]{gb.gameBoard[0][0].getValue(), gb.gameBoard[0][1].getValue(), gb.gameBoard[0][2].getValue(), gb.gameBoard[1][0].getValue(), gb.gameBoard[1][1].getValue(), gb.gameBoard[1][2].getValue(), gb.gameBoard[2][0].getValue(), gb.gameBoard[2][1].getValue(), gb.gameBoard[2][2].getValue()};
+        return new int[]{gb.board[0][0].getValue(), gb.board[0][1].getValue(), gb.board[0][2].getValue(), gb.board[1][0].getValue(), gb.board[1][1].getValue(), gb.board[1][2].getValue(), gb.board[2][0].getValue(), gb.board[2][1].getValue(), gb.board[2][2].getValue()};
     }
      private void setImageViewHandlers() {
         for (int i = 0; i < imageViewList.size(); i++) {
