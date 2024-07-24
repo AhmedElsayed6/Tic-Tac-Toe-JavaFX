@@ -3,13 +3,19 @@ package Controllers;
 
 import Model.GameBoard;
 import Model.Player;
+
+import Views.DrawPageClass;
+import Views.WinPageClass;
+
 import Views.DialogView;
+
 import java.util.List;
 import javafx.application.Platform;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Line;
+import javafx.animation.PauseTransition;
 
 public class LocalGameController  {
     
@@ -56,6 +62,7 @@ public class LocalGameController  {
             i.setDisable(true);
         }
     }
+
     private void drawWinningLine() {
         Line line;
         switch (gb.winningLine) {
@@ -149,8 +156,10 @@ public class LocalGameController  {
 
         }
 
+
     } 
     private void handleImageViewClick(int row, int col, int index) {
+
         Image imageX = new Image("/Images/X.png", true);
         Image imageO = new Image("/Images/O.png", true);
         gb.playPosition(row, col, currentPlayer);
@@ -164,13 +173,22 @@ public class LocalGameController  {
             disableAllImageViews();
             currentPlayer.scoreIncrement();
             setScoreBoard();
-            imageViewList.get(index).setImage(img);
-       
-            DialogView dv = new DialogView(player1 , player2  , gb);
+
+             DialogView dv = new DialogView(player1 , player2  , gb);
+            PauseTransition pause = new PauseTransition(javafx.util.Duration.seconds(0.8));
+            pause.setOnFinished(e ->{ 
+            ChangeSceneController.switchSceneWithStage(new WinPageClass());});
+            pause.play();
+            
+           
         } else if (gb.numberPlays == 9) {
             System.out.println("Draw");
-      
-              SaveGameController.saveMatch(gb);
+            SaveGameController.saveMatch(gb);
+            PauseTransition pause = new PauseTransition(javafx.util.Duration.seconds(0.8));
+            pause.setOnFinished(e ->{ 
+              ChangeSceneController.switchSceneWithStage(new DrawPageClass());});
+            pause.play();
+              
         }
         player1Turn = !player1Turn; // false 
         setCurrentPlayer();
@@ -181,7 +199,7 @@ public class LocalGameController  {
             int row = i / 3;
             int col = i % 3;
             int index = i;
-            imageViewList.get(i).setOnMouseClicked(event -> handleImageViewClick(row, col, index));
+            imageViewList.get(i).setOnMouseClicked(event -> handleImageViewClick(row, col, index ));
         }
   
 

@@ -25,9 +25,6 @@ public class DialogView {
 
         final FlowPane dialogPane;
     
-
-  
-
         dialogPane = new FlowPane();
      
         Button menuBtn = new Button("Main Menu");

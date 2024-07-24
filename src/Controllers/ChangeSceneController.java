@@ -26,10 +26,12 @@ public class ChangeSceneController {
         stage.setScene(newScene);
         stage.show();
     } 
+
         public static void switchSceneWithStage(Parent newRoot) {
         root = newRoot;
         Scene newScene = new Scene(root);
         stage.setScene(newScene);
         stage.show();
     } 
+
 }

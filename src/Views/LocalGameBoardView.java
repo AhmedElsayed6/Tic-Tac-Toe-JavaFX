@@ -141,11 +141,16 @@ public class LocalGameBoardView extends AnchorPane {
    
         
         
-        imgViewBackGround.setFitHeight(750.0);
-        imgViewBackGround.setFitWidth(650.0);
+
+        imgViewBackGround.setFitHeight(700.0);
+        imgViewBackGround.setFitWidth(600.0);
+//
+//        imgViewBackGround.setFitHeight(750.0);
+//        imgViewBackGround.setFitWidth(650.0);
         imgViewBackGround.setLayoutX(-5);
         imgViewBackGround.setLayoutY(-2);
         
+
         imgViewBackGround.setPickOnBounds(true);
         imgViewBackGround.setPreserveRatio(true);
         imgViewBackGround.setImage(new Image(getClass().getResource("/Images/BackGround.png").toExternalForm()));
@@ -154,8 +159,8 @@ public class LocalGameBoardView extends AnchorPane {
         borderPane.setMaxWidth(600.0);
         borderPane.setMinHeight(700.0);
         borderPane.setMinWidth(600.0);
-        borderPane.setPrefHeight(0.0);
-        borderPane.setPrefWidth(0.0);
+        borderPane.setPrefHeight(700.0);
+        borderPane.setPrefWidth(600.0);
 
         BorderPane.setAlignment(boardPane, javafx.geometry.Pos.CENTER);
         BorderPane.setMargin(boardPane, new Insets(0.0));
