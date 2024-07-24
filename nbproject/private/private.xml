@@ -3,19 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/D:/FirstNetBeans/NewTicTac/Tic-Tac-Toe-JavaFX/src/Views/WelcomePageClass.java</file>
-            <file>file:/D:/FirstNetBeans/NewTicTac/Tic-Tac-Toe-JavaFX/src/Controllers/ChangeSceneController.java</file>
-            <file>file:/D:/FirstNetBeans/NewTicTac/Tic-Tac-Toe-JavaFX/src/Views/ChooseXOPageClass.java</file>
-            <file>file:/D:/FirstNetBeans/NewTicTac/Tic-Tac-Toe-JavaFX/src/tictactoe/TicTacToe.java</file>
-            <file>file:/D:/FirstNetBeans/NewTicTac/Tic-Tac-Toe-JavaFX/src/Views/LocalGameBoardView.java</file>
-=======
-            <file>file:/D:/Programs/NetBeansProjects/TicTacToe2/Tic-Tac-Toe-JavaFX/src/Controllers/ChangeSceneController.java</file>
-            <file>file:/D:/Programs/NetBeansProjects/TicTacToe2/Tic-Tac-Toe-JavaFX/src/Views/LocalGameBoardView.java</file>
-            <file>file:/D:/Programs/NetBeansProjects/TicTacToe2/Tic-Tac-Toe-JavaFX/src/Controllers/LocalGameController.java</file>
-            <file>file:/D:/Programs/NetBeansProjects/TicTacToe2/Tic-Tac-Toe-JavaFX/src/tictactoe/TicTacToe.java</file>
-            <file>file:/D:/Programs/NetBeansProjects/TicTacToe2/Tic-Tac-Toe-JavaFX/src/Views/DialogView.java</file>
->>>>>>> origin/dev
+            <file>file:/D:/java%20project/TicTacToe%20-%20allai%20-view%20last%20game/src/tictactoe/TicTacToe.java</file>
+            <file>file:/D:/java%20project/TicTacToe%20-%20allai%20-view%20last%20game/src/Controllers/GameController.java</file>
+            <file>file:/D:/java%20project/TicTacToe%20-%20allai%20-view%20last%20game/src/Views/WinPageClass.java</file>
+            <file>file:/D:/java%20project/TicTacToe%20-%20allai%20-view%20last%20game/src/Views/DifficultyPageClass.java</file>
+            <file>file:/D:/java%20project/TicTacToe%20-%20allai%20-view%20last%20game/src/Model/GameBoard.java</file>
+            <file>file:/D:/java%20project/TicTacToe%20-%20allai%20-view%20last%20game/src/Controllers/AiControler.java</file>
         </group>
     </open-files>
 </project-private>
