@@ -36,7 +36,7 @@ public class ChooseXOPageClass extends AnchorPane {
         txtTimer2 = new Text();
         txtTimer1 = new Text();
         
-        localGameInitController = new LocalGameInitController(imageX, imageO);
+        localGameInitController = new LocalGameInitController(imageX, imageO,txtTimer,txtTimer3,txtTimer2,txtTimer1);
         setId("AnchorPane");
         setMaxHeight(700.0);
         setMaxWidth(600.0);
@@ -57,6 +57,7 @@ public class ChooseXOPageClass extends AnchorPane {
         back.setFitWidth(93.0);
         back.setPickOnBounds(true);
         back.setPreserveRatio(true);
+        back.setImage(new Image(getClass().getResource("/Images/backArrow.png").toExternalForm()));
         back.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -110,22 +111,22 @@ public class ChooseXOPageClass extends AnchorPane {
 
         txtTimer3.setLayoutX(275.0);
         txtTimer3.setLayoutY(663.0);
-        txtTimer3.setOpacity(1);
+        txtTimer3.setOpacity(0);
         txtTimer3.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
         txtTimer3.setStrokeWidth(0.0);
         txtTimer3.setText("3");
         txtTimer3.setFont(new Font("System Bold Italic", 64.0));
 
-        txtTimer2.setLayoutX(285.0);
-        txtTimer2.setLayoutY(673.0);
+        txtTimer2.setLayoutX(275.0);
+        txtTimer2.setLayoutY(663.0);
         txtTimer2.setOpacity(0.0);
         txtTimer2.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
         txtTimer2.setStrokeWidth(0.0);
         txtTimer2.setText("2");
         txtTimer2.setFont(new Font("System Bold Italic", 64.0));
 
-        txtTimer1.setLayoutX(285.0);
-        txtTimer1.setLayoutY(673.0);
+        txtTimer1.setLayoutX(275.0);
+        txtTimer1.setLayoutY(663.0);
         txtTimer1.setOpacity(0.0);
         txtTimer1.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
         txtTimer1.setStrokeWidth(0.0);

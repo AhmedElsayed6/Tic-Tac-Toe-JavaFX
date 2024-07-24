@@ -3,12 +3,25 @@ package Controllers;
 
 import Model.GameBoard;
 import Model.Player;
+import Views.DrawPageClass;
+import Views.WinPageClass;
+import java.time.Duration;
 import java.util.List;
+import javafx.animation.PauseTransition;
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Line;
+import javafx.animation.PauseTransition;
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.util.*;
 
 public class LocalGameController  {
     
@@ -55,6 +68,7 @@ public class LocalGameController  {
             i.setDisable(true);
         }
     }
+    
     private void enableAllImageViews() {
   
     }
@@ -153,7 +167,7 @@ public class LocalGameController  {
 
     }
 
-    private void handleImageViewClick(int row, int col, int index) {
+    private void handleImageViewClick(int row, int col, int index , MouseEvent event) {
         Image imageX = new Image("/Images/X.png", true);
         Image imageO = new Image("/Images/O.png", true);
         gb.playPosition(row, col, currentPlayer);
@@ -167,10 +181,23 @@ public class LocalGameController  {
             disableAllImageViews();
             currentPlayer.scoreIncrement();
             setScoreBoard();
-            SaveGameController.saveMatch(gb);
+            
+            SaveGameController.saveMatch(gb);    
+            
+            PauseTransition pause = new PauseTransition(javafx.util.Duration.seconds(0.8));
+            pause.setOnFinished(e ->{ 
+            ChangeSceneController.switchScene(new WinPageClass() , event);});
+            pause.play();
+            
+           
         } else if (gb.numberPlays == 9) {
             System.out.println("Draw");
-              SaveGameController.saveMatch(gb);
+            SaveGameController.saveMatch(gb);
+            PauseTransition pause = new PauseTransition(javafx.util.Duration.seconds(0.8));
+            pause.setOnFinished(e ->{ 
+            ChangeSceneController.switchScene(new DrawPageClass(), event);});
+            pause.play();
+              
         }
         player1Turn = !player1Turn; // false 
         setCurrentPlayer();
@@ -182,7 +209,7 @@ public class LocalGameController  {
             int row = i / 3;
             int col = i % 3;
             int index = i;
-            imageViewList.get(i).setOnMouseClicked(event -> handleImageViewClick(row, col, index));
+            imageViewList.get(i).setOnMouseClicked(event -> handleImageViewClick(row, col, index , event));
         }
 
     }

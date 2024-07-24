@@ -71,7 +71,7 @@ public class ChosePageClass extends AnchorPane {
         btnVSComputer.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                ChangeSceneController.switchScene(new ChooseXOPageClass(),event);
+                ChangeSceneController.switchScene(new DifficultyPageClass(),event);
             }
         });
         
