@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -69,7 +68,7 @@ public class LocalGameBoardView extends AnchorPane {
     protected final Label labelPlayer1;
     protected final Label labelPlayer1Score;
     protected final Label labelScore1;
-    protected final Button btnSurrunder;
+
     protected final AnchorPane player2InfoPane;
     protected final ImageView imgViewPlayer2Image;
     protected final Label labelPlayer2Name;
@@ -85,8 +84,6 @@ public class LocalGameBoardView extends AnchorPane {
     public LocalGameBoardView(Player player1, Player player2) {
 
         
-        
-     
         imgViewBackGround = new ImageView();
         borderPane = new BorderPane();
         boardPane = new Pane();
@@ -131,7 +128,7 @@ public class LocalGameBoardView extends AnchorPane {
         labelPlayer1 = new Label();
         labelPlayer1Score = new Label();
         labelScore1 = new Label();
-        btnSurrunder = new Button();
+
         player2InfoPane = new AnchorPane();
         imgViewPlayer2Image = new ImageView();
         labelPlayer2Name = new Label();
@@ -144,10 +141,18 @@ public class LocalGameBoardView extends AnchorPane {
    
         
         
+
         imgViewBackGround.setFitHeight(700.0);
         imgViewBackGround.setFitWidth(600.0);
+//
+//        imgViewBackGround.setFitHeight(750.0);
+//        imgViewBackGround.setFitWidth(650.0);
+        imgViewBackGround.setLayoutX(-5);
+        imgViewBackGround.setLayoutY(-2);
+        
+
         imgViewBackGround.setPickOnBounds(true);
-        imgViewBackGround.setSmooth(false);
+        imgViewBackGround.setPreserveRatio(true);
         imgViewBackGround.setImage(new Image(getClass().getResource("/Images/BackGround.png").toExternalForm()));
 
         borderPane.setMaxHeight(700.0);
@@ -304,19 +309,6 @@ public class LocalGameBoardView extends AnchorPane {
         imgv22.setPickOnBounds(true);
         imgv22.setPreserveRatio(true);
 
-//
-
-//
-
-//
-
-//
-
-//
-
-//
-
-//
 
         borderPane.setCenter(boardPane);
 
@@ -382,12 +374,7 @@ public class LocalGameBoardView extends AnchorPane {
         labelScore1.setTextFill(javafx.scene.paint.Color.WHITE);
         labelScore1.setFont(new Font("Rockwell Italic", 26.0));
 
-        btnSurrunder.setLayoutX(14.0);
-        btnSurrunder.setLayoutY(34.0);
-        btnSurrunder.setMnemonicParsing(false);
-        btnSurrunder.setStyle("-fx-background-color: #1976d2; -fx-background-radius: 50px; -fx-border-color: #ffffff; -fx-border-radius: 50px; -fx-shape: url('Rec.svg');;");
-        btnSurrunder.setText("Surrunder ");
-        btnSurrunder.setTextFill(javafx.scene.paint.Color.WHITE);
+ 
         borderPane.setTop(player1InfoPane);
 
         BorderPane.setAlignment(player2InfoPane, javafx.geometry.Pos.CENTER);
@@ -483,7 +470,7 @@ public class LocalGameBoardView extends AnchorPane {
         player1InfoPane.getChildren().add(labelPlayer1);
         player1InfoPane.getChildren().add(labelPlayer1Score);
         player1InfoPane.getChildren().add(labelScore1);
-        player1InfoPane.getChildren().add(btnSurrunder);
+
         player2InfoPane.getChildren().add(imgViewPlayer2Image);
         player2InfoPane.getChildren().add(labelPlayer2Name);
         player2InfoPane.getChildren().add(labelPlayer2);
@@ -523,6 +510,6 @@ public class LocalGameBoardView extends AnchorPane {
          
          labelList.add(labelPlayer1Score);
          labelList.add(labelPlayer2Score);
-        gameController = new LocalGameController(imageViewList , linesList , labelList , player1 , player2);
+        gameController = new LocalGameController( imageViewList , linesList , labelList , player1 , player2);
     }
 }

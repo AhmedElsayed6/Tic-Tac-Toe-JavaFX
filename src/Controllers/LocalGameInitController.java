@@ -34,7 +34,6 @@ public class LocalGameInitController {
         this.one = one;
         initGame();
     }
-    
     private void initGame(){
         imgX.setOnMouseClicked((MouseEvent event) -> {
             player1 = new Player(1);

@@ -3,11 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/D:/FirstNetBeans/NewTicTac/Tic-Tac-Toe-JavaFX/src/Views/WelcomePageClass.java</file>
             <file>file:/D:/FirstNetBeans/NewTicTac/Tic-Tac-Toe-JavaFX/src/Controllers/ChangeSceneController.java</file>
             <file>file:/D:/FirstNetBeans/NewTicTac/Tic-Tac-Toe-JavaFX/src/Views/ChooseXOPageClass.java</file>
             <file>file:/D:/FirstNetBeans/NewTicTac/Tic-Tac-Toe-JavaFX/src/tictactoe/TicTacToe.java</file>
             <file>file:/D:/FirstNetBeans/NewTicTac/Tic-Tac-Toe-JavaFX/src/Views/LocalGameBoardView.java</file>
+=======
+            <file>file:/D:/Programs/NetBeansProjects/TicTacToe2/Tic-Tac-Toe-JavaFX/src/Controllers/ChangeSceneController.java</file>
+            <file>file:/D:/Programs/NetBeansProjects/TicTacToe2/Tic-Tac-Toe-JavaFX/src/Views/LocalGameBoardView.java</file>
+            <file>file:/D:/Programs/NetBeansProjects/TicTacToe2/Tic-Tac-Toe-JavaFX/src/Controllers/LocalGameController.java</file>
+            <file>file:/D:/Programs/NetBeansProjects/TicTacToe2/Tic-Tac-Toe-JavaFX/src/tictactoe/TicTacToe.java</file>
+            <file>file:/D:/Programs/NetBeansProjects/TicTacToe2/Tic-Tac-Toe-JavaFX/src/Views/DialogView.java</file>
+>>>>>>> origin/dev
         </group>
     </open-files>
 </project-private>

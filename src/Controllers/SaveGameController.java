@@ -20,7 +20,6 @@ public class SaveGameController {
         move = "";
         gameMode = "LocalTwoPlayers";
     }
-
     public static void saveMove(int x, int y, Player p, String gameMode) {
         if (gameMode == "LocalTwoPlayers") {
             move += (String.valueOf(x)) + (".") + (String.valueOf(y)) + "." + (String.valueOf(p.getCoin())) + "~";
@@ -28,7 +27,6 @@ public class SaveGameController {
        
 
     }
-
     public static void saveMatch(GameBoard game) {
         String numberOfPlays = String.valueOf(game.numberPlays);
         String winningLine = game.winningLine;
