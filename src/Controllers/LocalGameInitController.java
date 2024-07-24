@@ -16,7 +16,6 @@ public class LocalGameInitController {
           this.imgO = imgO;
           initGame();
     }
-    
     private void initGame(){
         imgX.setOnMouseClicked((MouseEvent event) -> {
             player1 = new Player(1);

@@ -3,8 +3,11 @@ package Controllers;
 
 import Model.GameBoard;
 import Model.Player;
+import Views.DialogView;
+import Views.LocalGameBoardView;
 import java.util.List;
 import javafx.application.Platform;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -17,12 +20,14 @@ public class LocalGameController  {
     List<ImageView> imageViewList;
     GameBoard gb;
     Player player1;
+    Button btn;
     Player player2;
     boolean player1Turn ;
     Player currentPlayer;
 
-    public LocalGameController(List<ImageView> imageViewList, List<Line> linesList, List<Label> labelList, Player player1 , Player player2) {
+    public LocalGameController(Button btn , List<ImageView> imageViewList, List<Line> linesList, List<Label> labelList, Player player1 , Player player2) {
         this.imageViewList = imageViewList;
+        this.btn = btn;
         this.labelList = labelList;
         this.linesList = linesList;
         this.player1 = player1; 
@@ -31,7 +36,7 @@ public class LocalGameController  {
         player1Turn = true;
         gb = new GameBoard();
         setScoreBoard();
-        setImageViewHandlers();
+        setOnClickHandlers();
 
     }
 
@@ -41,7 +46,6 @@ public class LocalGameController  {
         labelList.get(1).setText(String.valueOf(player2.getScore()));
 
     }
-
     private void setCurrentPlayer() {
         if (player1Turn == true) {
             currentPlayer = player1;
@@ -49,16 +53,11 @@ public class LocalGameController  {
             currentPlayer = player2;
         }
     }
-
     private void disableAllImageViews() {
         for (ImageView i : imageViewList) {
             i.setDisable(true);
         }
     }
-    private void enableAllImageViews() {
-  
-    }
-
     private void drawWinningLine() {
         Line line;
         switch (gb.winningLine) {
@@ -70,6 +69,7 @@ public class LocalGameController  {
                 line.setStartX(9.0);
                 line.setStartY(72.0);
                 line.setStrokeWidth(15.0);
+                
                 break;
             case "101112":
                 line = linesList.get(1);
@@ -151,8 +151,7 @@ public class LocalGameController  {
 
         }
 
-    }
-
+    } 
     private void handleImageViewClick(int row, int col, int index) {
         Image imageX = new Image("/Images/X.png", true);
         Image imageO = new Image("/Images/O.png", true);
@@ -167,33 +166,29 @@ public class LocalGameController  {
             disableAllImageViews();
             currentPlayer.scoreIncrement();
             setScoreBoard();
-            SaveGameController.saveMatch(gb);
+            imageViewList.get(index).setImage(img);
+       
+            DialogView dv = new DialogView(player1 , player2  , gb);
         } else if (gb.numberPlays == 9) {
             System.out.println("Draw");
+      
               SaveGameController.saveMatch(gb);
         }
         player1Turn = !player1Turn; // false 
         setCurrentPlayer();
         imageViewList.get(index).setDisable(true);
     }
-
-    private void setImageViewHandlers() {
+    private void setOnClickHandlers() {
         for (int i = 0; i < imageViewList.size(); i++) {
             int row = i / 3;
             int col = i % 3;
             int index = i;
             imageViewList.get(i).setOnMouseClicked(event -> handleImageViewClick(row, col, index));
         }
+  
 
     }
 
-    private void resetBoard(){
-
-      for (ImageView i : imageViewList) {
-            i.setDisable(false);
-      }
-    
-    }
     
     
 }

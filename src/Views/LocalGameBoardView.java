@@ -85,8 +85,6 @@ public class LocalGameBoardView extends AnchorPane {
     public LocalGameBoardView(Player player1, Player player2) {
 
         
-        
-     
         imgViewBackGround = new ImageView();
         borderPane = new BorderPane();
         boardPane = new Pane();
@@ -146,8 +144,11 @@ public class LocalGameBoardView extends AnchorPane {
         
         imgViewBackGround.setFitHeight(750.0);
         imgViewBackGround.setFitWidth(650.0);
+        imgViewBackGround.setLayoutX(-5);
+        imgViewBackGround.setLayoutY(-2);
+        
         imgViewBackGround.setPickOnBounds(true);
-        imgViewBackGround.setSmooth(false);
+        imgViewBackGround.setPreserveRatio(true);
         imgViewBackGround.setImage(new Image(getClass().getResource("/Images/BackGround.png").toExternalForm()));
 
         borderPane.setMaxHeight(700.0);
@@ -523,6 +524,6 @@ public class LocalGameBoardView extends AnchorPane {
          
          labelList.add(labelPlayer1Score);
          labelList.add(labelPlayer2Score);
-        gameController = new LocalGameController(imageViewList , linesList , labelList , player1 , player2);
+        gameController = new LocalGameController(btnSurrunder , imageViewList , linesList , labelList , player1 , player2);
     }
 }
