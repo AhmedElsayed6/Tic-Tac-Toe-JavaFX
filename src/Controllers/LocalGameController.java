@@ -4,10 +4,8 @@ package Controllers;
 import Model.GameBoard;
 import Model.Player;
 import Views.DialogView;
-import Views.LocalGameBoardView;
 import java.util.List;
 import javafx.application.Platform;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -20,14 +18,14 @@ public class LocalGameController  {
     List<ImageView> imageViewList;
     GameBoard gb;
     Player player1;
-    Button btn;
+
     Player player2;
     boolean player1Turn ;
     Player currentPlayer;
 
-    public LocalGameController(Button btn , List<ImageView> imageViewList, List<Line> linesList, List<Label> labelList, Player player1 , Player player2) {
+    public LocalGameController( List<ImageView> imageViewList, List<Line> linesList, List<Label> labelList, Player player1 , Player player2) {
         this.imageViewList = imageViewList;
-        this.btn = btn;
+
         this.labelList = labelList;
         this.linesList = linesList;
         this.player1 = player1; 
