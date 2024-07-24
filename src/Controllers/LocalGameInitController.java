@@ -3,11 +3,7 @@ package Controllers;
 
 import Model.Player;
 import Views.LocalGameBoardView;
-import Views.WinPageClass;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.animation.PauseTransition;
-import javafx.event.Event;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;

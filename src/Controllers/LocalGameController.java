@@ -3,12 +3,9 @@ package Controllers;
 
 import Model.GameBoard;
 import Model.Player;
-
 import Views.DrawPageClass;
 import Views.WinPageClass;
-
 import Views.DialogView;
-
 import java.util.List;
 import javafx.application.Platform;
 import javafx.scene.control.Label;
@@ -24,7 +21,6 @@ public class LocalGameController  {
     List<ImageView> imageViewList;
     GameBoard gb;
     Player player1;
-
     Player player2;
     boolean player1Turn ;
     Player currentPlayer;
@@ -174,20 +170,12 @@ public class LocalGameController  {
             currentPlayer.scoreIncrement();
             setScoreBoard();
 
-             DialogView dv = new DialogView(player1 , player2  , gb);
-            PauseTransition pause = new PauseTransition(javafx.util.Duration.seconds(0.8));
-            pause.setOnFinished(e ->{ 
-            ChangeSceneController.switchSceneWithStage(new WinPageClass());});
-            pause.play();
+            DialogView dv = new DialogView(player1 , player2  , gb);
+     
             
            
         } else if (gb.numberPlays == 9) {
-            System.out.println("Draw");
-            SaveGameController.saveMatch(gb);
-            PauseTransition pause = new PauseTransition(javafx.util.Duration.seconds(0.8));
-            pause.setOnFinished(e ->{ 
-              ChangeSceneController.switchSceneWithStage(new DrawPageClass());});
-            pause.play();
+             DialogView dv = new DialogView(player1 , player2  , gb);
               
         }
         player1Turn = !player1Turn; // false 

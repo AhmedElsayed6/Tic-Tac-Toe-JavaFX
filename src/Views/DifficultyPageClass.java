@@ -1,5 +1,6 @@
 package Views;
 
+import Controllers.AiGameController;
 import Controllers.ChangeSceneController;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
@@ -21,9 +22,8 @@ public class DifficultyPageClass extends AnchorPane {
     protected final ImageView imageEasy;
     protected final ImageView imageMedium;
     protected final ImageView imageHard;
-
     public DifficultyPageClass() {
-
+        
         btnBackDifficultyView = new ImageView();
         back = new ImageView();
         anchorPane = new AnchorPane();
@@ -34,7 +34,6 @@ public class DifficultyPageClass extends AnchorPane {
         imageEasy = new ImageView();
         imageMedium = new ImageView();
         imageHard = new ImageView();
-
         setMaxHeight(USE_PREF_SIZE);
         setMaxWidth(USE_PREF_SIZE);
         setMinHeight(USE_PREF_SIZE);
@@ -71,7 +70,7 @@ public class DifficultyPageClass extends AnchorPane {
         btnDifficultyEasy.setTextFill(javafx.scene.paint.Color.WHITE);
         btnDifficultyEasy.setFont(new Font("System Bold", 31.0));
         btnDifficultyEasy.setOnMouseClicked((MouseEvent event) -> {
-            //Enter Easy AI
+          ChangeSceneController.switchSceneWithStage(new AIChooseXOPageView(1) );
         });
 
         btnDifficultyMedium.setLayoutX(89.0);
@@ -84,7 +83,7 @@ public class DifficultyPageClass extends AnchorPane {
         btnDifficultyMedium.setTextFill(javafx.scene.paint.Color.WHITE);
         btnDifficultyMedium.setFont(new Font("System Bold", 30.0));
         btnDifficultyMedium.setOnMouseClicked((MouseEvent event) -> {
-            //Enter Medium AI
+         ChangeSceneController.switchSceneWithStage(new AIChooseXOPageView(2) );
         });
 
         btnDifficultyHard.setLayoutX(89.0);
@@ -97,7 +96,7 @@ public class DifficultyPageClass extends AnchorPane {
         btnDifficultyHard.setTextFill(javafx.scene.paint.Color.WHITE);
         btnDifficultyHard.setFont(new Font("System Bold", 30.0));
         btnDifficultyHard.setOnMouseClicked((MouseEvent event) -> {
-            //Enter Medium AI
+         ChangeSceneController.switchSceneWithStage(new AIChooseXOPageView(3) );
         });
 
 

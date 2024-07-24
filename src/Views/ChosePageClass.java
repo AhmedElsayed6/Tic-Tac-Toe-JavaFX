@@ -86,7 +86,7 @@ public class ChosePageClass extends AnchorPane {
         btnLocalCoop.setStyle("-fx-background-color: #3f51b5; -fx-background-radius: 50; -fx-border-color: white; -fx-border-radius: 50; -fx-border-width: 2;");
         btnLocalCoop.setText("Local Co-op");
         btnLocalCoop.setOnMouseClicked((MouseEvent event) -> {
-            ChangeSceneController.switchScene(new ChooseXOPageClass(),event);
+            ChangeSceneController.switchScene(new LocalChooseXOPageView(),event);
         });
         btnLocalCoop.setTextFill(javafx.scene.paint.Color.WHITE);
         btnLocalCoop.setFont(new Font("System Bold", 18.0));

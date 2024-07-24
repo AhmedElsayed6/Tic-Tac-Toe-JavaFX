@@ -28,10 +28,10 @@ public class WelcomePageClass extends AnchorPane {
         setPrefHeight(700.0);
         setPrefWidth(600.0);
 
-        imageView.setFitHeight(710.0);
-        imageView.setFitWidth(642.0);
+        imageView.setFitHeight(800.0);
+        imageView.setFitWidth(700.0);
         imageView.setLayoutX(-1.0);
-        imageView.setLayoutY(-3.0);
+        imageView.setLayoutY(-8.0);
         imageView.setPickOnBounds(true);
         imageView.setPreserveRatio(true);
         imageView.setImage(new Image(getClass().getResource("/Images/homeBackground.png").toExternalForm()));
