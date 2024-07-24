@@ -1,6 +1,9 @@
 package Views;
 
 import Controllers.ChangeSceneController;
+import Model.GameBoard;
+import Model.Player;
+import javafx.animation.PauseTransition;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -20,7 +23,7 @@ public class WinPageClass extends AnchorPane {
     protected final Button btnMainMenu;
     protected final Button btnPlayAgain;
 
-    public WinPageClass() {
+    public WinPageClass(Player player1, Player player2,int def) {
 
         imageView = new ImageView();
         mediaView = new MediaView();
@@ -66,6 +69,7 @@ public class WinPageClass extends AnchorPane {
         btnMainMenu.setMnemonicParsing(false);
         btnMainMenu.setPrefHeight(60.0);
         btnMainMenu.setPrefWidth(164.0);
+        btnMainMenu.setDisable(true);
         btnMainMenu.setStyle("-fx-background-color: #3f51b5; -fx-background-radius: 50; -fx-border-color: white; -fx-border-radius: 50; -fx-border-width: 2;");
         btnMainMenu.setText("Main Menu");
         btnMainMenu.setOnMouseClicked((MouseEvent event) -> {
@@ -75,6 +79,7 @@ public class WinPageClass extends AnchorPane {
         btnMainMenu.setFont(new Font("System Bold", 18.0));
 
         btnPlayAgain.setLayoutX(100.0);
+        btnPlayAgain.setDisable(true);
         btnPlayAgain.setLayoutY(535.0);
         btnPlayAgain.setMnemonicParsing(false);
         btnPlayAgain.setPrefHeight(60.0);
@@ -83,12 +88,20 @@ public class WinPageClass extends AnchorPane {
         btnPlayAgain.setText("Play Again");
         btnPlayAgain.setTextFill(javafx.scene.paint.Color.WHITE);
         btnPlayAgain.setFont(new Font("System Bold", 18.0));
+        btnPlayAgain.setOnMouseClicked((MouseEvent event) -> {
+            ChangeSceneController.switchScene(new AIGameBoardView(player1 , player2 , def ),event);
+        });
 
         getChildren().add(imageView);
         getChildren().add(mediaView);
         getChildren().add(text);
         getChildren().add(btnMainMenu);
         getChildren().add(btnPlayAgain);
-
+        PauseTransition pause = new PauseTransition(javafx.util.Duration.seconds(3));
+        pause.setOnFinished((e) ->{
+                                btnPlayAgain.setDisable(false);
+                                btnMainMenu.setDisable(false);
+                                    });
+        pause.play();
     }
 }

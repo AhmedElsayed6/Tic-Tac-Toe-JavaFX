@@ -1,6 +1,8 @@
 package Views;
 
 import Controllers.ChangeSceneController;
+import Model.Player;
+import javafx.animation.PauseTransition;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
@@ -16,15 +18,15 @@ import javafx.scene.text.Text;
 public class DrawPageClass extends AnchorPane {
 
     protected final ImageView imageView;
-    protected final MediaView mediaView;
+    protected final ImageView draw;
     protected final Text text;
     protected final Button btnMainMenu;
     protected final Button btnPlayAgain;
 
-    public DrawPageClass() {
+    public DrawPageClass(Player player1, Player player2,int def) {
 
         imageView = new ImageView();
-        mediaView = new MediaView();
+        draw = new ImageView();
         text = new Text();
         btnMainMenu = new Button();
         btnPlayAgain = new Button();
@@ -45,15 +47,12 @@ public class DrawPageClass extends AnchorPane {
         imageView.setPreserveRatio(true);
         imageView.setImage(new Image(getClass().getResource("/Images/BackGround.png").toExternalForm()));
 
-//        mediaView.setFitHeight(300.0);
-//        mediaView.setFitWidth(400.0);
-//        mediaView.setLayoutX(100.0);
-//        mediaView.setLayoutY(187.0);
-//        String MEDIA_URL = "file:///" + System.getProperty("user.dir").replace("\\", "/") + "/src/Images/win.mp4";
-//        MediaPlayer mp = new MediaPlayer( new Media(MEDIA_URL));
-//        mediaView.setMediaPlayer(mp);
-//        mp.play();
-
+        draw.setFitHeight(300.0);
+        draw.setFitWidth(400.0);
+        draw.setLayoutX(100.0);
+        draw.setLayoutY(187.0);
+        draw.setImage(new Image(getClass().getResource("/Images/draw.jpg").toExternalForm()));
+        
         text.setLayoutX(240.0);
         text.setLayoutY(147.0);
         text.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
@@ -67,6 +66,7 @@ public class DrawPageClass extends AnchorPane {
         btnMainMenu.setMnemonicParsing(false);
         btnMainMenu.setPrefHeight(60.0);
         btnMainMenu.setPrefWidth(164.0);
+//        btnMainMenu.setDisable(true);
         btnMainMenu.setStyle("-fx-background-color: #3f51b5; -fx-background-radius: 50; -fx-border-color: white; -fx-border-radius: 50; -fx-border-width: 2;");
         btnMainMenu.setText("Main Menu");
         btnMainMenu.setOnMouseClicked((MouseEvent event) -> {
@@ -83,10 +83,14 @@ public class DrawPageClass extends AnchorPane {
         btnPlayAgain.setStyle("-fx-background-color: #3f51b5; -fx-background-radius: 50; -fx-border-color: white; -fx-border-radius: 50; -fx-border-width: 2;");
         btnPlayAgain.setText("Play Again");
         btnPlayAgain.setTextFill(javafx.scene.paint.Color.WHITE);
+//        btnPlayAgain.setDisable(true);
         btnPlayAgain.setFont(new Font("System Bold", 18.0));
-
+        btnPlayAgain.setOnMouseClicked((MouseEvent event) -> {
+            ChangeSceneController.switchScene(new AIGameBoardView(player1 , player2 , def ),event);
+        });
+      
         getChildren().add(imageView);
-        //getChildren().add(mediaView);
+        getChildren().add(draw);
         getChildren().add(text);
         getChildren().add(btnMainMenu);
         getChildren().add(btnPlayAgain);

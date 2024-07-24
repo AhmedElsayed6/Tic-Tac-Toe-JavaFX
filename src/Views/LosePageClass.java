@@ -1,6 +1,8 @@
 package Views;
 
 import Controllers.ChangeSceneController;
+import Model.Player;
+import javafx.animation.PauseTransition;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -20,7 +22,7 @@ public class LosePageClass extends AnchorPane {
     protected final Button btnMainMenu;
     protected final Button btnPlayAgain;
 
-    public LosePageClass() {
+    public LosePageClass(Player player1, Player player2,int def) {
 
         imageView = new ImageView();
         mediaView = new MediaView();
@@ -68,6 +70,7 @@ public class LosePageClass extends AnchorPane {
         btnMainMenu.setPrefWidth(164.0);
         btnMainMenu.setStyle("-fx-background-color: #3f51b5; -fx-background-radius: 50; -fx-border-color: white; -fx-border-radius: 50; -fx-border-width: 2;");
         btnMainMenu.setText("Main Menu");
+        btnMainMenu.setDisable(true);
         btnMainMenu.setOnMouseClicked((MouseEvent event) -> {
             ChangeSceneController.switchScene(new WelcomePageClass(),event);
         });
@@ -83,7 +86,15 @@ public class LosePageClass extends AnchorPane {
         btnPlayAgain.setText("Play Again");
         btnPlayAgain.setTextFill(javafx.scene.paint.Color.WHITE);
         btnPlayAgain.setFont(new Font("System Bold", 18.0));
-
+        btnPlayAgain.setDisable(true);
+        btnPlayAgain.setOnMouseClicked((MouseEvent event) -> {
+            ChangeSceneController.switchScene(new AIGameBoardView(player1 , player2 , def ),event);
+        });
+        PauseTransition pause = new PauseTransition(javafx.util.Duration.seconds(3));
+        pause.setOnFinished((e) -> {
+                                    btnPlayAgain.setDisable(false);
+                                    btnMainMenu.setDisable(false);});
+        pause.play();
         getChildren().add(imageView);
         getChildren().add(mediaView);
         getChildren().add(text);
