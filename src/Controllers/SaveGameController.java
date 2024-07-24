@@ -36,9 +36,9 @@ public class SaveGameController {
         String copy = move; 
         String move = "";
         move += numberOfPlays; // 5.202122.0.0.1~1.1.0~2.0.1~
-        move += (".");
+        move += ("~");
         move += winningLine;
-        move += (".");
+        move += ("~");
         move += (copy);
 
         gamesHistory.add(move);
@@ -46,7 +46,8 @@ public class SaveGameController {
         LocalDateTime now = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd-HH-mm-ss");
         String formattedTime = now.format(formatter);
-        String directoryPath = "D:\\Programs\\NetBeansProjects\\TicTacToe2\\Tic-Tac-Toe-JavaFX\\src\\local_matches";
+        
+        String directoryPath = "C:\\Dev\\Java\\TicTacToeJavaFX\\src\\local_matches";
 
         System.out.println(formattedTime);
         File file = new File(directoryPath, gameMode + "_" + formattedTime + ".txt");
@@ -54,7 +55,7 @@ public class SaveGameController {
             FileOutputStream fis = new FileOutputStream(file);
 
             fis.write(move.getBytes());
-
+            System.out.println("Saved to " + directoryPath);
             fis.close();
         } catch (Exception n) {
             System.out.println("File not found");

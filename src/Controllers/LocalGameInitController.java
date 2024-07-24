@@ -2,7 +2,7 @@
 package Controllers;
 
 import Model.Player;
-import Views.LocalGameBoardView;
+import Views.ReplayGameBoardView;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
@@ -21,12 +21,12 @@ public class LocalGameInitController {
         imgX.setOnMouseClicked((MouseEvent event) -> {
             player1 = new Player(1);
             player2 = new Player(0);
-            ChangeSceneController.switchScene(new LocalGameBoardView(player1 , player2 ),event);
+            ChangeSceneController.switchScene(new ReplayGameBoardView(player1 , player2 ),event);
         });
         imgO.setOnMouseClicked((MouseEvent event) -> {
             player1 = new Player(0);
             player2 = new Player(1);
-            ChangeSceneController.switchScene(new LocalGameBoardView(player1 , player2),event);
+            ChangeSceneController.switchScene(new ReplayGameBoardView(player1 , player2),event);
         });
         
     

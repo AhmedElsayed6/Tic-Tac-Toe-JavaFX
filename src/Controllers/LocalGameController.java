@@ -35,6 +35,8 @@ public class LocalGameController  {
 
     }
 
+    
+
     private void setScoreBoard() {
 
         labelList.get(0).setText(String.valueOf(player1.getScore()));
@@ -153,7 +155,7 @@ public class LocalGameController  {
 
     }
 
-    private void handleImageViewClick(int row, int col, int index) {
+    public void handleImageViewClick(int row, int col, int index) {
         Image imageX = new Image("/Images/X.png", true);
         Image imageO = new Image("/Images/O.png", true);
         gb.playPosition(row, col, currentPlayer);
