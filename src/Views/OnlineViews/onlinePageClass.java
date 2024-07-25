@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.EventHandler;
+import javafx.geometry.Orientation;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
@@ -14,6 +15,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.text.Font;
 
 public class onlinePageClass extends AnchorPane {
@@ -81,7 +83,7 @@ public class onlinePageClass extends AnchorPane {
         imageView.setLayoutY(-84.0);
         imageView.setPickOnBounds(true);
         imageView.setPreserveRatio(true);
-        imageView.setImage(new Image(getClass().getResource("/FinalWork/Images/BackGround.png").toExternalForm()));
+        imageView.setImage(new Image(getClass().getResource("/Images/BackGround.png").toExternalForm()));
 
         imageView0.setFitHeight(142.0);
         imageView0.setFitWidth(200.0);
@@ -89,7 +91,7 @@ public class onlinePageClass extends AnchorPane {
         imageView0.setLayoutY(102.0);
         imageView0.setPickOnBounds(true);
         imageView0.setPreserveRatio(true);
-        imageView0.setImage(new Image(getClass().getResource("/FinalWork/Images/male.png").toExternalForm()));
+        imageView0.setImage(new Image(getClass().getResource("/Images/male.png").toExternalForm()));
 
         imageView1.setFitHeight(92.0);
         imageView1.setFitWidth(78.0);
@@ -101,7 +103,7 @@ public class onlinePageClass extends AnchorPane {
                 ChangeSceneController.switchScene(new WelcomePageClass(),event);
             }
         });
-        imageView1.setImage(new Image(getClass().getResource("Images/backArrow.png").toExternalForm()));
+        imageView1.setImage(new Image(getClass().getResource("/Images/backArrow.png").toExternalForm()));
 
         label.setAlignment(javafx.geometry.Pos.CENTER);
         label.setLayoutX(328.0);
@@ -128,6 +130,18 @@ public class onlinePageClass extends AnchorPane {
         listViewAvailable.setLayoutY(159.0);
         listViewAvailable.setPrefHeight(441.0);
         listViewAvailable.setPrefWidth(259.0);
+        FlowPane fp = new FlowPane();
+        fp.getChildren().add(new Button("3"));
+        fp.getChildren().add(new Label("ahmed"));
+        fp.setOrientation(Orientation.HORIZONTAL);
+        for (int i=0;i<20;i++){
+             listViewAvailable.getItems().add(fp);
+        listViewAvailable.getItems().add(new Label("Ahmed"));
+        System.out.println(listViewAvailable.getItems().get(0));
+        }
+       
+        
+                
         listViewAvailable.setStyle("-fx-background-color: #42a5f5; -fx-background-radius: 10; -fx-border-color: black; -fx-border-radius: 10; -fx-border-width: 2; -fx-background-insets: 5;");
 
         anchorPane.setLayoutX(4.0);
@@ -228,7 +242,7 @@ public class onlinePageClass extends AnchorPane {
         imageView2.setLayoutY(13.0);
         imageView2.setPickOnBounds(true);
         imageView2.setPreserveRatio(true);
-        imageView2.setImage(new Image(getClass().getResource("/FinalWork/Images/male.png").toExternalForm()));
+        imageView2.setImage(new Image(getClass().getResource("/Images/male.png").toExternalForm()));
 
         hyperlink.setAlignment(javafx.geometry.Pos.CENTER);
         hyperlink.setLayoutX(33.0);
@@ -256,7 +270,7 @@ public class onlinePageClass extends AnchorPane {
         imageView3.setLayoutX(450.0);
         imageView3.setLayoutY(11.0);
         imageView3.setPickOnBounds(true);
-        imageView3.setImage(new Image(getClass().getResource("/FinalWork/Images/together.png").toExternalForm()));
+        imageView3.setImage(new Image(getClass().getResource("/Images/together.png").toExternalForm()));
 
         getChildren().add(imageView);
         getChildren().add(imageView0);
