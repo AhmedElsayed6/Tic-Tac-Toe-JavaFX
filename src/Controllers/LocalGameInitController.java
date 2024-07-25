@@ -2,7 +2,7 @@
 package Controllers;
 
 import Model.Player;
-import Views.LocalGameBoardView;
+import Views.LocalViews.LocalGameBoardView;
 import javafx.animation.PauseTransition;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;

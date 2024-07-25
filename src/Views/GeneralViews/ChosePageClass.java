@@ -1,6 +1,9 @@
-package Views;
+package Views.GeneralViews;
 
+import Views.AiViews.DifficultyPageClass;
 import Controllers.ChangeSceneController;
+import Views.LocalViews.LocalChooseXOPageView;
+import Views.OnlineViews.LoginPageClass;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;

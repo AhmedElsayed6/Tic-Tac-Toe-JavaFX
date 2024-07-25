@@ -1,6 +1,7 @@
-package Views;
+package Views.AiViews;
 
 
+import Controllers.AiControllers.AiGameController;
 import Controllers.LocalGameController;
 import Model.Player;
 import java.util.ArrayList;
@@ -22,7 +23,7 @@ import javafx.scene.text.Font;
 
 
 
-public class LocalGameBoardView extends AnchorPane {
+public class AIGameBoardView extends AnchorPane {
     
     protected final ImageView imgViewBackGround;
     protected final BorderPane borderPane;
@@ -75,15 +76,16 @@ public class LocalGameBoardView extends AnchorPane {
     protected final Label labelPlayer2;
     protected final Label labelPlayer2Score;
     protected final Label labelScore2;
-    LocalGameController gameController;
+    AiGameController aiGameController   ;
     List<VBox> vboxList ;
     List<Line> linesList;
     List<Label> labelList;
     List<ImageView> imageViewList;
     Player player1,player2;
-    public LocalGameBoardView(Player player1, Player player2) {
+   
+    public AIGameBoardView(Player player1, Player player2 , int def) {
 
-        
+
         imgViewBackGround = new ImageView();
         borderPane = new BorderPane();
         boardPane = new Pane();
@@ -137,11 +139,10 @@ public class LocalGameBoardView extends AnchorPane {
         labelScore2 = new Label();
 
 
+
         imgViewBackGround.setFitHeight(700.0);
-        imgViewBackGround.setFitWidth(620.0);
-
-        
-
+        imgViewBackGround.setFitWidth(630.0);
+        imgViewBackGround.setLayoutX(4);
         imgViewBackGround.setPickOnBounds(true);
         imgViewBackGround.setPreserveRatio(true);
         imgViewBackGround.setImage(new Image(getClass().getResource("/Images/BackGround.png").toExternalForm()));
@@ -152,10 +153,11 @@ public class LocalGameBoardView extends AnchorPane {
         borderPane.setMinWidth(600.0);
         borderPane.setPrefHeight(700.0);
         borderPane.setPrefWidth(600.0);
+       
 
         BorderPane.setAlignment(boardPane, javafx.geometry.Pos.CENTER);
         BorderPane.setMargin(boardPane, new Insets(0.0));
-
+        
         gridPane.setAlignment(javafx.geometry.Pos.CENTER);
         gridPane.setPrefHeight(459.0);
         gridPane.setPrefWidth(378.0);
@@ -331,8 +333,7 @@ public class LocalGameBoardView extends AnchorPane {
         labelPlayer1Name.setMaxWidth(351.0);
         labelPlayer1Name.setPrefHeight(58.0);
         labelPlayer1Name.setPrefWidth(184.0);
-        labelPlayer1Name.setText("Ahmed Eid");
-        labelPlayer1Name.setOpacity(0);
+        labelPlayer1Name.setText("Human");
         labelPlayer1Name.setTextFill(javafx.scene.paint.Color.WHITE);
         labelPlayer1Name.setFont(new Font("Rockwell Italic", 26.0));
 
@@ -342,7 +343,7 @@ public class LocalGameBoardView extends AnchorPane {
         labelPlayer1.setMaxWidth(351.0);
         labelPlayer1.setPrefHeight(58.0);
         labelPlayer1.setPrefWidth(158.0);
-        labelPlayer1.setText("Player1 ");
+        labelPlayer1.setText("Player 1:");
         labelPlayer1.setTextFill(javafx.scene.paint.Color.WHITE);
         labelPlayer1.setFont(new Font("Rockwell Italic", 26.0));
 
@@ -382,13 +383,12 @@ public class LocalGameBoardView extends AnchorPane {
      
 
         labelPlayer2Name.setEllipsisString("");
-        labelPlayer2Name.setLayoutX(300.0);
+        labelPlayer2Name.setLayoutX(280.0);
         labelPlayer2Name.setLayoutY(4.0);
         labelPlayer2Name.setMaxWidth(351.0);
         labelPlayer2Name.setPrefHeight(58.0);
         labelPlayer2Name.setPrefWidth(196.0);
-        labelPlayer2Name.setText("Nourhan Omar");
-        labelPlayer2Name.setOpacity(0);
+        labelPlayer2Name.setText("Computer");
         labelPlayer2Name.setTextFill(javafx.scene.paint.Color.WHITE);
         labelPlayer2Name.setFont(new Font("Rockwell Italic", 26.0));
 
@@ -398,13 +398,13 @@ public class LocalGameBoardView extends AnchorPane {
         labelPlayer2.setMaxWidth(351.0);
         labelPlayer2.setPrefHeight(58.0);
         labelPlayer2.setPrefWidth(124.0);
-        labelPlayer2.setText("Player2 ");
+        labelPlayer2.setText("Player 2:");
         labelPlayer2.setTextFill(javafx.scene.paint.Color.WHITE);
         labelPlayer2.setTextOverrun(javafx.scene.control.OverrunStyle.CLIP);
         labelPlayer2.setFont(new Font("Rockwell Italic", 26.0));
 
         labelPlayer2Score.setEllipsisString("");
-        labelPlayer2Score.setLayoutX(250.0);
+        labelPlayer2Score.setLayoutX(300.0);
         labelPlayer2Score.setLayoutY(62.0);
         labelPlayer2Score.setMaxWidth(351.0);
         labelPlayer2Score.setPrefHeight(32.0);
@@ -503,6 +503,6 @@ public class LocalGameBoardView extends AnchorPane {
          
          labelList.add(labelPlayer1Score);
          labelList.add(labelPlayer2Score);
-        gameController = new LocalGameController( imageViewList , linesList , labelList , player1 , player2);
+        aiGameController = new AiGameController(imageViewList , linesList , labelList ,  def  , player1,player2);
     }
 }

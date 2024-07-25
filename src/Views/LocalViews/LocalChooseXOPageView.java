@@ -1,5 +1,6 @@
-package Views;
+package Views.LocalViews;
 
+import Views.GeneralViews.ChosePageClass;
 import Controllers.ChangeSceneController;
 import Controllers.LocalGameInitController;
 import javafx.event.EventHandler;
