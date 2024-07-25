@@ -1,7 +1,8 @@
-package Views;
+package Views.LocalViews;
 
-import Controllers.AIGameInitController1;
+import Views.GeneralViews.ChosePageClass;
 import Controllers.ChangeSceneController;
+import Controllers.LocalGameInitController;
 import javafx.event.EventHandler;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -10,9 +11,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
-public class AIChooseXOPageView extends AnchorPane {
+public class LocalChooseXOPageView extends AnchorPane {
 
-    protected final ImageView backGroundName;
+    protected final ImageView btnBackChooseXOView;
     protected final ImageView back;
     protected final Text text;
     protected final ImageView imageX;
@@ -22,11 +23,10 @@ public class AIChooseXOPageView extends AnchorPane {
     protected final Text txtTimer3;
     protected final Text txtTimer2;
     protected final Text txtTimer1;
-    int def ; 
-    AIGameInitController1   aiInitController;  
-    public AIChooseXOPageView(int def ) {
-        this.def = def;
-        backGroundName = new ImageView();
+    LocalGameInitController   localGameInitController;  
+    public LocalChooseXOPageView() {
+        
+        btnBackChooseXOView = new ImageView();
         back = new ImageView();
         text = new Text();
         imageX = new ImageView();
@@ -37,7 +37,7 @@ public class AIChooseXOPageView extends AnchorPane {
         txtTimer2 = new Text();
         txtTimer1 = new Text();
         
-        aiInitController = new AIGameInitController1(imageX, imageO,txtTimer,txtTimer3,txtTimer2,txtTimer1 , def ,back);
+        localGameInitController = new LocalGameInitController(imageX, imageO,txtTimer,txtTimer3,txtTimer2,txtTimer1);
         setId("AnchorPane");
         setMaxHeight(700.0);
         setMaxWidth(600.0);
@@ -46,13 +46,13 @@ public class AIChooseXOPageView extends AnchorPane {
         setPrefHeight(700.0);
         setPrefWidth(600.0);
         
-        backGroundName.setFitHeight(727.0);
-        backGroundName.setFitWidth(630.0);
-        backGroundName.setLayoutX(-5.0);
-        backGroundName.setLayoutY(-2.0);
-        backGroundName.setPickOnBounds(true);
-        backGroundName.setPreserveRatio(true);
-        backGroundName.setImage(new Image(getClass().getResource("/Images/BackGround.png").toExternalForm()));
+        btnBackChooseXOView.setFitHeight(727.0);
+        btnBackChooseXOView.setFitWidth(630.0);
+        btnBackChooseXOView.setLayoutX(-5.0);
+        btnBackChooseXOView.setLayoutY(-2.0);
+        btnBackChooseXOView.setPickOnBounds(true);
+        btnBackChooseXOView.setPreserveRatio(true);
+        btnBackChooseXOView.setImage(new Image(getClass().getResource("/Images/BackGround.png").toExternalForm()));
 
         back.setFitHeight(85.0);
         back.setFitWidth(93.0);
@@ -92,6 +92,9 @@ public class AIChooseXOPageView extends AnchorPane {
         imageO.setPreserveRatio(true);
         imageO.setImage(new Image(getClass().getResource("/Images/oo.png").toExternalForm()));
 
+        
+        
+      
         text0.setLayoutX(272.0);
         text0.setLayoutY(373.0);
         text0.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
@@ -131,7 +134,7 @@ public class AIChooseXOPageView extends AnchorPane {
         txtTimer1.setText("1");
         txtTimer1.setFont(new Font("System Bold Italic", 64.0));
 
-        getChildren().add(backGroundName);
+        getChildren().add(btnBackChooseXOView);
         getChildren().add(back);
         getChildren().add(text);
         getChildren().add(imageX);

@@ -3,9 +3,9 @@ package Controllers;
 
 import Model.GameBoard;
 import Model.Player;
-import Views.DrawPageClass;
-import Views.WinPageClass;
-import Views.DialogView;
+import Views.AiViews.DrawPageClass;
+import Views.AiViews.WinPageClass;
+import Views.LocalViews.DialogView;
 import java.util.List;
 import javafx.application.Platform;
 import javafx.scene.control.Label;

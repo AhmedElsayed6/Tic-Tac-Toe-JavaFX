@@ -1,4 +1,4 @@
-package Views;
+package Views.OnlineViews;
 
 import Controllers.ChangeSceneController;
 import java.io.IOException;

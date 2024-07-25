@@ -1,7 +1,9 @@
-package Views;
+package Views.AiViews;
 
+import Views.AiViews.AIGameBoardView;
 import Controllers.ChangeSceneController;
 import Model.Player;
+import Views.GeneralViews.WelcomePageClass;
 import javafx.animation.PauseTransition;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
