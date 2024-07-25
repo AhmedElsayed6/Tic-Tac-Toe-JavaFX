@@ -136,19 +136,10 @@ public class LocalGameBoardView extends AnchorPane {
         labelPlayer2Score = new Label();
         labelScore2 = new Label();
 
-        
-
-   
-        
-        
 
         imgViewBackGround.setFitHeight(700.0);
-        imgViewBackGround.setFitWidth(600.0);
-//
-//        imgViewBackGround.setFitHeight(750.0);
-//        imgViewBackGround.setFitWidth(650.0);
-        imgViewBackGround.setLayoutX(-5);
-        imgViewBackGround.setLayoutY(-2);
+        imgViewBackGround.setFitWidth(620.0);
+
         
 
         imgViewBackGround.setPickOnBounds(true);
@@ -341,6 +332,7 @@ public class LocalGameBoardView extends AnchorPane {
         labelPlayer1Name.setPrefHeight(58.0);
         labelPlayer1Name.setPrefWidth(184.0);
         labelPlayer1Name.setText("Ahmed Eid");
+        labelPlayer1Name.setOpacity(0);
         labelPlayer1Name.setTextFill(javafx.scene.paint.Color.WHITE);
         labelPlayer1Name.setFont(new Font("Rockwell Italic", 26.0));
 
@@ -350,7 +342,7 @@ public class LocalGameBoardView extends AnchorPane {
         labelPlayer1.setMaxWidth(351.0);
         labelPlayer1.setPrefHeight(58.0);
         labelPlayer1.setPrefWidth(158.0);
-        labelPlayer1.setText("Player 1:");
+        labelPlayer1.setText("Player1 ");
         labelPlayer1.setTextFill(javafx.scene.paint.Color.WHITE);
         labelPlayer1.setFont(new Font("Rockwell Italic", 26.0));
 
@@ -396,6 +388,7 @@ public class LocalGameBoardView extends AnchorPane {
         labelPlayer2Name.setPrefHeight(58.0);
         labelPlayer2Name.setPrefWidth(196.0);
         labelPlayer2Name.setText("Nourhan Omar");
+        labelPlayer2Name.setOpacity(0);
         labelPlayer2Name.setTextFill(javafx.scene.paint.Color.WHITE);
         labelPlayer2Name.setFont(new Font("Rockwell Italic", 26.0));
 
@@ -405,13 +398,13 @@ public class LocalGameBoardView extends AnchorPane {
         labelPlayer2.setMaxWidth(351.0);
         labelPlayer2.setPrefHeight(58.0);
         labelPlayer2.setPrefWidth(124.0);
-        labelPlayer2.setText("Player 2:");
+        labelPlayer2.setText("Player2 ");
         labelPlayer2.setTextFill(javafx.scene.paint.Color.WHITE);
         labelPlayer2.setTextOverrun(javafx.scene.control.OverrunStyle.CLIP);
         labelPlayer2.setFont(new Font("Rockwell Italic", 26.0));
 
         labelPlayer2Score.setEllipsisString("");
-        labelPlayer2Score.setLayoutX(300.0);
+        labelPlayer2Score.setLayoutX(250.0);
         labelPlayer2Score.setLayoutY(62.0);
         labelPlayer2Score.setMaxWidth(351.0);
         labelPlayer2Score.setPrefHeight(32.0);

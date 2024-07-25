@@ -28,7 +28,7 @@ public class AiGameController {
     List<Label> labelList;
     List<ImageView> imageViewList;
     GameBoard gb;
-    Player player1;//Ai
+    Player player1;
     Player player2;
     boolean player1Turn = true;
     Player currentPlayer;
@@ -37,13 +37,13 @@ public class AiGameController {
     int indexRandom;
     String gameMode;
 
-    public AiGameController(List<ImageView> imageViewList, List<Line> linesList, List<Label> labelList, int def) {
+    public AiGameController(List<ImageView> imageViewList, List<Line> linesList, List<Label> labelList, int def , Player player1 , Player player2) {
         this.imageViewList = imageViewList;
         this.def = def;
         this.labelList = labelList;
         this.linesList = linesList;
-        player1 = new Player(1);
-        player2 = new Player(0);
+        this.player1 = player1;
+       this.player2 = player2;
         currentPlayer = player1;
         gb = new GameBoard();
         setScoreBoard();
