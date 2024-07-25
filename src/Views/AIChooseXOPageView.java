@@ -1,6 +1,6 @@
 package Views;
 
-import Controllers.AIGameInitController1;
+import Controllers.AIGameInitController;
 import Controllers.ChangeSceneController;
 import javafx.event.EventHandler;
 import javafx.scene.image.Image;
@@ -23,7 +23,7 @@ public class AIChooseXOPageView extends AnchorPane {
     protected final Text txtTimer2;
     protected final Text txtTimer1;
     int def ; 
-    AIGameInitController1   aiInitController;  
+    AIGameInitController   aiInitController;  
     public AIChooseXOPageView(int def ) {
         this.def = def;
         backGroundName = new ImageView();
@@ -37,7 +37,7 @@ public class AIChooseXOPageView extends AnchorPane {
         txtTimer2 = new Text();
         txtTimer1 = new Text();
         
-        aiInitController = new AIGameInitController1(imageX, imageO,txtTimer,txtTimer3,txtTimer2,txtTimer1 , def ,back);
+        aiInitController = new AIGameInitController(imageX, imageO,txtTimer,txtTimer3,txtTimer2,txtTimer1 , def ,back);
         setId("AnchorPane");
         setMaxHeight(700.0);
         setMaxWidth(600.0);

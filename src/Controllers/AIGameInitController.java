@@ -8,7 +8,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
-public class AIGameInitController1 {
+public class AIGameInitController {
     int def;
     Text timer;
     Text three;
@@ -22,7 +22,7 @@ public class AIGameInitController1 {
     PauseTransition pausetwo;
 //    PauseTransition pausethree;
     
-    public AIGameInitController1(ImageView imgX , ImageView imgO, Text timer, Text three, Text two,Text one, int def , ImageView btn) {
+    public AIGameInitController(ImageView imgX , ImageView imgO, Text timer, Text three, Text two,Text one, int def , ImageView btn) {
         this.imgX = imgX;
         this.imgO = imgO;
         this.timer = timer;

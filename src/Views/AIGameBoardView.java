@@ -138,21 +138,11 @@ public class AIGameBoardView extends AnchorPane {
         labelPlayer2Score = new Label();
         labelScore2 = new Label();
 
-        
 
-   
-        
-        
 
         imgViewBackGround.setFitHeight(700.0);
-        imgViewBackGround.setFitWidth(600.0);
-//
-//        imgViewBackGround.setFitHeight(750.0);
-//        imgViewBackGround.setFitWidth(650.0);
-        imgViewBackGround.setLayoutX(-5);
-        imgViewBackGround.setLayoutY(-2);
-        
-
+        imgViewBackGround.setFitWidth(630.0);
+        imgViewBackGround.setLayoutX(4);
         imgViewBackGround.setPickOnBounds(true);
         imgViewBackGround.setPreserveRatio(true);
         imgViewBackGround.setImage(new Image(getClass().getResource("/Images/BackGround.png").toExternalForm()));
@@ -163,10 +153,11 @@ public class AIGameBoardView extends AnchorPane {
         borderPane.setMinWidth(600.0);
         borderPane.setPrefHeight(700.0);
         borderPane.setPrefWidth(600.0);
+       
 
         BorderPane.setAlignment(boardPane, javafx.geometry.Pos.CENTER);
         BorderPane.setMargin(boardPane, new Insets(0.0));
-
+        
         gridPane.setAlignment(javafx.geometry.Pos.CENTER);
         gridPane.setPrefHeight(459.0);
         gridPane.setPrefWidth(378.0);
@@ -342,7 +333,7 @@ public class AIGameBoardView extends AnchorPane {
         labelPlayer1Name.setMaxWidth(351.0);
         labelPlayer1Name.setPrefHeight(58.0);
         labelPlayer1Name.setPrefWidth(184.0);
-        labelPlayer1Name.setText("Player1");
+        labelPlayer1Name.setText("Human");
         labelPlayer1Name.setTextFill(javafx.scene.paint.Color.WHITE);
         labelPlayer1Name.setFont(new Font("Rockwell Italic", 26.0));
 
@@ -392,7 +383,7 @@ public class AIGameBoardView extends AnchorPane {
      
 
         labelPlayer2Name.setEllipsisString("");
-        labelPlayer2Name.setLayoutX(300.0);
+        labelPlayer2Name.setLayoutX(280.0);
         labelPlayer2Name.setLayoutY(4.0);
         labelPlayer2Name.setMaxWidth(351.0);
         labelPlayer2Name.setPrefHeight(58.0);
