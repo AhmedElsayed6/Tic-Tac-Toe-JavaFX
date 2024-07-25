@@ -1,4 +1,5 @@
-package Views;
+package Views.OnlineViews;
+import Views.GeneralViews.ChosePageClass;
 import Controllers.ChangeSceneController;
 import java.io.IOException;
 import java.util.logging.Level;

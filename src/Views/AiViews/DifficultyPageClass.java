@@ -1,7 +1,8 @@
-package Views;
+package Views.AiViews;
 
-import Controllers.AiGameController;
+import Controllers.AiControllers.AiGameController;
 import Controllers.ChangeSceneController;
+import Views.GeneralViews.ChosePageClass;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;

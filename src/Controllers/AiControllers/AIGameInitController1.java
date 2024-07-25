@@ -1,8 +1,9 @@
 
-package Controllers;
+package Controllers.AiControllers;
 
+import Controllers.ChangeSceneController;
 import Model.Player;
-import Views.AIGameBoardView;
+import Views.AiViews.AIGameBoardView;
 import javafx.animation.PauseTransition;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;

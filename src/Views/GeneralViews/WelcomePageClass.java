@@ -1,4 +1,4 @@
-package Views;
+package Views.GeneralViews;
 
 import Controllers.ChangeSceneController;
 import javafx.scene.control.Button;

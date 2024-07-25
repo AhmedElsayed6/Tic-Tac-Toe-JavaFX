@@ -1,4 +1,4 @@
-package Views;
+package Views.LocalViews;
 
 
 import Controllers.LocalGameController;

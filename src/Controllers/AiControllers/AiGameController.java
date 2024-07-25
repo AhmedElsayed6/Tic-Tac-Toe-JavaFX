@@ -3,15 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controllers;
+package Controllers.AiControllers;
 
+import Controllers.ChangeSceneController;
 import Model.GameBoard;
 import Model.Player;
-import Views.AIGameBoardView;
-import Views.DialogView;
-import Views.DrawPageClass;
-import Views.LosePageClass;
-import Views.WinPageClass;
+import Views.AiViews.AIGameBoardView;
+import Views.LocalViews.DialogView;
+import Views.AiViews.DrawPageClass;
+import Views.AiViews.LosePageClass;
+import Views.AiViews.WinPageClass;
 import java.util.List;
 import java.util.Random;
 import javafx.animation.PauseTransition;

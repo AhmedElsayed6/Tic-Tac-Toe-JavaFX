@@ -1,7 +1,7 @@
-package Views;
+package Views.AiViews;
 
 
-import Controllers.AiGameController;
+import Controllers.AiControllers.AiGameController;
 import Controllers.LocalGameController;
 import Model.Player;
 import java.util.ArrayList;
