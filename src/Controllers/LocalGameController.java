@@ -3,13 +3,16 @@ package Controllers;
 
 import Model.GameBoard;
 import Model.Player;
-import Views.DialogView;
+import Views.AiViews.DrawPageClass;
+import Views.AiViews.WinPageClass;
+import Views.LocalViews.DialogView;
 import java.util.List;
 import javafx.application.Platform;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Line;
+import javafx.animation.PauseTransition;
 
 public class LocalGameController  {
     
@@ -18,7 +21,6 @@ public class LocalGameController  {
     List<ImageView> imageViewList;
     GameBoard gb;
     Player player1;
-
     Player player2;
     boolean player1Turn ;
     Player currentPlayer;
@@ -56,6 +58,7 @@ public class LocalGameController  {
             i.setDisable(true);
         }
     }
+
     private void drawWinningLine() {
         Line line;
         switch (gb.winningLine) {
@@ -149,8 +152,10 @@ public class LocalGameController  {
 
         }
 
+
     } 
     private void handleImageViewClick(int row, int col, int index) {
+
         Image imageX = new Image("/Images/X.png", true);
         Image imageO = new Image("/Images/O.png", true);
         gb.playPosition(row, col, currentPlayer);
@@ -164,13 +169,14 @@ public class LocalGameController  {
             disableAllImageViews();
             currentPlayer.scoreIncrement();
             setScoreBoard();
-            imageViewList.get(index).setImage(img);
-       
+
             DialogView dv = new DialogView(player1 , player2  , gb);
+     
+            
+           
         } else if (gb.numberPlays == 9) {
-            System.out.println("Draw");
-      
-              SaveGameController.saveMatch(gb);
+             DialogView dv = new DialogView(player1 , player2  , gb);
+              
         }
         player1Turn = !player1Turn; // false 
         setCurrentPlayer();
@@ -181,7 +187,7 @@ public class LocalGameController  {
             int row = i / 3;
             int col = i % 3;
             int index = i;
-            imageViewList.get(i).setOnMouseClicked(event -> handleImageViewClick(row, col, index));
+            imageViewList.get(i).setOnMouseClicked(event -> handleImageViewClick(row, col, index ));
         }
   
 

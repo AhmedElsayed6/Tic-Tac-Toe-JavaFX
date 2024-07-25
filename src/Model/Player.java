@@ -70,7 +70,17 @@ private int score;
         this.password = password;
         this.coin = coin;
     }
-   
+
+    //Ai
+    public Player(String name, int coin , int score ) {
+        this.score = score;
+        this.name = name;
+        this.username = null;
+        this.gender = null;
+        this.password = null;
+        this.coin = coin;
+    }
+
     
     
 
