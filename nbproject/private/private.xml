@@ -3,25 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
+
             <file>file:/D:/FirstNetBeans/NewTicTac/Tic-Tac-Toe-JavaFX/src/Views/OnlineViews/LoginPageClass.java</file>
             <file>file:/D:/FirstNetBeans/NewTicTac/Tic-Tac-Toe-JavaFX/src/Controllers/OnlineController/LoginController.java</file>
             <file>file:/D:/FirstNetBeans/NewTicTac/Tic-Tac-Toe-JavaFX/src/tictactoe/TicTacToe.java</file>
             <file>file:/D:/FirstNetBeans/NewTicTac/Tic-Tac-Toe-JavaFX/src/Controllers/OnlineController/SignupController.java</file>
             <file>file:/D:/FirstNetBeans/NewTicTac/Tic-Tac-Toe-JavaFX/src/Views/OnlineViews/SignUpPageClass.java</file>
-=======
-<<<<<<< HEAD
+
             <file>file:/D:/Programs/NetBeansProjects/TicTacToe3/Tic-Tac-Toe-JavaFX/src/Controllers/OnlineControllers/ClientThreadHandler.java</file>
-=======
-<<<<<<< HEAD
-            <file>file:/D:/FirstNetBeans/NewTicTac/Tic-Tac-Toe-JavaFX/src/tictactoe/TicTacToe.java</file>
-            <file>file:/D:/FirstNetBeans/NewTicTac/Tic-Tac-Toe-JavaFX/src/Views/OnlineViews/onlinePageClass.java</file>
-=======
-            <file>file:/D:/Programs/NetBeansProjects/TicTacToe3/Tic-Tac-Toe-JavaFX/src/Controllers/ChangeSceneController.java</file>
->>>>>>> 4a9c7ed06a2845dd7974b0ce1f8d4989f80914a1
             <file>file:/D:/Programs/NetBeansProjects/TicTacToe3/Tic-Tac-Toe-JavaFX/src/tictactoe/TicTacToe.java</file>
->>>>>>> 020fcda1f39252f467c16805fd685fd4589c63eb
->>>>>>> fcaee35f85261da8a0d3a539be2661f7a4c8f525
+
+            <file>file:/D:/Programs/NetBeansProjects/TicTacToe3/Tic-Tac-Toe-JavaFX/src/Controllers/OnlineControllers/LoginController.java</file>
+
         </group>
     </open-files>
 </project-private>

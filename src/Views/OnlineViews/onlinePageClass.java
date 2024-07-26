@@ -2,9 +2,6 @@ package Views.OnlineViews;
 
 import Views.GeneralViews.WelcomePageClass;
 import Controllers.ChangeSceneController;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.event.EventHandler;
 import javafx.geometry.Orientation;
 import javafx.scene.control.Button;
