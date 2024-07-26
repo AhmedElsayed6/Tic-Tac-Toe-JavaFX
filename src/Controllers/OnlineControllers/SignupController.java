@@ -5,16 +5,12 @@
  */
 package Controllers.OnlineControllers;
 
-import Controllers.ChangeSceneController;
-import Views.GeneralViews.ChosePageClass;
 import javafx.animation.PauseTransition;
-import javafx.event.EventHandler;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
 public class SignupController {
@@ -27,7 +23,8 @@ public class SignupController {
     protected final CheckBox checkBoxMale;
     protected final CheckBox checkBoxFemale;
     private String query;
-
+    //loginController = new LoginController(usernameField,passworField,loginButton,back);
+    //SignCon = new SignupController(btnSignUp, passworField,usernameField2,  usernameField, usernameField1,checkBox, checkBox0);
     public SignupController(Button btnSignUp, PasswordField passworField, TextField usernameField, TextField firstNameField, TextField lastNameField, CheckBox checkBoxMale, CheckBox checkBoxFemale) {
         this.btnSignUp = btnSignUp;
         this.passworField = passworField;
@@ -37,12 +34,39 @@ public class SignupController {
         this.checkBoxMale = checkBoxMale;
         this.checkBoxFemale = checkBoxFemale;
         query = null;
+        
+        this.usernameField.setOnKeyTyped((event) -> {
+            if (usernameField.getText().length() > 5){
+                String s;
+//               alert("Lengthy Username\nMaximum 6 Character");
+                s = usernameField.getText(0,6);
+                System.out.println(s);
+                usernameField.clear();
+                usernameField.setText(s);
+                usernameField.setFocusTraversable(false);
+            }
+                
+        });
+        this.checkBoxMale.setOnMouseClicked((MouseEvent event)-> {
+        if (checkBoxMale.isSelected() && checkBoxFemale.isSelected()){
+            alert("Insertion Error\nchose one Gender");
+            checkBoxMale.setSelected(false);
+        }
+        });
+        
+        this.checkBoxFemale.setOnMouseClicked((MouseEvent event)-> {
+        if (checkBoxMale.isSelected() && checkBoxFemale.isSelected()){
+            alert("Insertion Error\nchose one Gender");
+            checkBoxFemale.setSelected(false);
+        }
+        });
+        
         this.btnSignUp.setOnMouseClicked((MouseEvent event) -> {
             query = collectSign();
             
-            btnSignUp.setDisable(true);
+            disableAll(true);
             PauseTransition pause = new PauseTransition(javafx.util.Duration.seconds(5));
-            pause.setOnFinished((e) -> btnSignUp.setDisable(false));
+            pause.setOnFinished((e) -> disableAll(false));
             pause.play();
         }
         );
@@ -73,6 +97,21 @@ public class SignupController {
             return "true";
         else
             return "false";
+    }
+    public void disableAll(boolean b){
+        this.btnSignUp.setDisable(b);
+        this.passworField.setDisable(b);
+        this.usernameField.setDisable(b);
+        this.firstNameField.setDisable(b);
+        this.lastNameField.setDisable(b);
+        this.checkBoxMale.setDisable(b);
+        this.checkBoxFemale.setDisable(b);
+    }
+    public void alert(String type){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText(type);
+            alert.show();
     }
 
 }
