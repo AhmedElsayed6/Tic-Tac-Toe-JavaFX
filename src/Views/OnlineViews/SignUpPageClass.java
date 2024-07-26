@@ -1,6 +1,7 @@
 package Views.OnlineViews;
 
 import Controllers.ChangeSceneController;
+import Controllers.OnlineControllers.SignUpController;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -36,7 +37,7 @@ public  class SignUpPageClass extends AnchorPane {
     protected final CheckBox checkBox0;
     protected final ImageView imageView1;
     protected final Label label5;
-
+    SignUpController sucontroller;
     public SignUpPageClass() {
 
         imageView = new ImageView();
@@ -57,7 +58,7 @@ public  class SignUpPageClass extends AnchorPane {
         checkBox0 = new CheckBox();
         imageView1 = new ImageView();
         label5 = new Label();
-
+       sucontroller = new SignUpController(loginButton,passworField,usernameField,usernameField1 ,usernameField2 ,imageView0);
         setId("AnchorPane");
         setMaxHeight(700.0);
         setMaxWidth(600.0);
@@ -72,7 +73,7 @@ public  class SignUpPageClass extends AnchorPane {
         imageView.setLayoutY(-40.0);
         imageView.setPickOnBounds(true);
         imageView.setPreserveRatio(true);
-        imageView.setImage(new Image(getClass().getResource("Images/BackGround.png").toExternalForm()));
+        imageView.setImage(new Image(getClass().getResource("/Images/BackGround.png").toExternalForm()));
 
         loginButton.setAlignment(javafx.geometry.Pos.CENTER);
         loginButton.setLayoutX(248.0);
@@ -161,7 +162,7 @@ public  class SignUpPageClass extends AnchorPane {
         imageView0.setFitWidth(69.0);
         imageView0.setPickOnBounds(true);
         imageView0.setPreserveRatio(true);
-        imageView0.setImage(new Image(getClass().getResource("Images/male.png").toExternalForm()));
+        imageView0.setImage(new Image(getClass().getResource("/Images/male.png").toExternalForm()));
         checkBox.setGraphic(imageView0);
 
         checkBox0.setLayoutX(350.0);
@@ -171,7 +172,7 @@ public  class SignUpPageClass extends AnchorPane {
 
         imageView1.setFitHeight(69.0);
         imageView1.setFitWidth(69.0);
-        imageView1.setImage(new Image(getClass().getResource("Images/female.png").toExternalForm()));
+        imageView1.setImage(new Image(getClass().getResource("/Images/female.png").toExternalForm()));
         checkBox0.setGraphic(imageView1);
 
         label5.setLayoutX(124.0);

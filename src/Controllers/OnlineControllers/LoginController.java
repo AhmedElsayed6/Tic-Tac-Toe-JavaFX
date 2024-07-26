@@ -35,9 +35,7 @@ public class LoginController {
     }
 
     private void createQuery() {
-        query = "Login,"+collectLog();
-
-        ClientThreadHandler.queryQueue.add(query);
+      
     }
     public String collectLog() {
         return (!usernameField.getText().isEmpty() && !passwordField.getText().isEmpty()) ? (usernameField.getText() + "," + passwordField.getText()) : null;
