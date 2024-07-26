@@ -49,6 +49,15 @@
          </content>
       </ScrollPane>
       <Line endX="532.0" endY="223.0" startX="80.0" startY="223.0" />
-      <Button layoutX="277.0" layoutY="586.0" mnemonicParsing="false" text="View Game" />
+      <Button fx:id="btnViewGame" layoutX="188.0" layoutY="561.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="236.0" style="-fx-background-color: #3f51b5; -fx-background-radius: 50; -fx-border-color: white; -fx-border-radius: 50; -fx-border-width: 2;" text="View Game" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <ImageView fx:id="btnBackGameHistory" fitHeight="81.0" fitWidth="80.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="/Images/backArrow.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
