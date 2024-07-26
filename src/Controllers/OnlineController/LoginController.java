@@ -36,7 +36,7 @@ public class LoginController {
             PauseTransition pause = new PauseTransition(javafx.util.Duration.seconds(5));
             pause.setOnFinished((e) -> login.setDisable(false));
             pause.play();
-          
+         
         }
         );
     }
@@ -54,7 +54,5 @@ public class LoginController {
         } else {
             return false;
         }
-
     }
-
 }
