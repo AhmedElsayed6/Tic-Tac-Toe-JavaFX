@@ -1,6 +1,4 @@
-
 package Controllers.OnlineControllers;
-
 
 import java.io.DataInputStream;
 import java.io.IOException;
@@ -8,8 +6,6 @@ import java.io.PrintStream;
 import java.net.Socket;
 
 public class ClientThreadHandler {
-    
-
 
     Socket mySocket;
     DataInputStream dis;
@@ -25,16 +21,7 @@ public class ClientThreadHandler {
             System.out.println(replyMsg);
         } catch (IOException ex) {
             ex.printStackTrace();
-        } finally{
-       try {
-                ps.close();
-                dis.close();
-                mySocket.close();
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-        }   }
-    public void closeServerConnection(){
+        } finally {
             try {
                 ps.close();
                 dis.close();
@@ -42,11 +29,20 @@ public class ClientThreadHandler {
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
+        }
     }
-    public void setquery(String query){
-         ps.println(query);
+
+//    public void closeServerConnection() {
+//        try {
+//            ps.close();
+//            dis.close();
+//            mySocket.close();
+//        } catch (Exception ex) {
+//            ex.printStackTrace();
+//        }
+//    }
+
+    public void setquery(String query) {
+        ps.println(query);
     }
 }
-
-
-
