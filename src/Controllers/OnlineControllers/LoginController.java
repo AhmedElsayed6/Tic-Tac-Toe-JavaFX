@@ -38,6 +38,7 @@ public class LoginController {
 
         if (collectLog() != null)
             query =collectLog();
+        ClientThreadHandler.queryQueue.add(query);
 
     }
     public String collectLog() {

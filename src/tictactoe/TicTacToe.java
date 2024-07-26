@@ -14,7 +14,7 @@ public class TicTacToe extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         ClientThreadHandler cth = new ClientThreadHandler();
-        Parent root = new SignUpPageClass();
+        Parent root = new LoginPageClass();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

@@ -15,7 +15,7 @@ public class ClientThreadHandler extends Thread {
     Socket mySocket;
     public static LinkedBlockingQueue<String> queryQueue = new LinkedBlockingQueue<>();
 
-   public ClientThreadHandler() {
+    public ClientThreadHandler() {
         try {
             mySocket = new Socket("127.0.0.1", 5005);
             dis = new DataInputStream(mySocket.getInputStream());
@@ -38,7 +38,9 @@ public class ClientThreadHandler extends Thread {
                 }
 
                 if (dis.available() > 0) {
+
                     recievedQuery = dis.readLine();
+
                     recievedQueryHandler(recievedQuery);
                 }
 
@@ -57,10 +59,21 @@ public class ClientThreadHandler extends Thread {
     }
 
     void recievedQueryHandler(String query) {
+
         if (query == null) {
+            System.out.println(query);
             return;
         }
 
+        StringTokenizer st = new StringTokenizer(query, ",");
+        String q = st.nextToken();
 
+        switch (q) {
+            case "loginstatus":
+                System.out.println("Signup");
+
+                break;
+
+        }
     }
 }
