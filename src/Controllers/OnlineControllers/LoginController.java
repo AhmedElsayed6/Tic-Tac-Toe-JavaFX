@@ -14,8 +14,11 @@ public class LoginController {
     Button loginButton;
     ImageView back;
     String query;
+    ClientThreadHandler cth;
 
     public LoginController(TextField usernameField, PasswordField passwordField, Button loginButton, ImageView back) {
+        
+        cth = new ClientThreadHandler();
         this.loginButton = loginButton;
         this.usernameField = usernameField;
         this.passwordField = passwordField;
@@ -33,7 +36,8 @@ public class LoginController {
 
     private void createQuery() {
         query = "Login,"+collectLog();
-        System.out.println(query);
+
+        ClientThreadHandler.queryQueue.add(query);
     }
     public String collectLog() {
         return (!usernameField.getText().isEmpty() && !passwordField.getText().isEmpty()) ? (usernameField.getText() + "," + passwordField.getText()) : null;
