@@ -50,12 +50,12 @@ public class IpPageClass extends AnchorPane {
         back.setFitWidth(98.0);
         back.setPickOnBounds(true);
         back.setPreserveRatio(true);
-        back.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                ChangeSceneController.switchScene(new LoginPageClass(),event);
-            }
-        });
+//        back.setOnMouseClicked(new EventHandler<MouseEvent>() {
+//            @Override
+//            public void handle(MouseEvent event) {
+//                ChangeSceneController.switchScene(new LoginPageClass(),event);
+//            }
+//        });
         back.setImage(new Image(getClass().getResource("Images/backArrow.png").toExternalForm()));
 
         text.setLayoutX(54.0);

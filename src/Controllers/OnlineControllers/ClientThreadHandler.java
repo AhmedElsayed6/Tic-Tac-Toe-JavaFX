@@ -4,6 +4,7 @@ import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.net.Socket;
+import java.util.StringTokenizer;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
 
@@ -14,7 +15,7 @@ public class ClientThreadHandler extends Thread {
     Socket mySocket;
     public static LinkedBlockingQueue<String> queryQueue = new LinkedBlockingQueue<>();
 
-    ClientThreadHandler() {
+   public ClientThreadHandler() {
         try {
             mySocket = new Socket("127.0.0.1", 5005);
             dis = new DataInputStream(mySocket.getInputStream());
@@ -51,8 +52,8 @@ public class ClientThreadHandler extends Thread {
         if (query == null) {
             return;
         }
+        // send to server
         ps.println(query);
-
     }
 
     void recievedQueryHandler(String query) {

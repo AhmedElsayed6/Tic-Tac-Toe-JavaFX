@@ -35,10 +35,13 @@ public class LoginController {
     }
 
     private void createQuery() {
-      
+
+        if (collectLog() != null)
+            query =collectLog();
+
     }
     public String collectLog() {
-        return (!usernameField.getText().isEmpty() && !passwordField.getText().isEmpty()) ? (usernameField.getText() + "," + passwordField.getText()) : null;
+        return (!usernameField.getText().isEmpty() && !passwordField.getText().isEmpty()) ? ( "login,"+usernameField.getText() + "," + passwordField.getText()) : null;
     }
 
 }
