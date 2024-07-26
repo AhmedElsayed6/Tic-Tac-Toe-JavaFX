@@ -1,9 +1,7 @@
 package Views.OnlineViews;
 import Views.GeneralViews.ChosePageClass;
 import Controllers.ChangeSceneController;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import Controllers.OnlineControllers.LoginController;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -27,6 +25,7 @@ public class LoginPageClass extends AnchorPane {
     protected final PasswordField passworField;
     protected final TextField usernameField;
     protected final Label signUp;
+    LoginController loginController;
     
     public LoginPageClass() {
 
@@ -37,6 +36,10 @@ public class LoginPageClass extends AnchorPane {
         label0 = new Label();
         label1 = new Label();
         label2 = new Label();
+        passworField = new PasswordField();
+        usernameField = new TextField();
+        loginController = new LoginController(usernameField,passworField,loginButton);
+        
         
         back.setFitHeight(80.0);
         back.setFitWidth(100.0);
@@ -48,10 +51,9 @@ public class LoginPageClass extends AnchorPane {
                 ChangeSceneController.switchScene(new ChosePageClass(),event);
             }
         });
-        back.setImage(new Image(getClass().getResource("/FinalWork/Images/backArrow.png").toExternalForm()));
+        back.setImage(new Image(getClass().getResource("/Images/backArrow.png").toExternalForm()));
         
-        passworField = new PasswordField();
-        usernameField = new TextField();
+   
         signUp = new Label();
         setId("AnchorPane");
         setMaxHeight(700.0);
@@ -67,7 +69,7 @@ public class LoginPageClass extends AnchorPane {
         imageView.setLayoutY(-40.0);
         imageView.setPickOnBounds(true);
         imageView.setPreserveRatio(true);
-        imageView.setImage(new Image(getClass().getResource("Images/BackGround.png").toExternalForm()));
+        imageView.setImage(new Image(getClass().getResource("/Images/BackGround.png").toExternalForm()));
 
         loginButton.setAlignment(javafx.geometry.Pos.CENTER);
         loginButton.setLayoutX(248.0);
