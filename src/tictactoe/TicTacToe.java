@@ -1,6 +1,5 @@
 package tictactoe;
 
-import Views.GeneralViews.WelcomePageClass;
 import Views.OnlineViews.LoginPageClass;
 import javafx.application.Application;
 import javafx.scene.Parent;
