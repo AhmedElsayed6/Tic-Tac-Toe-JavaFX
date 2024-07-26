@@ -1,9 +1,10 @@
 package Views.OnlineViews;
 import Views.GeneralViews.ChosePageClass;
 import Controllers.ChangeSceneController;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
+import Controllers.OnlineControllers.LoginController;
+
+
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -27,9 +28,10 @@ public class LoginPageClass extends AnchorPane {
     protected final PasswordField passworField;
     protected final TextField usernameField;
     protected final Label signUp;
-    
-    public LoginPageClass() {
 
+    LoginController loginController;
+    public LoginPageClass() {
+        
         imageView = new ImageView();
         back = new ImageView();
         loginButton = new Button();
@@ -37,21 +39,27 @@ public class LoginPageClass extends AnchorPane {
         label0 = new Label();
         label1 = new Label();
         label2 = new Label();
+        passworField = new PasswordField();
+        usernameField = new TextField();
+        loginController = new LoginController(usernameField,passworField,loginButton,back);
+        
         
         back.setFitHeight(80.0);
         back.setFitWidth(100.0);
         back.setPickOnBounds(true);
         back.setPreserveRatio(true);
+
         back.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 ChangeSceneController.switchScene(new ChosePageClass(),event);
             }
         });
-        back.setImage(new Image(getClass().getResource("/FinalWork/Images/backArrow.png").toExternalForm()));
+
+
+        back.setImage(new Image(getClass().getResource("/Images/backArrow.png").toExternalForm()));
         
-        passworField = new PasswordField();
-        usernameField = new TextField();
+   
         signUp = new Label();
         setId("AnchorPane");
         setMaxHeight(700.0);
@@ -67,7 +75,7 @@ public class LoginPageClass extends AnchorPane {
         imageView.setLayoutY(-40.0);
         imageView.setPickOnBounds(true);
         imageView.setPreserveRatio(true);
-        imageView.setImage(new Image(getClass().getResource("Images/BackGround.png").toExternalForm()));
+        imageView.setImage(new Image(getClass().getResource("/Images/BackGround.png").toExternalForm()));
 
         loginButton.setAlignment(javafx.geometry.Pos.CENTER);
         loginButton.setLayoutX(248.0);
@@ -76,12 +84,7 @@ public class LoginPageClass extends AnchorPane {
         loginButton.setPrefWidth(103.0);
         loginButton.setStyle("-fx-background-color: #3f51b5; -fx-background-radius: 50;");
         loginButton.setText("Login");
-        loginButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                ChangeSceneController.switchScene(new IpPageClass(),event);
-            }
-        });
+        
         loginButton.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
         loginButton.setTextFill(javafx.scene.paint.Color.WHITE);
         loginButton.setFont(new Font(18.0));
@@ -110,12 +113,14 @@ public class LoginPageClass extends AnchorPane {
         passworField.setPrefHeight(39.0);
         passworField.setPrefWidth(212.0);
         passworField.setPromptText("***************");
+        passworField.setFocusTraversable(false);
 
         usernameField.setLayoutX(227.0);
         usernameField.setLayoutY(260.0);
         usernameField.setPrefHeight(39.0);
         usernameField.setPrefWidth(212.0);
         usernameField.setPromptText("Username");
+        usernameField.setFocusTraversable(false);
 
         signUp.setLayoutX(330.0);
         signUp.setLayoutY(565.0);
@@ -143,6 +148,7 @@ public class LoginPageClass extends AnchorPane {
         getChildren().add(passworField);
         getChildren().add(usernameField);
         getChildren().add(signUp);
-
+        
+        
     }          
 }
