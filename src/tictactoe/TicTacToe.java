@@ -1,6 +1,8 @@
 package tictactoe;
 
 import Controllers.OnlineControllers.ClientThreadHandler;
+import Views.GeneralViews.WelcomePageClass;
+import Views.OnlineViews.IpPageClass;
 import Views.OnlineViews.LoginPageClass;
 import Views.OnlineViews.SignUpPageClass;
 import javafx.application.Application;
@@ -13,8 +15,10 @@ public class TicTacToe extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        ClientThreadHandler cth = new ClientThreadHandler();
-        Parent root = new LoginPageClass();
+
+    
+
+        Parent root = new WelcomePageClass();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

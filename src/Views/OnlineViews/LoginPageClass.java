@@ -1,5 +1,6 @@
 package Views.OnlineViews;
 
+import Controllers.ChangeSceneController;
 import Controllers.OnlineControllers.LoginController;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -24,7 +25,8 @@ public class LoginPageClass extends AnchorPane {
     protected final TextField usernameField;
     protected final Label signUp;
     protected final Text txtLength;
-    protected final Text txtNotFound;
+    protected final Text txtPassLength;
+    protected final Text invalidText;
     LoginController loginController;
     public LoginPageClass() {
 
@@ -35,12 +37,13 @@ public class LoginPageClass extends AnchorPane {
         label0 = new Label();
         label1 = new Label();
         label2 = new Label();
+        invalidText = new Text();
         passworField = new PasswordField();
         usernameField = new TextField();
         signUp = new Label();
         txtLength = new Text();
-        txtNotFound = new Text();
-        loginController = new LoginController(usernameField,passworField,btnLogin,backImage);
+        txtPassLength = new Text();
+        loginController = new LoginController(usernameField,passworField,btnLogin,backImage,txtLength,txtPassLength , invalidText);
 
         setId("AnchorPane");
         setMaxHeight(700.0);
@@ -50,8 +53,10 @@ public class LoginPageClass extends AnchorPane {
         setPrefHeight(700.0);
         setPrefWidth(600.0);
 
-        imageView.setFitHeight(700.0);
-        imageView.setFitWidth(600.0);
+        imageView.setFitHeight(789.0);
+        imageView.setFitWidth(706.0);
+        imageView.setLayoutX(-72.0);
+        imageView.setLayoutY(-61.0);
         imageView.setImage(new Image(getClass().getResource("/Images/BackGround.png").toExternalForm()));
 
         backImage.setFitHeight(74.0);
@@ -112,6 +117,9 @@ public class LoginPageClass extends AnchorPane {
         signUp.setTextFill(javafx.scene.paint.Color.valueOf("#340ada"));
         signUp.setUnderline(true);
         signUp.setFont(new Font("Rockwell", 14.0));
+        signUp.setOnMouseClicked((e)->{
+            ChangeSceneController.switchSceneWithStage(new SignUpPageClass());
+        });
 
         txtLength.setFill(javafx.scene.paint.Color.RED);
         txtLength.setLayoutX(227.0);
@@ -121,13 +129,24 @@ public class LoginPageClass extends AnchorPane {
         txtLength.setStrokeWidth(0.0);
         txtLength.setText("Maximum 10 Character");
 
-        txtNotFound.setFill(javafx.scene.paint.Color.RED);
-        txtNotFound.setLayoutX(228.0);
-        txtNotFound.setLayoutY(449.0);
-        txtNotFound.setOpacity(0.0);
-        txtNotFound.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
-        txtNotFound.setStrokeWidth(0.0);
-        txtNotFound.setText("Wrong Username Or Password");
+        txtPassLength.setFill(javafx.scene.paint.Color.RED);
+        txtPassLength.setLayoutX(228.0);
+        txtPassLength.setLayoutY(449.0);
+        txtPassLength.setOpacity(0.0);
+        txtPassLength.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
+        txtPassLength.setStrokeWidth(0.0);
+        txtPassLength.setText("Maximum 10 Character");
+        
+        
+        
+        
+        invalidText.setFill(javafx.scene.paint.Color.RED);
+        invalidText.setLayoutX(200.0);
+        invalidText.setLayoutY(550.0);
+        invalidText.setOpacity(0);
+        invalidText.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
+        invalidText.setStrokeWidth(0.0);
+        invalidText.setText("Invalid username or password");
 
         getChildren().add(imageView);
         getChildren().add(backImage);
@@ -140,7 +159,8 @@ public class LoginPageClass extends AnchorPane {
         getChildren().add(usernameField);
         getChildren().add(signUp);
         getChildren().add(txtLength);
-        getChildren().add(txtNotFound);
+        getChildren().add(txtPassLength);
+         getChildren().add(invalidText);
 
     }
 

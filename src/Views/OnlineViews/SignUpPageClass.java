@@ -1,9 +1,9 @@
 package Views.OnlineViews;
 
-
-
-
+import static Controllers.ChangeSceneController.switchScene;
+import static Controllers.ChangeSceneController.switchSceneWithStage;
 import Controllers.OnlineControllers.SignupController;
+import javafx.scene.Parent;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
@@ -12,6 +12,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
@@ -35,14 +36,11 @@ public class SignUpPageClass extends AnchorPane {
     protected final ImageView imageView0;
     protected final Label label5;
 
-
-
     protected final CheckBox checkBoxMale;
     protected final ImageView imageView1;
     protected final Label label6;
     protected final Button btnUploadImage;
     protected final Text txtUserlength;
-    protected final Text txtGender;
     protected final Text txtPasswordlength;
     protected final Text txtLNlength;
     protected final Text txtFNlength;
@@ -67,18 +65,16 @@ public class SignUpPageClass extends AnchorPane {
         imageView0 = new ImageView();
         label5 = new Label();
 
-  
-
         checkBoxMale = new CheckBox();
         imageView1 = new ImageView();
         label6 = new Label();
         btnUploadImage = new Button();
         txtUserlength = new Text();
-        txtGender = new Text();
         txtPasswordlength = new Text();
         txtLNlength = new Text();
         txtFNlength = new Text();
-        signupController = new SignupController(btnUploadImage , btnSignup, passworField,usernameField,  fNameField, lNameField,checkBoxMale, checkBoxFeMale);
+        signupController = new SignupController(btnUploadImage, btnSignup, passworField, usernameField, fNameField, lNameField,
+                checkBoxMale, checkBoxFeMale, txtUserlength, txtPasswordlength, txtFNlength, txtLNlength);
 
         setId("AnchorPane");
         setMaxHeight(700.0);
@@ -88,13 +84,11 @@ public class SignUpPageClass extends AnchorPane {
         setPrefHeight(700.0);
         setPrefWidth(600.0);
 
-
         imageView.setFitHeight(789.0);
         imageView.setFitWidth(706.0);
         imageView.setLayoutX(-72.0);
         imageView.setLayoutY(-61.0);
         imageView.setImage(new Image(getClass().getResource("/Images/BackGround.png").toExternalForm()));
-
 
         btnSignup.setAlignment(javafx.geometry.Pos.CENTER);
         btnSignup.setLayoutX(248.0);
@@ -144,6 +138,10 @@ public class SignUpPageClass extends AnchorPane {
         toLogin.setLayoutX(357.0);
         toLogin.setLayoutY(646.0);
         toLogin.setText("Login");
+        toLogin.setOnMouseClicked((MouseEvent event) -> {
+            switchScene(new LoginPageClass(),event);
+        }
+        );
         toLogin.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
         toLogin.setTextFill(javafx.scene.paint.Color.valueOf("#340ada"));
         toLogin.setUnderline(true);
@@ -180,7 +178,6 @@ public class SignUpPageClass extends AnchorPane {
 
         imageView0.setFitHeight(69.0);
         imageView0.setFitWidth(69.0);
-
         imageView0.setImage(new Image(getClass().getResource("/Images/female.png").toExternalForm()));
         checkBoxFeMale.setGraphic(imageView0);
 
@@ -200,7 +197,6 @@ public class SignUpPageClass extends AnchorPane {
         imageView1.setImage(new Image(getClass().getResource("/Images/male.png").toExternalForm()));
         checkBoxMale.setGraphic(imageView1);
 
-
         label6.setLayoutX(109.0);
         label6.setLayoutY(508.0);
         label6.setText("Image");
@@ -218,14 +214,6 @@ public class SignUpPageClass extends AnchorPane {
         txtUserlength.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
         txtUserlength.setStrokeWidth(0.0);
         txtUserlength.setText("Maximum 10 character");
-
-        txtGender.setFill(javafx.scene.paint.Color.RED);
-        txtGender.setLayoutX(221.0);
-        txtGender.setLayoutY(495.0);
-        txtGender.setOpacity(0.0);
-        txtGender.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
-        txtGender.setStrokeWidth(0.0);
-        txtGender.setText("Choose One Gender");
 
         txtPasswordlength.setFill(javafx.scene.paint.Color.RED);
         txtPasswordlength.setLayoutX(224.0);
@@ -270,7 +258,6 @@ public class SignUpPageClass extends AnchorPane {
         getChildren().add(label6);
         getChildren().add(btnUploadImage);
         getChildren().add(txtUserlength);
-        getChildren().add(txtGender);
         getChildren().add(txtPasswordlength);
         getChildren().add(txtLNlength);
         getChildren().add(txtFNlength);
