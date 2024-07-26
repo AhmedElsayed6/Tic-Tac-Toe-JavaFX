@@ -81,7 +81,7 @@ public class SignUpPageClass extends AnchorPane {
         imageView.setFitWidth(706.0);
         imageView.setLayoutX(-72.0);
         imageView.setLayoutY(-61.0);
-        imageView.setImage(new Image(getClass().getResource("../Images/BackGround.png").toExternalForm()));
+        imageView.setImage(new Image(getClass().getResource("/Images/BackGround.png").toExternalForm()));
 
         btnSignup.setAlignment(javafx.geometry.Pos.CENTER);
         btnSignup.setLayoutX(248.0);
@@ -167,7 +167,7 @@ public class SignUpPageClass extends AnchorPane {
 
         imageView0.setFitHeight(69.0);
         imageView0.setFitWidth(69.0);
-        imageView0.setImage(new Image(getClass().getResource("../Images/female.png").toExternalForm()));
+        imageView0.setImage(new Image(getClass().getResource("/Images/female.png").toExternalForm()));
         checkBoxFeMale.setGraphic(imageView0);
 
         label5.setLayoutX(109.0);
@@ -182,7 +182,7 @@ public class SignUpPageClass extends AnchorPane {
 
         imageView1.setFitHeight(69.0);
         imageView1.setFitWidth(69.0);
-        imageView1.setImage(new Image(getClass().getResource("../Images/male.png").toExternalForm()));
+        imageView1.setImage(new Image(getClass().getResource("/Images/male.png").toExternalForm()));
         checkBoxMale.setGraphic(imageView1);
 
         label6.setLayoutX(109.0);

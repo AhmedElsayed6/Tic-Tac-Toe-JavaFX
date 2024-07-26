@@ -23,8 +23,8 @@ public class SignupController {
     protected final CheckBox checkBoxMale;
     protected final CheckBox checkBoxFemale;
     private String query;
-    //loginController = new LoginController(usernameField,passworField,loginButton,back);
-    //SignCon = new SignupController(btnSignUp, passworField,usernameField2,  usernameField, usernameField1,checkBox, checkBox0);
+   
+    
     public SignupController(Button btnSignUp, PasswordField passworField, TextField usernameField, TextField firstNameField, TextField lastNameField, CheckBox checkBoxMale, CheckBox checkBoxFemale) {
         this.btnSignUp = btnSignUp;
         this.passworField = passworField;
