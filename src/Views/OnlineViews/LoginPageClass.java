@@ -105,14 +105,11 @@ public class LoginPageClass extends AnchorPane {
         usernameField.setPrefWidth(212.0);
         usernameField.setPromptText("Username");
         usernameField.setFocusTraversable(false);
-
+        logCon = new LoginController(loginButton, usernameField, passworField, back);
         signUp.setLayoutX(330.0);
         signUp.setLayoutY(565.0);
-        signUp.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                ChangeSceneController.switchScene(new SignUpPageClass(),event);
-            }
+        signUp.setOnMouseClicked((MouseEvent event) -> {
+            ChangeSceneController.switchScene(new SignUpPageClass(),event);
         });
         signUp.setText("Sign Up");
         signUp.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);

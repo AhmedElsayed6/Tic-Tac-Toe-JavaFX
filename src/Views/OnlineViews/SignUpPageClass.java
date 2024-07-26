@@ -1,10 +1,6 @@
 package Views.OnlineViews;
 
-import Controllers.ChangeSceneController;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.event.EventHandler;
+import Controllers.OnlineController.SignupController;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
@@ -12,14 +8,13 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Font;
 
 public  class SignUpPageClass extends AnchorPane {
 
     protected final ImageView imageView;
-    protected final Button loginButton;
+    protected final Button btnSignUp;
     protected final Label label;
     protected final Label label0;
     protected final Label label1;
@@ -36,11 +31,13 @@ public  class SignUpPageClass extends AnchorPane {
     protected final CheckBox checkBox0;
     protected final ImageView imageView1;
     protected final Label label5;
+    protected final SignupController SignCon;
+    
 
     public SignUpPageClass() {
 
         imageView = new ImageView();
-        loginButton = new Button();
+        btnSignUp = new Button();
         label = new Label();
         label0 = new Label();
         label1 = new Label();
@@ -72,18 +69,18 @@ public  class SignUpPageClass extends AnchorPane {
         imageView.setLayoutY(-40.0);
         imageView.setPickOnBounds(true);
         imageView.setPreserveRatio(true);
-        imageView.setImage(new Image(getClass().getResource("Images/BackGround.png").toExternalForm()));
+        imageView.setImage(new Image(getClass().getResource("/Images/BackGround.png").toExternalForm()));
 
-        loginButton.setAlignment(javafx.geometry.Pos.CENTER);
-        loginButton.setLayoutX(248.0);
-        loginButton.setLayoutY(524.0);
-        loginButton.setPrefHeight(55.0);
-        loginButton.setPrefWidth(103.0);
-        loginButton.setStyle("-fx-background-color: #3f51b5; -fx-background-radius: 50;");
-        loginButton.setText("Sign up");
-        loginButton.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
-        loginButton.setTextFill(javafx.scene.paint.Color.WHITE);
-        loginButton.setFont(new Font(18.0));
+        btnSignUp.setAlignment(javafx.geometry.Pos.CENTER);
+        btnSignUp.setLayoutX(248.0);
+        btnSignUp.setLayoutY(524.0);
+        btnSignUp.setPrefHeight(55.0);
+        btnSignUp.setPrefWidth(103.0);
+        btnSignUp.setStyle("-fx-background-color: #3f51b5; -fx-background-radius: 50;");
+        btnSignUp.setText("Sign up");
+        btnSignUp.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
+        btnSignUp.setTextFill(javafx.scene.paint.Color.WHITE);
+        btnSignUp.setFont(new Font(18.0));
 
         label.setLayoutX(126);
         label.setLayoutY(120);
@@ -118,12 +115,6 @@ public  class SignUpPageClass extends AnchorPane {
 
         signUp.setLayoutX(355.0);
         signUp.setLayoutY(615.0);
-        signUp.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                ChangeSceneController.switchScene(new LoginPageClass(),event);
-            }
-        });
         signUp.setText("Login");
         signUp.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
         signUp.setTextFill(javafx.scene.paint.Color.valueOf("#340ada"));
@@ -145,7 +136,7 @@ public  class SignUpPageClass extends AnchorPane {
         label4.setLayoutY(166.0);
         label4.setText("Username");
         label4.setFont(new Font(18.0));
-
+        
         usernameField2.setLayoutX(238.0);
         usernameField2.setLayoutY(158.0);
         usernameField2.setPrefHeight(42.0);
@@ -161,17 +152,18 @@ public  class SignUpPageClass extends AnchorPane {
         imageView0.setFitWidth(69.0);
         imageView0.setPickOnBounds(true);
         imageView0.setPreserveRatio(true);
-        imageView0.setImage(new Image(getClass().getResource("Images/male.png").toExternalForm()));
+        imageView0.setImage(new Image(getClass().getResource("/Images/male.png").toExternalForm()));
         checkBox.setGraphic(imageView0);
 
         checkBox0.setLayoutX(350.0);
         checkBox0.setLayoutY(426.0);
         checkBox0.setMnemonicParsing(false);
         checkBox0.setFont(new Font(14.0));
+        SignCon = new SignupController(btnSignUp, passworField,usernameField2,  usernameField, usernameField1,checkBox, checkBox0);
 
         imageView1.setFitHeight(69.0);
         imageView1.setFitWidth(69.0);
-        imageView1.setImage(new Image(getClass().getResource("Images/female.png").toExternalForm()));
+        imageView1.setImage(new Image(getClass().getResource("/Images/female.png").toExternalForm()));
         checkBox0.setGraphic(imageView1);
 
         label5.setLayoutX(124.0);
@@ -180,7 +172,7 @@ public  class SignUpPageClass extends AnchorPane {
         label5.setFont(new Font(18.0));
 
         getChildren().add(imageView);
-        getChildren().add(loginButton);
+        getChildren().add(btnSignUp);
         getChildren().add(label);
         getChildren().add(label0);
         getChildren().add(label1);

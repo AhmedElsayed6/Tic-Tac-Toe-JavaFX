@@ -33,9 +33,10 @@ public class LoginController {
         this.login.setOnMouseClicked((MouseEvent event) -> {
             msg = collectLog();
             login.setDisable(true);
-            PauseTransition pause = new PauseTransition(javafx.util.Duration.seconds(3));
+            PauseTransition pause = new PauseTransition(javafx.util.Duration.seconds(5));
             pause.setOnFinished((e) -> login.setDisable(false));
             pause.play();
+          
         }
         );
     }
@@ -45,7 +46,15 @@ public class LoginController {
     }
 
     public String collectLog() {
-        return (!usernameField.getText().isEmpty() && !passworField.getText().isEmpty()) ? (usernameField.getText() + "." + passworField.getText()) : null;
+        return (!isEmpty()) ? ("login,"+usernameField.getText() + "," + passworField.getText()) : null;
+    }
+    public boolean isEmpty() {
+        if (usernameField.getText().isEmpty() || passworField.getText().isEmpty()) {
+            return true;
+        } else {
+            return false;
+        }
+
     }
 
 }
