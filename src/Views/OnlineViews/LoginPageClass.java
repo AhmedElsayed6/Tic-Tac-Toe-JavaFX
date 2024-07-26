@@ -1,7 +1,10 @@
 package Views.OnlineViews;
 import Views.GeneralViews.ChosePageClass;
 import Controllers.ChangeSceneController;
-import Controllers.OnlineController.LoginController;
+
+import Controllers.OnlineControllers.LoginController;
+
+
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -25,7 +28,7 @@ public class LoginPageClass extends AnchorPane {
     protected final PasswordField passworField;
     protected final TextField usernameField;
     protected final Label signUp;
-    LoginController logCon;
+    LoginController loginController;
     public LoginPageClass() {
         
         imageView = new ImageView();
@@ -35,15 +38,27 @@ public class LoginPageClass extends AnchorPane {
         label0 = new Label();
         label1 = new Label();
         label2 = new Label();
+        passworField = new PasswordField();
+        usernameField = new TextField();
+        loginController = new LoginController(usernameField,passworField,loginButton,back);
+        
         
         back.setFitHeight(80.0);
         back.setFitWidth(100.0);
         back.setPickOnBounds(true);
         back.setPreserveRatio(true);
+
+        back.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                ChangeSceneController.switchScene(new ChosePageClass(),event);
+            }
+        });
+
+
         back.setImage(new Image(getClass().getResource("/Images/backArrow.png").toExternalForm()));
         
-        passworField = new PasswordField();
-        usernameField = new TextField();
+   
         signUp = new Label();
         setId("AnchorPane");
         setMaxHeight(700.0);
@@ -105,7 +120,7 @@ public class LoginPageClass extends AnchorPane {
         usernameField.setPrefWidth(212.0);
         usernameField.setPromptText("Username");
         usernameField.setFocusTraversable(false);
-        logCon = new LoginController(loginButton, usernameField, passworField, back);
+        
         signUp.setLayoutX(330.0);
         signUp.setLayoutY(565.0);
         signUp.setOnMouseClicked((MouseEvent event) -> {

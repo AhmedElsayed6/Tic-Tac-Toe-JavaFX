@@ -1,6 +1,6 @@
 package Views.OnlineViews;
 
-import Controllers.OnlineController.SignupController;
+import Controllers.OnlineControllers.SignupController;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
@@ -54,7 +54,7 @@ public  class SignUpPageClass extends AnchorPane {
         checkBox0 = new CheckBox();
         imageView1 = new ImageView();
         label5 = new Label();
-
+        SignCon = new SignupController(btnSignUp, passworField,usernameField2,  usernameField, usernameField1,checkBox, checkBox0);
         setId("AnchorPane");
         setMaxHeight(700.0);
         setMaxWidth(600.0);
@@ -159,7 +159,7 @@ public  class SignUpPageClass extends AnchorPane {
         checkBox0.setLayoutY(426.0);
         checkBox0.setMnemonicParsing(false);
         checkBox0.setFont(new Font(14.0));
-        SignCon = new SignupController(btnSignUp, passworField,usernameField2,  usernameField, usernameField1,checkBox, checkBox0);
+        
 
         imageView1.setFitHeight(69.0);
         imageView1.setFitWidth(69.0);
