@@ -24,7 +24,7 @@ public class LoginPageClass extends AnchorPane {
     protected final TextField usernameField;
     protected final Label signUp;
     protected final Text txtLength;
-    protected final Text txtNotFound;
+    protected final Text txtPassLength;
     LoginController loginController;
     public LoginPageClass() {
 
@@ -39,8 +39,8 @@ public class LoginPageClass extends AnchorPane {
         usernameField = new TextField();
         signUp = new Label();
         txtLength = new Text();
-        txtNotFound = new Text();
-        loginController = new LoginController(usernameField,passworField,btnLogin,backImage);
+        txtPassLength = new Text();
+        loginController = new LoginController(usernameField,passworField,btnLogin,backImage,txtLength,txtPassLength);
 
         setId("AnchorPane");
         setMaxHeight(700.0);
@@ -50,8 +50,10 @@ public class LoginPageClass extends AnchorPane {
         setPrefHeight(700.0);
         setPrefWidth(600.0);
 
-        imageView.setFitHeight(700.0);
-        imageView.setFitWidth(600.0);
+        imageView.setFitHeight(789.0);
+        imageView.setFitWidth(706.0);
+        imageView.setLayoutX(-72.0);
+        imageView.setLayoutY(-61.0);
         imageView.setImage(new Image(getClass().getResource("/Images/BackGround.png").toExternalForm()));
 
         backImage.setFitHeight(74.0);
@@ -121,13 +123,13 @@ public class LoginPageClass extends AnchorPane {
         txtLength.setStrokeWidth(0.0);
         txtLength.setText("Maximum 10 Character");
 
-        txtNotFound.setFill(javafx.scene.paint.Color.RED);
-        txtNotFound.setLayoutX(228.0);
-        txtNotFound.setLayoutY(449.0);
-        txtNotFound.setOpacity(0.0);
-        txtNotFound.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
-        txtNotFound.setStrokeWidth(0.0);
-        txtNotFound.setText("Wrong Username Or Password");
+        txtPassLength.setFill(javafx.scene.paint.Color.RED);
+        txtPassLength.setLayoutX(228.0);
+        txtPassLength.setLayoutY(449.0);
+        txtPassLength.setOpacity(0.0);
+        txtPassLength.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
+        txtPassLength.setStrokeWidth(0.0);
+        txtPassLength.setText("Maximum 10 Character");
 
         getChildren().add(imageView);
         getChildren().add(backImage);
@@ -140,7 +142,7 @@ public class LoginPageClass extends AnchorPane {
         getChildren().add(usernameField);
         getChildren().add(signUp);
         getChildren().add(txtLength);
-        getChildren().add(txtNotFound);
+        getChildren().add(txtPassLength);
 
     }
 
