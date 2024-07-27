@@ -1,5 +1,6 @@
 package Controllers.OnlineControllers;
 
+import Views.OnlineViews.DialogView;
 import javafx.application.Platform;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
@@ -24,10 +25,12 @@ public class OnlinePageController implements Controllers {
         this.btnRequestGame = btnRequestGame;
         this.avaiablePlayersListView = avaiablePlayersListView;
         this.histoyHyperLink = histoyHyperLink;
-        if (queryCreated) {
             createQuery();
-        }
+         this.btnRequestGame.setOnAction((event) -> { 
+              new DialogView(null, null, null);
+         });
     }
+   
 
     private void createQuery() {
         String query = "getavailableplayers," + ClientThreadHandler.username;
@@ -40,11 +43,10 @@ public class OnlinePageController implements Controllers {
                avaiablePlayersListView.getItems().clear();
         for (int i =2 ; i < st.length; i++) {
             System.out.println(st[i]);
-          
-           
                avaiablePlayersListView.getItems().add(new Label(st[i]));
         }
           });
     }
+    
 
 }

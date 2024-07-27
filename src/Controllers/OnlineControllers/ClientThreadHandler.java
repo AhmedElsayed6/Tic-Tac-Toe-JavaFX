@@ -30,7 +30,7 @@ public class ClientThreadHandler extends Thread {
     }
 
     public void run() {
-        while (true) {
+        while (!Thread.currentThread().isInterrupted()) {
             String sentQuery = "";
             String recievedQuery = null;
 
