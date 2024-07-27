@@ -19,7 +19,7 @@ public class OnlinePageController implements Controllers {
     ImageView profileImage;
     Label nameLabel , usernameLabel ,  scoreLabel , genderLabel ;
     Button btnRequestGame ;
-    ListView avaiablePlayersListView ;
+    ListView availablePlayersListView ;
     Hyperlink histoyHyperLink;
     
     public OnlinePageController(ImageView profileImage, Label nameLabel, Label usernameLabel, Label scoreLabel, Label genderLabel, Button btnRequestGame, ListView avaiablePlayersListView, Hyperlink histoyHyperLink) {
@@ -33,12 +33,12 @@ public class OnlinePageController implements Controllers {
         this.scoreLabel = scoreLabel;
         this.genderLabel = genderLabel;
         this.btnRequestGame = btnRequestGame;
-        this.avaiablePlayersListView = avaiablePlayersListView;
+        this.availablePlayersListView = avaiablePlayersListView;
         this.histoyHyperLink = histoyHyperLink;
 
         ClientThreadHandler.controllersMap.put("online",this);
          getUserDataRequest();
-              createQuery();
+         getAvailablePlayers();
          setHandlers();     
     
      
@@ -46,6 +46,11 @@ public class OnlinePageController implements Controllers {
     private void setHandlers(){
     histoyHyperLink.setOnMouseClicked((e)->{
     ChangeSceneController.switchSceneWithStage(new GameHistoryView() );
+    });
+    btnRequestGame.setOnMouseClicked((e)->{
+    Label opponentLabel =(Label) availablePlayersListView.getSelectionModel().getSelectedItem();
+     ClientThreadHandler.queryQueue.add("playinvite," + LoginController.getUsername()+","+opponentLabel.getText());
+    
     });
     
     
@@ -68,19 +73,21 @@ public class OnlinePageController implements Controllers {
      
      });
     }
-    
-    private void createQuery() {
+    private void getAvailablePlayers() {
         String query = "getavailableplayers," + LoginController.getUsername();
         ClientThreadHandler.queryQueue.add(query);
     }
-
-    void showAvailablePlayers(String[] st) {
+    public void showAvailablePlayers(String[] st) {
          Platform.runLater(() -> {
-               avaiablePlayersListView.getItems().clear();
+               availablePlayersListView.getItems().clear();
         for (int i =2 ; i < st.length; i++) {
             System.out.println(st[i]);
-               avaiablePlayersListView.getItems().add(new Label(st[i]));
+               availablePlayersListView.getItems().add(new Label(st[i]));
         }
           });
     }
+    
+
+
+
 }

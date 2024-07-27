@@ -115,6 +115,12 @@ public class ClientThreadHandler extends Thread {
                         oc2.showAvailablePlayers(st);
                     }
                     break;
+                case "playinvite":
+                    OnlinePageController oc3 = (OnlinePageController) controllersMap.get("online");
+                    if(st[2]!=null){
+                        oc3.showAvailablePlayers(st);
+                    }
+                    break;
 
 
         }
