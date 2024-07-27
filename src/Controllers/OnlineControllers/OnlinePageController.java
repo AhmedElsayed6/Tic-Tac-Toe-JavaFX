@@ -38,8 +38,6 @@ public class OnlinePageController implements Controllers {
          this.btnRequestGame.setOnAction((event) -> { 
               new DialogView(null, null, null);
          });
-    
-
         ClientThreadHandler.controllersMap.put("online",this);
          getUserDataRequest();
          getAvailablePlayers();
