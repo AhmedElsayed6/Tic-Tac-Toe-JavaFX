@@ -1,12 +1,8 @@
 package Controllers.OnlineControllers;
-/// controller for each mode 
 
-import Controllers.*;
-import Controllers.OnlineControllers.SaveGameController;
+
 import Model.GameBoard;
 import Model.Player;
-import Views.AiViews.DrawPageClass;
-import Views.AiViews.WinPageClass;
 import Views.LocalViews.DialogView;
 import java.util.List;
 import javafx.application.Platform;
@@ -14,38 +10,32 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Line;
-import javafx.animation.PauseTransition;
 
 public class OnlineGameController implements Controllers  {
-    
     List<Line> linesList;
-    List<Label> labelList;
-    List<ImageView> imageViewList;
+    List<Label> scoreLabelList;
+    List<ImageView> boardImageViews;
     GameBoard gb;
     Player player1;
     Player player2;
     boolean player1Turn ;
     Player currentPlayer;
-
-    public OnlineGameController() {
-        this.imageViewList = imageViewList;
-
-        this.labelList = labelList;
+    
+    public OnlineGameController(List<Line> linesList, List<Label> scoreLabelList, List<ImageView> boardImageViews, GameBoard gb, Player player1, Player player2, boolean player1Turn, Player currentPlayer) {
         this.linesList = linesList;
-        this.player1 = player1; 
+        this.scoreLabelList = scoreLabelList;
+        this.boardImageViews = boardImageViews;
+        this.gb = gb;
+        this.player1 = player1;
         this.player2 = player2;
-        currentPlayer = player1;
-        player1Turn = true;
-      //  gb = new GameBoard();
-      //  setScoreBoard();
-      //  setOnClickHandlers();
-
+        this.player1Turn = player1Turn;
+        this.currentPlayer = currentPlayer;
     }
-  
+    
     private void setScoreBoard() {
 
-        labelList.get(0).setText(String.valueOf(player1.getScore()));
-        labelList.get(1).setText(String.valueOf(player2.getScore()));
+        scoreLabelList.get(0).setText(String.valueOf(player1.getScore()));
+        scoreLabelList.get(1).setText(String.valueOf(player2.getScore()));
 
     }
     private void setCurrentPlayer() {
@@ -56,11 +46,10 @@ public class OnlineGameController implements Controllers  {
         }
     }
     private void disableAllImageViews() {
-        for (ImageView i : imageViewList) {
+        for (ImageView i : boardImageViews) {
             i.setDisable(true);
         }
     }
-
     private void drawWinningLine() {
         Line line;
         switch (gb.winningLine) {
@@ -164,7 +153,7 @@ public class OnlineGameController implements Controllers  {
         SaveGameController.saveMove(row, col , currentPlayer, "LocalTwoPlayers");
         Image img = currentPlayer.getCoin() == 1 ? imageX : imageO;
         Platform.runLater(() -> {
-            imageViewList.get(index).setImage(img);
+            boardImageViews.get(index).setImage(img);
         });
         if (gb.checkWin()) {
             drawWinningLine();
@@ -182,14 +171,14 @@ public class OnlineGameController implements Controllers  {
         }
         player1Turn = !player1Turn; // false 
         setCurrentPlayer();
-        imageViewList.get(index).setDisable(true);
+        boardImageViews.get(index).setDisable(true);
     }
     private void setOnClickHandlers() {
-        for (int i = 0; i < imageViewList.size(); i++) {
+        for (int i = 0; i < boardImageViews.size(); i++) {
             int row = i / 3;
             int col = i % 3;
             int index = i;
-            imageViewList.get(i).setOnMouseClicked(event -> handleImageViewClick(row, col, index ));
+            boardImageViews.get(i).setOnMouseClicked(event -> handleImageViewClick(row, col, index ));
         }
   
 
