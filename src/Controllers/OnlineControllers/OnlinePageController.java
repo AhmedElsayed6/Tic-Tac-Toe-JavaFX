@@ -1,5 +1,6 @@
 package Controllers.OnlineControllers;
 
+import javafx.application.Platform;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
@@ -14,7 +15,7 @@ public class OnlinePageController implements Controllers {
     ListView avaiablePlayersListView;
     Hyperlink histoyHyperLink;
 
-    public OnlinePageController(ImageView profileImage, Label nameLabel, Label usernameLabel, Label scoreLabel, Label genderLabel, Button btnRequestGame, ListView avaiablePlayersListView, Hyperlink histoyHyperLink) {
+    public OnlinePageController(boolean queryCreated,ImageView profileImage, Label nameLabel, Label usernameLabel, Label scoreLabel, Label genderLabel, Button btnRequestGame, ListView avaiablePlayersListView, Hyperlink histoyHyperLink) {
         this.profileImage = profileImage;
         this.nameLabel = nameLabel;
         this.usernameLabel = usernameLabel;
@@ -23,7 +24,9 @@ public class OnlinePageController implements Controllers {
         this.btnRequestGame = btnRequestGame;
         this.avaiablePlayersListView = avaiablePlayersListView;
         this.histoyHyperLink = histoyHyperLink;
-        createQuery();
+        if (queryCreated) {
+            createQuery();
+        }
     }
 
     private void createQuery() {
@@ -33,9 +36,15 @@ public class OnlinePageController implements Controllers {
     }
 
     void showAvailablePlayers(String[] st) {
-        for (int i =1 ; i < st.length; i++) {
-            avaiablePlayersListView.getItems().add(new Label(st[i]));
+         Platform.runLater(() -> {
+               avaiablePlayersListView.getItems().clear();
+        for (int i =2 ; i < st.length; i++) {
+            System.out.println(st[i]);
+          
+           
+               avaiablePlayersListView.getItems().add(new Label(st[i]));
         }
+          });
     }
 
 }
