@@ -1,6 +1,8 @@
 
 package Controllers.OnlineControllers;
 
+import Controllers.ChangeSceneController;
+import Views.OnlineViews.GameHistoryView;
 import java.io.ByteArrayInputStream;
 import java.util.Base64;
 import javafx.application.Platform;
@@ -30,6 +32,14 @@ public class OnlinePageController implements Controllers {
         this.histoyHyperLink = histoyHyperLink;
         ClientThreadHandler.controllersMap.put("online",this);
          getUserDataRequest();
+         setHandlers();
+    }
+    private void setHandlers(){
+    histoyHyperLink.setOnMouseClicked((e)->{
+    ChangeSceneController.switchSceneWithStage(new GameHistoryView() );
+    });
+    
+    
     }
     private void getUserDataRequest(){
  
@@ -51,7 +61,7 @@ public class OnlinePageController implements Controllers {
   //  String []data = userData.split(",");
     
     }
-
+    
  
     
     

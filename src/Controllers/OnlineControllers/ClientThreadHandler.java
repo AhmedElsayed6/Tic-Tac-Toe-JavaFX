@@ -61,7 +61,7 @@ public class ClientThreadHandler extends Thread {
     }
 
     void recievedQueryHandler(String query) {
-
+       
         if (query == null) {
             System.out.println(query);
             return;
@@ -93,13 +93,16 @@ public class ClientThreadHandler extends Thread {
                       System.out.println( "invalid");
                 }
                 break;
-                
-                case "getuserdata":
-              
+         
+                case "getuserdata":          
                 OnlinePageController oc = (OnlinePageController) controllersMap.get("online");
                 oc.setUserData(query);
-
+                break;
                 
+                case "getuserhistory":          
+                GameHistoryController ghc = (GameHistoryController) controllersMap.get("history");
+                 System.out.println("game history");
+                ghc.setHistory(query);
                 break;
 
         }
