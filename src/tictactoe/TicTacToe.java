@@ -19,7 +19,8 @@ public class TicTacToe extends Application {
 
     
 
-        Parent root = new onlinePageClass();
+        Parent root = new  WelcomePageClass();
+       // Parent root = new onlinePageClass();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

@@ -38,7 +38,15 @@ public class SignupController implements Controllers {
     String imageString;
     private String query;
     Text invalidLogin;
-
+   private static String username;
+    
+    public static void setUsername(String username) {
+        SignupController.username = username;
+        LoginController.setUsername(username);
+    }
+      public static String getUsername() {
+        return username;
+    }
     public SignupController(Button btnUploadImg, Button btnSignUp, PasswordField passworField, TextField usernameField,
             TextField firstNameField, TextField lastNameField, CheckBox checkBoxMale, CheckBox checkBoxFemale,
             Text txtUserlength,Text txtPasswordlength,Text txtFNlength,Text txtLNlength , Text invalidLogin) {
@@ -130,11 +138,13 @@ public class SignupController implements Controllers {
         this.checkBoxMale.setOnMouseClicked((MouseEvent event) -> {
             if (checkBoxMale.isSelected() && checkBoxFemale.isSelected()) {
                 checkBoxFemale.setSelected(false);
+                checkBoxMale.setSelected(true);
             }
         });
         this.checkBoxFemale.setOnMouseClicked((MouseEvent event) -> {
             if (checkBoxMale.isSelected() && checkBoxFemale.isSelected()) {
                 checkBoxMale.setSelected(false);
+                    checkBoxFemale.setSelected(true);
             }
         });
 

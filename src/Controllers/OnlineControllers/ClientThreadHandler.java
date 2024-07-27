@@ -34,7 +34,7 @@ public class ClientThreadHandler extends Thread {
             String recievedQuery = null;
 
             try {
-                sentQuery = queryQueue.poll(2, TimeUnit.SECONDS);
+                sentQuery = queryQueue.poll(1, TimeUnit.SECONDS);
                 if (sentQuery != null) {
                     querySender(sentQuery);
                 }
@@ -66,17 +66,18 @@ public class ClientThreadHandler extends Thread {
             System.out.println(query);
             return;
         }
-
+ 
         String[] st = query.split(",");
-        System.out.println(query);
+  
         switch (st[1]) {
             case "loginstatus":
                 LoginController lc = (LoginController) controllersMap.get("login");
                 if (Boolean.parseBoolean(st[2])) {
-                        System.out.println("valid");
+                        System.out.println("valid Login");
                     lc.validLogin();
+                    lc.setUsername(st[0]);
                 } else {
-                      System.out.println( "invalid");
+                      System.out.println( "invalid Login");
                     lc.inValidLogin();
                 }
                 break;
@@ -86,10 +87,19 @@ public class ClientThreadHandler extends Thread {
                 if (Boolean.parseBoolean(st[2])) {
                         System.out.println("valid");
                     sc.validSignup();
+                    sc.setUsername(st[0]);
                 } else {
                      sc.inValidSignup();
                       System.out.println( "invalid");
                 }
+                break;
+                
+                case "getuserdata":
+              
+                OnlinePageController oc = (OnlinePageController) controllersMap.get("online");
+                oc.setUserData(query);
+
+                
                 break;
 
         }

@@ -23,6 +23,16 @@ public class LoginController  implements Controllers {
     Text txtPassLength;
     Text invalidText;
 
+    public static String getUsername() {
+        return username;
+    }
+    private static String username;
+    
+    public static void setUsername(String username) {
+        LoginController.username = username;
+    }
+    
+
     public LoginController(TextField usernameField, PasswordField passwordField, Button loginButton,
             ImageView back, Text txtLength, Text txtPassLength , Text invalidText) {
 
@@ -94,6 +104,7 @@ public class LoginController  implements Controllers {
     }
     
     public void validLogin(){
+       
         Platform.runLater(()->{ChangeSceneController.switchSceneWithStage(new onlinePageClass());});
         
     }
