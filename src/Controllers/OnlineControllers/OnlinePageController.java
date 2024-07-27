@@ -1,8 +1,8 @@
 package Controllers.OnlineControllers;
 
-import Views.OnlineViews.DialogView;
 import Controllers.ChangeSceneController;
 import Views.OnlineViews.GameHistoryView;
+import Views.OnlineViews.InviteDialog;
 import java.io.ByteArrayInputStream;
 import java.util.Base64;
 
@@ -15,7 +15,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class OnlinePageController implements Controllers {
-
+    InviteDialog inv;
     ImageView profileImage;
     Label nameLabel , usernameLabel ,  scoreLabel , genderLabel ;
     Button btnRequestGame ;
@@ -35,9 +35,7 @@ public class OnlinePageController implements Controllers {
         this.btnRequestGame = btnRequestGame;
         this.availablePlayersListView = avaiablePlayersListView;
         this.histoyHyperLink = histoyHyperLink;
-         this.btnRequestGame.setOnAction((event) -> { 
-              new DialogView(null, null, null);
-         });
+   
     
 
         ClientThreadHandler.controllersMap.put("online",this);
@@ -56,6 +54,12 @@ public class OnlinePageController implements Controllers {
      ClientThreadHandler.queryQueue.add("playinvite," + LoginController.getUsername()+","+opponentLabel.getText());
     
     });
+    }
+    public void showInvite(String invite){
+            System.out.println(invite);
+             inv = new InviteDialog(null , null  , null);
+    
+    
     }
     private void getUserDataRequest(){
  

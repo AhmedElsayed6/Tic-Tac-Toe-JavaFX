@@ -116,10 +116,9 @@ public class ClientThreadHandler extends Thread {
                     }
                     break;
                 case "playinvite":
+                    System.out.println("111~~"+query+"~~~11");
                     OnlinePageController oc3 = (OnlinePageController) controllersMap.get("online");
-                    if(st[2]!=null){
-                        oc3.showAvailablePlayers(st);
-                    }
+                    oc3.showInvite(query);                  
                     break;
 
 

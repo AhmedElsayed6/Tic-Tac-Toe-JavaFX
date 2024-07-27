@@ -22,7 +22,7 @@ public class TicTacToe extends Application {
 
        // Parent root = new  GameHistoryView();
 
-        Parent root = new onlinePageClass();
+        Parent root = new WelcomePageClass();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
