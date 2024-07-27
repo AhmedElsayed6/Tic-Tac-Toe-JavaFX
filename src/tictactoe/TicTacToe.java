@@ -5,6 +5,7 @@ import Views.GeneralViews.WelcomePageClass;
 import Views.OnlineViews.IpPageClass;
 import Views.OnlineViews.LoginPageClass;
 import Views.OnlineViews.SignUpPageClass;
+import Views.OnlineViews.onlinePageClass;
 import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -18,7 +19,7 @@ public class TicTacToe extends Application {
 
     
 
-        Parent root = new WelcomePageClass();
+        Parent root = new onlinePageClass();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
