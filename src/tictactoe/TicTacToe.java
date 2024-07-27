@@ -2,6 +2,7 @@ package tictactoe;
 
 import Controllers.OnlineControllers.ClientThreadHandler;
 import Views.GeneralViews.WelcomePageClass;
+import Views.OnlineViews.GameHistoryView;
 import Views.OnlineViews.IpPageClass;
 import Views.OnlineViews.LoginPageClass;
 import Views.OnlineViews.SignUpPageClass;
@@ -16,7 +17,12 @@ public class TicTacToe extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = new WelcomePageClass();
+
+    
+
+       // Parent root = new  GameHistoryView();
+
+        Parent root = new onlinePageClass();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

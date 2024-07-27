@@ -35,7 +35,7 @@ public class ClientThreadHandler extends Thread {
             String recievedQuery = null;
 
             try {
-                sentQuery = queryQueue.poll(2, TimeUnit.SECONDS);
+                sentQuery = queryQueue.poll(1, TimeUnit.SECONDS);
                 if (sentQuery != null) {
                     querySender(sentQuery);
                 }
@@ -62,23 +62,24 @@ public class ClientThreadHandler extends Thread {
     }
 
     void recievedQueryHandler(String query) {
-
+       
         if (query == null) {
             System.out.println(query);
             return;
         }
-
+ 
         String[] st = query.split(",");
-        System.out.println(query);
+  
         switch (st[1]) {
             case "loginstatus":
                 LoginController lc = (LoginController) controllersMap.get("login");
                 if (Boolean.parseBoolean(st[2])) {
-                        System.out.println("valid");
+                        System.out.println("valid Login");
                     lc.validLogin();
-                    username=st[0];
+                    lc.setUsername(st[0]);
+
                 } else {
-                      System.out.println( "invalid");
+                      System.out.println( "invalid Login");
                     lc.inValidLogin();
                 }
                 break;
@@ -88,18 +89,39 @@ public class ClientThreadHandler extends Thread {
                 if (Boolean.parseBoolean(st[2])) {
                         System.out.println("valid");
                     sc.validSignup();
-                    username=st[0];
+                    sc.setUsername(st[0]);
+
                 } else {
                      sc.inValidSignup();
                       System.out.println( "invalid");
                 }
                 break;
+
+         
+                case "getuserdata":          
+                OnlinePageController oc1 = (OnlinePageController) controllersMap.get("online");
+                oc1.setUserData(query);
+                break;
+                
+                case "getuserhistory":          
+                GameHistoryController ghc = (GameHistoryController) controllersMap.get("history");
+                 System.out.println("game history");
+                ghc.setHistory(query);
+                break;
+
                 case "getavailableplayers":
-                    OnlinePageController oc = (OnlinePageController) controllersMap.get("getavailableplayers");
+                    OnlinePageController oc2 = (OnlinePageController) controllersMap.get("online");
                     if(st[2]!=null){
-                        oc.showAvailablePlayers(st);
+                        oc2.showAvailablePlayers(st);
                     }
                     break;
+                case "playinvite":
+                    OnlinePageController oc3 = (OnlinePageController) controllersMap.get("online");
+                    if(st[2]!=null){
+                        oc3.showAvailablePlayers(st);
+                    }
+                    break;
+
 
         }
     }

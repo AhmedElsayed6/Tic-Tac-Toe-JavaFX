@@ -295,7 +295,7 @@ public class onlinePageClass extends AnchorPane {
         getChildren().add(toHistoryPane);
         getChildren().add(label4);
         getChildren().add(imageView3);
-        opc = new OnlinePageController (true,profilePicture , nameField ,usernameField, scoreField , genderField
+        opc = new OnlinePageController (profilePicture , nameField ,usernameField, scoreField , genderField
                 ,btnRequestJoin , listViewAvailable , histoyBtn );
 
     }
