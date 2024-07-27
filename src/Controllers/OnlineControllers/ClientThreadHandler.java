@@ -57,7 +57,6 @@ public class ClientThreadHandler extends Thread {
         if (query == null) {
             return;
         }
-        // send to server
         ps.println(query);
     }
 
@@ -87,13 +86,13 @@ public class ClientThreadHandler extends Thread {
                 case "signupstatus":
                 SignupController sc = (SignupController) controllersMap.get("signup");
                 if (Boolean.parseBoolean(st[2])) {
-                        System.out.println("valid");
+                        System.out.println("valid signup");
                     sc.validSignup();
                     sc.setUsername(st[0]);
 
                 } else {
                      sc.inValidSignup();
-                      System.out.println( "invalid");
+                      System.out.println( "invalid signup");
                 }
                 break;
 
@@ -118,9 +117,13 @@ public class ClientThreadHandler extends Thread {
                     OnlinePageController oc3 = (OnlinePageController) controllersMap.get("online");
                     oc3.showInvite(query);                  
                     break;
+                case "rejectinvite":
+                    OnlinePageController oc5 = (OnlinePageController) controllersMap.get("online");
+                    oc5.showRejectDialog(query);                  
+                    break;
                 case "startmatch":
                     OnlinePageController oc4 = (OnlinePageController) controllersMap.get("online");
-                    oc4.showGameBoard(query);                  
+                    oc4.startGame(query);                  
                     break;
               
 
