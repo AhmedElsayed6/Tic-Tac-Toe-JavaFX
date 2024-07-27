@@ -44,6 +44,7 @@ public class SignUpPageClass extends AnchorPane {
     protected final Text txtPasswordlength;
     protected final Text txtLNlength;
     protected final Text txtFNlength;
+    protected final Text invalidText;
     SignupController signupController;
 
     public SignUpPageClass() {
@@ -73,8 +74,9 @@ public class SignUpPageClass extends AnchorPane {
         txtPasswordlength = new Text();
         txtLNlength = new Text();
         txtFNlength = new Text();
+        invalidText = new Text();
         signupController = new SignupController(btnUploadImage, btnSignup, passworField, usernameField, fNameField, lNameField,
-                checkBoxMale, checkBoxFeMale, txtUserlength, txtPasswordlength, txtFNlength, txtLNlength);
+                checkBoxMale, checkBoxFeMale, txtUserlength, txtPasswordlength, txtFNlength, txtLNlength,invalidText);
 
         setId("AnchorPane");
         setMaxHeight(700.0);
@@ -83,6 +85,16 @@ public class SignUpPageClass extends AnchorPane {
         setMinWidth(USE_PREF_SIZE);
         setPrefHeight(700.0);
         setPrefWidth(600.0);
+        
+           
+        
+        invalidText.setFill(javafx.scene.paint.Color.RED);
+        invalidText.setLayoutX(150.0);
+        invalidText.setLayoutY(570.0);
+        invalidText.setOpacity(0);
+        invalidText.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
+        invalidText.setStrokeWidth(0.0);
+        invalidText.setText("Username Duplication please enter another username");
 
         imageView.setFitHeight(789.0);
         imageView.setFitWidth(706.0);
@@ -255,12 +267,14 @@ public class SignUpPageClass extends AnchorPane {
         getChildren().add(checkBoxFeMale);
         getChildren().add(label5);
         getChildren().add(checkBoxMale);
+
         getChildren().add(label6);
         getChildren().add(btnUploadImage);
         getChildren().add(txtUserlength);
         getChildren().add(txtPasswordlength);
         getChildren().add(txtLNlength);
         getChildren().add(txtFNlength);
+                getChildren().add(invalidText);
 
     }
 

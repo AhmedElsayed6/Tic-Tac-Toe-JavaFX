@@ -68,10 +68,11 @@ public class ClientThreadHandler extends Thread {
         }
 
         String[] st = query.split(",");
-        switch (st[0]) {
+        System.out.println(query);
+        switch (st[1]) {
             case "loginstatus":
                 LoginController lc = (LoginController) controllersMap.get("login");
-                if (Boolean.parseBoolean(st[1])) {
+                if (Boolean.parseBoolean(st[2])) {
                         System.out.println("valid");
                     lc.validLogin();
                 } else {
@@ -82,10 +83,11 @@ public class ClientThreadHandler extends Thread {
                 
                 case "signupstatus":
                 SignupController sc = (SignupController) controllersMap.get("signup");
-                if (Boolean.parseBoolean(st[1])) {
+                if (Boolean.parseBoolean(st[2])) {
                         System.out.println("valid");
-                    sc.validLogin();
+                    sc.validSignup();
                 } else {
+                     sc.inValidSignup();
                       System.out.println( "invalid");
                 }
                 break;
