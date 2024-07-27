@@ -1,10 +1,11 @@
-
 package Controllers.OnlineControllers;
+
 
 import Controllers.ChangeSceneController;
 import Views.OnlineViews.GameHistoryView;
 import java.io.ByteArrayInputStream;
 import java.util.Base64;
+
 import javafx.application.Platform;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
@@ -13,8 +14,8 @@ import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-
 public class OnlinePageController implements Controllers {
+
     ImageView profileImage;
     Label nameLabel , usernameLabel ,  scoreLabel , genderLabel ;
     Button btnRequestGame ;
@@ -22,6 +23,10 @@ public class OnlinePageController implements Controllers {
     Hyperlink histoyHyperLink;
     
     public OnlinePageController(ImageView profileImage, Label nameLabel, Label usernameLabel, Label scoreLabel, Label genderLabel, Button btnRequestGame, ListView avaiablePlayersListView, Hyperlink histoyHyperLink) {
+
+
+        System.out.println("HIHIHI");
+
         this.profileImage = profileImage;
         this.nameLabel = nameLabel;
         this.usernameLabel = usernameLabel;
@@ -30,9 +35,13 @@ public class OnlinePageController implements Controllers {
         this.btnRequestGame = btnRequestGame;
         this.avaiablePlayersListView = avaiablePlayersListView;
         this.histoyHyperLink = histoyHyperLink;
+
         ClientThreadHandler.controllersMap.put("online",this);
          getUserDataRequest();
-         setHandlers();
+              createQuery();
+         setHandlers();     
+    
+     
     }
     private void setHandlers(){
     histoyHyperLink.setOnMouseClicked((e)->{
@@ -43,7 +52,7 @@ public class OnlinePageController implements Controllers {
     }
     private void getUserDataRequest(){
  
-   ClientThreadHandler.queryQueue.add("getuserdata," + LoginController.getUsername());
+     ClientThreadHandler.queryQueue.add("getuserdata," + LoginController.getUsername());
     }
     public void setUserData(String userData){
      System.out.println("Recieced " + userData);
@@ -58,12 +67,20 @@ public class OnlinePageController implements Controllers {
      profileImage.setImage(im);
      
      });
-  //  String []data = userData.split(",");
-    
     }
     
- 
-    
-    
-    
+    private void createQuery() {
+        String query = "getavailableplayers," + LoginController.getUsername();
+        ClientThreadHandler.queryQueue.add(query);
+    }
+
+    void showAvailablePlayers(String[] st) {
+         Platform.runLater(() -> {
+               avaiablePlayersListView.getItems().clear();
+        for (int i =2 ; i < st.length; i++) {
+            System.out.println(st[i]);
+               avaiablePlayersListView.getItems().add(new Label(st[i]));
+        }
+          });
+    }
 }

@@ -10,6 +10,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
 
 public class ClientThreadHandler extends Thread {
+    public static String username;
 
     DataInputStream dis;
     PrintStream ps;
@@ -76,6 +77,7 @@ public class ClientThreadHandler extends Thread {
                         System.out.println("valid Login");
                     lc.validLogin();
                     lc.setUsername(st[0]);
+
                 } else {
                       System.out.println( "invalid Login");
                     lc.inValidLogin();
@@ -88,15 +90,17 @@ public class ClientThreadHandler extends Thread {
                         System.out.println("valid");
                     sc.validSignup();
                     sc.setUsername(st[0]);
+
                 } else {
                      sc.inValidSignup();
                       System.out.println( "invalid");
                 }
                 break;
+
          
                 case "getuserdata":          
-                OnlinePageController oc = (OnlinePageController) controllersMap.get("online");
-                oc.setUserData(query);
+                OnlinePageController oc1 = (OnlinePageController) controllersMap.get("online");
+                oc1.setUserData(query);
                 break;
                 
                 case "getuserhistory":          
@@ -104,6 +108,14 @@ public class ClientThreadHandler extends Thread {
                  System.out.println("game history");
                 ghc.setHistory(query);
                 break;
+
+                case "getavailableplayers":
+                    OnlinePageController oc2 = (OnlinePageController) controllersMap.get("online");
+                    if(st[2]!=null){
+                        oc2.showAvailablePlayers(st);
+                    }
+                    break;
+
 
         }
     }
