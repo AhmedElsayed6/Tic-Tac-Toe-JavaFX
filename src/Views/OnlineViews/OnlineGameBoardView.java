@@ -80,9 +80,10 @@ public class OnlineGameBoardView extends AnchorPane {
     List<Line> linesList;
     List<Label> labelList;
     List<ImageView> imageViewList;
-    Player player1,player2;
-    public OnlineGameBoardView() {
-
+  
+    public OnlineGameBoardView(Player player1 , Player player2) {
+        System.out.println(player1);
+        System.out.println(player2);
         
         imgViewBackGround = new ImageView();
         borderPane = new BorderPane();
@@ -128,15 +129,21 @@ public class OnlineGameBoardView extends AnchorPane {
         labelPlayer1 = new Label();
         labelPlayer1Score = new Label();
         labelScore1 = new Label();
-
+  
         player2InfoPane = new AnchorPane();
         imgViewPlayer2Image = new ImageView();
         labelPlayer2Name = new Label();
         labelPlayer2 = new Label();
         labelPlayer2Score = new Label();
         labelScore2 = new Label();
-
-
+        
+        imgViewPlayer1Image.setImage(player1.getProfilePicture());
+        imgViewPlayer2Image.setImage(player2.getProfilePicture());
+        labelPlayer2Name.setText(player2.getName());
+        labelPlayer1Name.setText(player1.getName());
+        labelPlayer1Score.setText(Integer.toString(player1.getScore()));
+        labelPlayer2Score.setText(Integer.toString(player2.getScore()));
+        
         imgViewBackGround.setFitHeight(700.0);
         imgViewBackGround.setFitWidth(620.0);
 
@@ -331,8 +338,8 @@ public class OnlineGameBoardView extends AnchorPane {
         labelPlayer1Name.setMaxWidth(351.0);
         labelPlayer1Name.setPrefHeight(58.0);
         labelPlayer1Name.setPrefWidth(184.0);
-        labelPlayer1Name.setText("Ahmed Eid");
-        labelPlayer1Name.setOpacity(0);
+
+        labelPlayer1Name.setOpacity(1);
         labelPlayer1Name.setTextFill(javafx.scene.paint.Color.WHITE);
         labelPlayer1Name.setFont(new Font("Rockwell Italic", 26.0));
 
@@ -352,7 +359,7 @@ public class OnlineGameBoardView extends AnchorPane {
         labelPlayer1Score.setMaxWidth(351.0);
         labelPlayer1Score.setPrefHeight(23.0);
         labelPlayer1Score.setPrefWidth(98.0);
-        labelPlayer1Score.setText("6");
+
         labelPlayer1Score.setTextFill(javafx.scene.paint.Color.WHITE);
         labelPlayer1Score.setFont(new Font("Rockwell Italic", 26.0));
 
@@ -387,8 +394,8 @@ public class OnlineGameBoardView extends AnchorPane {
         labelPlayer2Name.setMaxWidth(351.0);
         labelPlayer2Name.setPrefHeight(58.0);
         labelPlayer2Name.setPrefWidth(196.0);
-        labelPlayer2Name.setText("Nourhan Omar");
-        labelPlayer2Name.setOpacity(0);
+  
+        labelPlayer2Name.setOpacity(1);
         labelPlayer2Name.setTextFill(javafx.scene.paint.Color.WHITE);
         labelPlayer2Name.setFont(new Font("Rockwell Italic", 26.0));
 
@@ -409,7 +416,7 @@ public class OnlineGameBoardView extends AnchorPane {
         labelPlayer2Score.setMaxWidth(351.0);
         labelPlayer2Score.setPrefHeight(32.0);
         labelPlayer2Score.setPrefWidth(64.0);
-        labelPlayer2Score.setText("6");
+
         labelPlayer2Score.setTextFill(javafx.scene.paint.Color.WHITE);
         labelPlayer2Score.setFont(new Font("Rockwell Italic", 26.0));
 
@@ -463,7 +470,6 @@ public class OnlineGameBoardView extends AnchorPane {
         player1InfoPane.getChildren().add(labelPlayer1);
         player1InfoPane.getChildren().add(labelPlayer1Score);
         player1InfoPane.getChildren().add(labelScore1);
-
         player2InfoPane.getChildren().add(imgViewPlayer2Image);
         player2InfoPane.getChildren().add(labelPlayer2Name);
         player2InfoPane.getChildren().add(labelPlayer2);
