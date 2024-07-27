@@ -16,7 +16,7 @@
             <Image url="@../Images/BackGround.png" />
          </image>
       </ImageView>
-      <Label layoutX="202.0" layoutY="61.0" text="Histroy">
+      <Label layoutX="202.0" layoutY="61.0" text="History">
          <font>
             <Font name="System Italic" size="64.0" />
          </font>
