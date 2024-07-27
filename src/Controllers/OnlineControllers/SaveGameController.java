@@ -1,4 +1,4 @@
-package Controllers;
+package Controllers.OnlineControllers;
 
 import Model.GameBoard;
 import Model.Player;
