@@ -3,6 +3,7 @@ package Views.GeneralViews;
 import Views.AiViews.DifficultyPageClass;
 import Controllers.ChangeSceneController;
 import Views.LocalViews.LocalChooseXOPageView;
+import Views.OnlineViews.IpPageClass;
 import Views.OnlineViews.LoginPageClass;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
@@ -71,11 +72,8 @@ public class ChosePageClass extends AnchorPane {
         btnVSComputer.setPrefWidth(164.0);
         btnVSComputer.setStyle("-fx-background-color: #3f51b5; -fx-background-radius: 50; -fx-border-color: white; -fx-border-radius: 50; -fx-border-width: 2;");
         btnVSComputer.setText("VS Computer");
-        btnVSComputer.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                ChangeSceneController.switchScene(new DifficultyPageClass(),event);
-            }
+        btnVSComputer.setOnMouseClicked((MouseEvent event) -> {
+            ChangeSceneController.switchScene(new DifficultyPageClass(),event);
         });
         
         btnVSComputer.setTextFill(javafx.scene.paint.Color.WHITE);
@@ -102,7 +100,7 @@ public class ChosePageClass extends AnchorPane {
         btnOnline.setStyle("-fx-background-color: #3f51b5; -fx-background-radius: 50; -fx-border-color: white; -fx-border-radius: 50; -fx-border-width: 2;");
         btnOnline.setText("Online");
         btnOnline.setOnMouseClicked((MouseEvent event) -> {
-            ChangeSceneController.switchScene(new LoginPageClass(),event);
+            ChangeSceneController.switchScene(new IpPageClass(),event);
         });
         btnOnline.setTextFill(javafx.scene.paint.Color.WHITE);
         btnOnline.setFont(new Font("System Bold", 18.0));

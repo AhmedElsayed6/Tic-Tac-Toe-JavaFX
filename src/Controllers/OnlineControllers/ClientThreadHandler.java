@@ -4,7 +4,8 @@ import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.net.Socket;
-import java.util.StringTokenizer;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
 
@@ -14,10 +15,11 @@ public class ClientThreadHandler extends Thread {
     PrintStream ps;
     Socket mySocket;
     public static LinkedBlockingQueue<String> queryQueue = new LinkedBlockingQueue<>();
+    public static Map<String, Controllers> controllersMap = new ConcurrentHashMap<>();
 
-   public ClientThreadHandler() {
+    public ClientThreadHandler(String ip) {
         try {
-            mySocket = new Socket("127.0.0.1", 5005);
+            mySocket = new Socket(ip, 5005);
             dis = new DataInputStream(mySocket.getInputStream());
             ps = new PrintStream(mySocket.getOutputStream());
         } catch (IOException ex) {
@@ -38,7 +40,9 @@ public class ClientThreadHandler extends Thread {
                 }
 
                 if (dis.available() > 0) {
+
                     recievedQuery = dis.readLine();
+
                     recievedQueryHandler(recievedQuery);
                 }
 
@@ -57,10 +61,35 @@ public class ClientThreadHandler extends Thread {
     }
 
     void recievedQueryHandler(String query) {
+
         if (query == null) {
+            System.out.println(query);
             return;
         }
 
+        String[] st = query.split(",");
+        switch (st[0]) {
+            case "loginstatus":
+                LoginController lc = (LoginController) controllersMap.get("login");
+                if (Boolean.parseBoolean(st[1])) {
+                        System.out.println("valid");
+                    lc.validLogin();
+                } else {
+                      System.out.println( "invalid");
+                    lc.inValidLogin();
+                }
+                break;
+                
+                case "signupstatus":
+                SignupController sc = (SignupController) controllersMap.get("signup");
+                if (Boolean.parseBoolean(st[1])) {
+                        System.out.println("valid");
+                    sc.validLogin();
+                } else {
+                      System.out.println( "invalid");
+                }
+                break;
 
+        }
     }
 }
