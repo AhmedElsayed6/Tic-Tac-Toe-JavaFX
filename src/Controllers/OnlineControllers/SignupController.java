@@ -37,11 +37,12 @@ public class SignupController implements Controllers {
     File personalImage;
     String imageString;
     private String query;
+    Text invalidLogin;
 
     public SignupController(Button btnUploadImg, Button btnSignUp, PasswordField passworField, TextField usernameField,
             TextField firstNameField, TextField lastNameField, CheckBox checkBoxMale, CheckBox checkBoxFemale,
-            Text txtUserlength,Text txtPasswordlength,Text txtFNlength,Text txtLNlength) {
-
+            Text txtUserlength,Text txtPasswordlength,Text txtFNlength,Text txtLNlength , Text invalidLogin) {
+        this.invalidLogin = invalidLogin;
         this.btnSignUp = btnSignUp;
         this.btnUploadImg = btnUploadImg;
         this.passworField = passworField;
@@ -168,10 +169,19 @@ public class SignupController implements Controllers {
             ClientThreadHandler.controllersMap.put("signup", this);
         }
     }
-        public void validLogin(){
+        public void validSignup(){
         Platform.runLater(()->{ChangeSceneController.switchSceneWithStage(new onlinePageClass());});
         
     }
+         public void inValidSignup(){
+          Platform.runLater(()->{  invalidLogin.setOpacity(1);
+            PauseTransition pause = new PauseTransition(javafx.util.Duration.seconds(3));
+            pause.setOnFinished((e) -> {
+               invalidLogin.setOpacity(0);
+            });});
+          
+    }
+        
 
     //signup,username,firstname,lastname,password,(true or false)
     public String collectSign() {
