@@ -48,7 +48,7 @@ public class ClientThreadHandler extends Thread {
                 }
 
             } catch (Exception ex) {
-                System.out.print("An error occured");
+                ex.printStackTrace();
             }
         }
     }
@@ -105,7 +105,6 @@ public class ClientThreadHandler extends Thread {
                 
                 case "getuserhistory":          
                 GameHistoryController ghc = (GameHistoryController) controllersMap.get("history");
-                 System.out.println("game history");
                 ghc.setHistory(query);
                 break;
 
@@ -116,11 +115,14 @@ public class ClientThreadHandler extends Thread {
                     }
                     break;
                 case "playinvite":
-                    System.out.println("111~~"+query+"~~~11");
                     OnlinePageController oc3 = (OnlinePageController) controllersMap.get("online");
                     oc3.showInvite(query);                  
                     break;
-
+                case "startmatch":
+                    OnlinePageController oc4 = (OnlinePageController) controllersMap.get("online");
+                    oc4.showGameBoard(query);                  
+                    break;
+              
 
         }
     }

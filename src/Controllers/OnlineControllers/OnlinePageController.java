@@ -25,8 +25,6 @@ public class OnlinePageController implements Controllers {
     public OnlinePageController(ImageView profileImage, Label nameLabel, Label usernameLabel, Label scoreLabel, Label genderLabel, Button btnRequestGame, ListView avaiablePlayersListView, Hyperlink histoyHyperLink) {
 
 
-        System.out.println("HIHIHI");
-
         this.profileImage = profileImage;
         this.nameLabel = nameLabel;
         this.usernameLabel = usernameLabel;
@@ -56,8 +54,10 @@ public class OnlinePageController implements Controllers {
     });
     }
     public void showInvite(String invite){
-            System.out.println(invite);
-             inv = new InviteDialog(null , null  , null);
+            System.out.println("got an invite");
+            Platform.runLater(()->{ InviteDialog db = new InviteDialog(invite);});
+   
+            // inv = new InviteDialog(null , null  , null);
     
     
     }
@@ -66,7 +66,6 @@ public class OnlinePageController implements Controllers {
      ClientThreadHandler.queryQueue.add("getuserdata," + LoginController.getUsername());
     }
     public void setUserData(String userData){
-     System.out.println("Recieced " + userData);
      String []data = userData.split(",");
      Platform.runLater(()->{
      usernameLabel.setText(data[0]);
@@ -87,10 +86,15 @@ public class OnlinePageController implements Controllers {
          Platform.runLater(() -> {
                availablePlayersListView.getItems().clear();
         for (int i =2 ; i < st.length; i++) {
-            System.out.println(st[i]);
                availablePlayersListView.getItems().add(new Label(st[i]));
         }
           });
     }
+    
+      public void showGameBoard(String invite){
+        System.out.println(invite);
+    
+    }
+    
 
 }
