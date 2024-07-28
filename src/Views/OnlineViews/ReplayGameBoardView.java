@@ -1,6 +1,7 @@
 package Views.OnlineViews;
 
 
+import Controllers.ChangeSceneController;
 import Controllers.OnlineControllers.GameReplayController;
 import Model.Player;
 import java.util.ArrayList;
@@ -23,7 +24,7 @@ import javafx.scene.text.Font;
 
 
 public class ReplayGameBoardView extends AnchorPane {
-    
+     protected final ImageView backImage;
     protected final ImageView imgViewBackGround;
     protected final BorderPane borderPane;
     protected final Pane boardPane;
@@ -122,6 +123,7 @@ public class ReplayGameBoardView extends AnchorPane {
         diag2Line = new Line();
         vBox = new VBox();
         vBox0 = new VBox();
+        backImage = new ImageView();
         player1InfoPane = new AnchorPane();
         imgViewPlayer1Image = new ImageView();
         labelPlayer1Name = new Label();
@@ -137,6 +139,11 @@ public class ReplayGameBoardView extends AnchorPane {
         labelScore2 = new Label();
 
 
+        backImage.setFitHeight(74.0);
+        backImage.setFitWidth(80.0);
+        backImage.setPickOnBounds(true);
+        backImage.setPreserveRatio(true);
+        backImage.setImage(new Image(getClass().getResource("/Images/backArrow.png").toExternalForm()));
                 imgViewBackGround.setFitHeight(789.0);
         imgViewBackGround.setFitWidth(706.0);
         imgViewBackGround.setLayoutX(-72.0);
@@ -423,6 +430,8 @@ public class ReplayGameBoardView extends AnchorPane {
         borderPane.setBottom(player2InfoPane);
 
         getChildren().add(imgViewBackGround);
+        
+             
         gridPane.getColumnConstraints().add(columnConstraints);
         gridPane.getColumnConstraints().add(columnConstraints0);
         gridPane.getColumnConstraints().add(columnConstraints1);
@@ -459,6 +468,8 @@ public class ReplayGameBoardView extends AnchorPane {
         player1InfoPane.getChildren().add(imgViewPlayer1Image);
         player1InfoPane.getChildren().add(labelPlayer1Name);
         player1InfoPane.getChildren().add(labelPlayer1);
+          player1InfoPane.getChildren().add(backImage);
+        
         player1InfoPane.getChildren().add(labelPlayer1Score);
         player1InfoPane.getChildren().add(labelScore1);
 
@@ -471,7 +482,10 @@ public class ReplayGameBoardView extends AnchorPane {
         linesList = new ArrayList<>();
         labelList = new ArrayList<>();
         imageViewList = new ArrayList<>();
-        
+        backImage.setOnMouseClicked((e)->{
+            System.out.println("dfajhsdoiyfasoiydfgd");
+            ChangeSceneController.switchSceneWithStage(new onlinePageClass());
+        });
    
         getChildren().add(borderPane);
          for (Node node : gridPane.getChildren()) {

@@ -70,13 +70,9 @@ public class RejectDialog {
         dialog.getDialogPane().setContent(dialogPane);
 
         // Add event handler for exit button
-        okBtn.addEventHandler(ActionEvent.ACTION, new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                dialog.getDialogPane().getButtonTypes().addAll(ButtonType.CANCEL);
-                dialog.close();
-
-            }
+        okBtn.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
+            dialog.getDialogPane().getButtonTypes().addAll(ButtonType.CANCEL);
+            dialog.close();
         });
 
         // Display the dialog
