@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -74,7 +75,8 @@ public class OnlineGameBoardView extends AnchorPane {
     protected final Label labelPlayer1;
     protected final Label labelPlayer1Score;
     protected final Label labelScore1;
-
+    protected final Button btnSurrunder;
+    protected final Button btnSave;
     protected final AnchorPane player2InfoPane;
     protected final ImageView imgViewPlayer2Image;
     protected final Label labelPlayer2Name;
@@ -134,7 +136,8 @@ public class OnlineGameBoardView extends AnchorPane {
         labelPlayer1 = new Label();
         labelPlayer1Score = new Label();
         labelScore1 = new Label();
-  
+        btnSurrunder = new Button();
+        btnSave = new Button();
         player2InfoPane = new AnchorPane();
         imgViewPlayer2Image = new ImageView();
         labelPlayer2Name = new Label();
@@ -382,9 +385,21 @@ public class OnlineGameBoardView extends AnchorPane {
         labelScore1.setTextFill(javafx.scene.paint.Color.WHITE);
         labelScore1.setFont(new Font("Rockwell Italic", 26.0));
 
- 
+        btnSurrunder.setLayoutX(14.0);
+        btnSurrunder.setLayoutY(34.0);
+        btnSurrunder.setMnemonicParsing(false);
+        btnSurrunder.setStyle("-fx-background-color: #1976d2; -fx-background-radius: 50px; -fx-border-color: #ffffff; -fx-border-radius: 50px; -fx-shape: url('Rec.svg');;");
+        btnSurrunder.setText("Surrunder ");
+        btnSurrunder.setTextFill(javafx.scene.paint.Color.WHITE);
         borderPane.setTop(player1InfoPane);
-
+        
+        btnSave.setLayoutX(14.0);
+        btnSave.setLayoutY(75.0);
+        btnSave.setMnemonicParsing(false);
+        btnSave.setStyle("-fx-background-color: #1976d2; -fx-background-radius: 50px; -fx-border-color: #ffffff; -fx-border-radius: 50px; -fx-shape: url('Rec.svg');;");
+        btnSave.setText("Save ");
+        btnSave.setTextFill(javafx.scene.paint.Color.WHITE);
+        
         BorderPane.setAlignment(player2InfoPane, javafx.geometry.Pos.CENTER);
         player2InfoPane.setPrefHeight(110.0);
         player2InfoPane.setPrefWidth(600.0);
@@ -484,6 +499,8 @@ public class OnlineGameBoardView extends AnchorPane {
         player2InfoPane.getChildren().add(labelPlayer2);
         player2InfoPane.getChildren().add(labelPlayer2Score);
         player2InfoPane.getChildren().add(labelScore2);
+        player1InfoPane.getChildren().add(btnSurrunder);
+        player1InfoPane.getChildren().add(btnSave);
         vboxList = new ArrayList<>();
         linesList = new ArrayList<>();
         labelList = new ArrayList<>();

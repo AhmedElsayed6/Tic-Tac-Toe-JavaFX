@@ -8,15 +8,10 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <jar href="TicTacToe.jar" size="13052600" download="eager" />
-=======
-    <jar href="TicTacToe.jar" size="13038735" download="eager" />
->>>>>>> 9895f9c858ced38c9def6e979c0251fc22f76828
-=======
-    <jar href="TicTacToe.jar" size="13063810" download="eager" />
->>>>>>> 3867e8d4ce732529a09c3a93a490257f9d9295be
+    <jar href="TicTacToe.jar" size="13068421" download="eager" />
+    <jar href="lib\derby.jar" size="2766479" download="eager" />
+    <jar href="lib\derbyclient.jar" size="576624" download="eager" />
+    <jar href="lib\derbynet.jar" size="248898" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="TicTacToe" >
     <param name="requiredFXVersion" value="8.0+"/>

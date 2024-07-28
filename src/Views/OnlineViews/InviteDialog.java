@@ -1,11 +1,8 @@
 package Views.OnlineViews;
 
-import Views.GeneralViews.ChosePageClass;
 import Controllers.ChangeSceneController;
 import Controllers.OnlineControllers.ClientThreadHandler;
 import Controllers.OnlineControllers.LoginController;
-import Model.GameBoard;
-import Model.Player;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
