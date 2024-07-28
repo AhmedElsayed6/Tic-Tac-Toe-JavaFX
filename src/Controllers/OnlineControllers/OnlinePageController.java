@@ -97,6 +97,7 @@ public class OnlinePageController implements Controllers {
         String [] data = playersData.split(",");
       
         Player player1Me = new Player(nameLabel.getText(),usernameLabel.getText(),Integer.valueOf(data[2]) ,Integer.valueOf(scoreLabel.getText()) ,img );
+
     
          byte [] image = Base64.getDecoder().decode(data[8]) ;
         Image imgg = new Image(new ByteArrayInputStream(image));

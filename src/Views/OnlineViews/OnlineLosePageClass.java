@@ -3,6 +3,7 @@ package Views.OnlineViews;
 import Views.AiViews.*;
 import Views.AiViews.AIGameBoardView;
 import Controllers.ChangeSceneController;
+import Controllers.OnlineControllers.ClientThreadHandler;
 import Model.Player;
 import Views.GeneralViews.WelcomePageClass;
 import javafx.animation.PauseTransition;
@@ -92,6 +93,9 @@ public class OnlineLosePageClass extends AnchorPane {
         btnPlayAgain.setDisable(true);
         btnPlayAgain.setOnMouseClicked((MouseEvent event) -> {
             ChangeSceneController.switchScene(new OnlineGameBoardView(player1 , player2  ),event);
+
+              ClientThreadHandler.queryQueue.add("playinvite," + player1.getUsername()+","+player2.getUsername());
+          //  ChangeSceneController.switchScene(new OnlineGameBoardView(player1 , player2  ),event);
         });
         PauseTransition pause = new PauseTransition(javafx.util.Duration.seconds(3));
         pause.setOnFinished((e) -> {
