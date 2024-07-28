@@ -39,14 +39,10 @@ public class ClientThreadHandler extends Thread {
                 if (sentQuery != null) {
                     querySender(sentQuery);
                 }
-
                 if (dis.available() > 0) {
-
                     recievedQuery = dis.readLine();
-
                     recievedQueryHandler(recievedQuery);
                 }
-
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
@@ -133,6 +129,9 @@ public class ClientThreadHandler extends Thread {
                 case "win":
                     OnlineGameController ogc1 = (OnlineGameController) controllersMap.get("game");
                     ogc1.recievedPlay(query);                  
+                    break;
+                case "surrender":
+                    //setTwoPlayersAvailable();                  
                     break;
               
 
