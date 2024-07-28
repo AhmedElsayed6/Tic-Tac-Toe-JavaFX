@@ -1,39 +1,43 @@
+
+
 package Views.OnlineViews;
 
+import Controllers.ChangeSceneController;
 import Controllers.OnlineControllers.GameHistoryController;
+import Views.GeneralViews.WelcomePageClass;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
+import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.shape.Line;
 import javafx.scene.text.Font;
 
 public class GameHistoryView extends AnchorPane {
 
     protected final ImageView imageView;
-    protected final Label label;
-    protected final ScrollPane scrollPane;
-    protected final FlowPane flowPane;
-    protected final Label label0;
-    protected final Label label1;
-    protected final Line line;
-    protected final Button button;
-    GameHistoryController ghc;
+    protected final ImageView backArrow;
+    protected final Label historyLable;
+    protected final ListView listViewHistory;
+//    protected final FlowPane flowPaneForListRow;
+//    protected final Label infoGameHistoryLable;
+//    protected final Button viewGameButton;
+    protected final GameHistoryController ghc;
+    
+
     public GameHistoryView() {
 
         imageView = new ImageView();
-        label = new Label();
-        scrollPane = new ScrollPane();
-        flowPane = new FlowPane();
-        label0 = new Label();
-        label1 = new Label();
-        line = new Line();
-        button = new Button();
-        ghc = new GameHistoryController();
+        backArrow = new ImageView();
+        historyLable = new Label();
+        listViewHistory = new ListView();
+//        flowPaneForListRow = new FlowPane();
+//        infoGameHistoryLable = new Label();
+//        viewGameButton = new Button();
+
         setId("AnchorPane");
         setMaxHeight(USE_PREF_SIZE);
         setMaxWidth(USE_PREF_SIZE);
@@ -45,48 +49,53 @@ public class GameHistoryView extends AnchorPane {
         imageView.setFitHeight(744.0);
         imageView.setFitWidth(621.0);
         imageView.setLayoutX(-8.0);
-        imageView.setLayoutY(-29.0);
+        imageView.setLayoutY(-34.0);
         imageView.setImage(new Image(getClass().getResource("/Images/BackGround.png").toExternalForm()));
 
-        label.setLayoutX(202.0);
-        label.setLayoutY(61.0);
-        label.setText("Histroy");
-        label.setFont(new Font("System Italic", 64.0));
+        backArrow.setFitHeight(79.0);
+        backArrow.setFitWidth(106.0);
+        backArrow.setPickOnBounds(true);
+        backArrow.setPreserveRatio(true);
+        backArrow.setImage(new Image(getClass().getResource("/Images/backArrow.png").toExternalForm()));
 
-        scrollPane.setLayoutX(80.0);
-        scrollPane.setLayoutY(183.0);
-        scrollPane.setPrefHeight(339.0);
-        scrollPane.setPrefWidth(453.0);
+        historyLable.setLayoutX(202.0);
+        historyLable.setLayoutY(61.0);
+        historyLable.setText("History");
+        historyLable.setFont(new Font("System Italic", 64.0));
 
-        flowPane.setPrefHeight(38.0);
-        flowPane.setPrefWidth(449.0);
+        listViewHistory.setFocusTraversable(false);
+        listViewHistory.setLayoutX(90.0);
+        listViewHistory.setLayoutY(212.0);
+        listViewHistory.setPrefHeight(432.0);
+        listViewHistory.setPrefWidth(453.0);
 
-        label0.setText("Game Name");
-        label0.setFont(new Font(24.0));
-        FlowPane.setMargin(label0, new Insets(0.0, 50.0, 0.0, 10.0));
+//        flowPaneForListRow.setLayoutX(90.0);
+//        flowPaneForListRow.setLayoutY(224.0);
+//        flowPaneForListRow.setPrefHeight(38.0);
+//        flowPaneForListRow.setPrefWidth(453.0);
 
-        label1.setText("Date");
-        label1.setFont(new Font(24.0));
-        FlowPane.setMargin(label1, new Insets(0.0, 0.0, 0.0, 70.0));
-        scrollPane.setContent(flowPane);
+//        infoGameHistoryLable.setText("LocalTwoPlayers_2024-07-24-14-23-06t");
+//        infoGameHistoryLable.setFont(new Font(18.0));
+//        FlowPane.setMargin(infoGameHistoryLable, new Insets(0.0, 0.0, 0.0, 10.0));
 
-        line.setEndX(532.0);
-        line.setEndY(223.0);
-        line.setStartX(80.0);
-        line.setStartY(223.0);
-
-        button.setLayoutX(277.0);
-        button.setLayoutY(586.0);
-        button.setMnemonicParsing(false);
-        button.setText("View Game");
-
+//        viewGameButton.setMnemonicParsing(false);
+//        viewGameButton.setPrefHeight(29.0);
+//        viewGameButton.setPrefWidth(77.0);
+//        viewGameButton.setStyle("-fx-background-color: #3f51b5; -fx-border-width: 2;");
+//        viewGameButton.setText("View Game");
+//        viewGameButton.setTextFill(javafx.scene.paint.Color.WHITE);
+//        FlowPane.setMargin(viewGameButton, new Insets(0.0, 0.0, 0.0, 25.0));
+//        flowPaneForListRow.setPadding(new Insets(5.0, 0.0, 0.0, 0.0));
+//        flowPaneForListRow.getChildren().add(infoGameHistoryLable);
+//        flowPaneForListRow.getChildren().add(viewGameButton);
+//   listViewHistory.getItems().add(flowPaneForListRow);
         getChildren().add(imageView);
-        getChildren().add(label);
-        flowPane.getChildren().add(label0);
-        flowPane.getChildren().add(label1);
-        getChildren().add(scrollPane);
-        getChildren().add(line);
-        getChildren().add(button);
-
+        getChildren().add(backArrow);
+        getChildren().add(historyLable);
+        getChildren().add(listViewHistory);
+        
+         ghc = new GameHistoryController(listViewHistory ,backArrow);
     }
 }
+
+   

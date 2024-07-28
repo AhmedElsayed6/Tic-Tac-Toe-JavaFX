@@ -35,6 +35,7 @@ public class SaveGameController {
     public void saveMatch(GameBoard game) {
         String numberOfPlays = String.valueOf(game.numberPlays);
          String winningLine = game.winningLine;
+
          if(winningLine.compareToIgnoreCase("")==0)
              winningLine = "12";
         System.out.println("Winning line is "+winningLine+"~~");
@@ -43,6 +44,7 @@ public class SaveGameController {
         String formattedTime = now.format(formatter);
         // save,u1,u2,0~nplays~winning~date~winningline
         String matchSaveQuery = "save,"+player1.getUsername()+","+player2.getUsername()+","+player1.getCoin()+"~"+numberOfPlays+"~"+winningLine+"~"+formattedTime+"~"+move;
+
         ClientThreadHandler.queryQueue.add(matchSaveQuery);
     }
     public  void declineSave(){

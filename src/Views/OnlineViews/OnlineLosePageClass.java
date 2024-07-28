@@ -3,7 +3,9 @@ package Views.OnlineViews;
 import Views.AiViews.*;
 import Views.AiViews.AIGameBoardView;
 import Controllers.ChangeSceneController;
+
 import Controllers.OnlineControllers.ClientThreadHandler;
+
 import Model.Player;
 import Views.GeneralViews.WelcomePageClass;
 import javafx.animation.PauseTransition;
@@ -54,7 +56,9 @@ public class OnlineLosePageClass extends AnchorPane {
         mediaView.setFitWidth(400.0);
         mediaView.setLayoutX(100.0);
         mediaView.setLayoutY(181.0);
+
         String MEDIA_URL = "file:///" + System.getProperty("user.dir").replace("\\", "/") + "/src/Images/lose.mp4";
+
         MediaPlayer mp = new MediaPlayer( new Media(MEDIA_URL));
         mediaView.setMediaPlayer(mp);
         mp.play();
@@ -92,8 +96,10 @@ public class OnlineLosePageClass extends AnchorPane {
         btnPlayAgain.setFont(new Font("System Bold", 18.0));
         btnPlayAgain.setDisable(true);
         btnPlayAgain.setOnMouseClicked((MouseEvent event) -> {
+
               ClientThreadHandler.queryQueue.add("playinvite," + player1.getUsername()+","+player2.getUsername());
           //  ChangeSceneController.switchScene(new OnlineGameBoardView(player1 , player2  ),event);
+
         });
         PauseTransition pause = new PauseTransition(javafx.util.Duration.seconds(3));
         pause.setOnFinished((e) -> {

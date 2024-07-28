@@ -75,13 +75,14 @@ private Image profilePicture;
         this.score = score;
         this.name = name;
         this.username = null;
-        this.coin = coin;
+
     }
     
         public Player(String name, int coin ) {
         this.score = 0;
         this.name = name;
         this.username = null;
+
         this.coin = coin;
     }
 

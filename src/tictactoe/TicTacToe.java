@@ -23,7 +23,11 @@ public class TicTacToe extends Application {
 
     //    Parent root = new  WelcomePageClass();
 
-        Parent root = new ReplayGameBoardView("vv,vvv,1~9~12~2024-07-28-23:37~0.1.1~0.2.0~0.0.1~1.0.0~1.2.1~1.1.0~2.0.1~2.1.0~2.2.1~");
+
+       // Parent root = new ReplayGameBoardView("vv,vvv,1~9~12~2024-07-28-23:37~0.1.1~0.2.0~0.0.1~1.0.0~1.2.1~1.1.0~2.0.1~2.1.0~2.2.1~");
+
+        Parent root = new WelcomePageClass();
+
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
