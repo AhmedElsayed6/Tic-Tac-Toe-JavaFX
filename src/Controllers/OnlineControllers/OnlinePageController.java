@@ -95,7 +95,9 @@ public class OnlinePageController implements Controllers {
     }
     public void startGame(String playersData){
         String [] data = playersData.split(",");
+      
         Player player1Me = new Player(nameLabel.getText(),usernameLabel.getText(),Integer.valueOf(data[2]) ,Integer.valueOf(scoreLabel.getText()) ,img );
+    
          byte [] image = Base64.getDecoder().decode(data[8]) ;
         Image imgg = new Image(new ByteArrayInputStream(image));
         Player player2Opponent = new Player(data[5]+" "+data[6],data[4],Integer.valueOf(data[3]) ,Integer.valueOf(data[7]) ,imgg );

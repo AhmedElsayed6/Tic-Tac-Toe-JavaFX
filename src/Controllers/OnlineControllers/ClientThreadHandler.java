@@ -35,7 +35,7 @@ public class ClientThreadHandler extends Thread {
             String recievedQuery = null;
 
             try {
-                sentQuery = queryQueue.poll(1, TimeUnit.SECONDS);
+                sentQuery = queryQueue.poll(500, TimeUnit.MILLISECONDS);
                 if (sentQuery != null) {
                     querySender(sentQuery);
                 }
@@ -124,6 +124,11 @@ public class ClientThreadHandler extends Thread {
                 case "startmatch":
                     OnlinePageController oc4 = (OnlinePageController) controllersMap.get("online");
                     oc4.startGame(query);                  
+                    break;
+              
+                case "playedmove":
+                    OnlineGameController ogc = (OnlineGameController) controllersMap.get("game");
+                    ogc.recievedPlay(query);                  
                     break;
               
 

@@ -3,6 +3,7 @@ package Views.OnlineViews;
 
 import Views.LocalViews.*;
 import Controllers.LocalGameController;
+import Controllers.OnlineControllers.OnlineGameController;
 import Model.Player;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,12 +13,16 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.ColumnConstraints;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.RowConstraints;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.scene.text.Font;
 
@@ -80,7 +85,7 @@ public class OnlineGameBoardView extends AnchorPane {
     List<Line> linesList;
     List<Label> labelList;
     List<ImageView> imageViewList;
-  
+    OnlineGameController ogc ; 
     public OnlineGameBoardView(Player player1 , Player player2) {
         System.out.println(player1);
         System.out.println(player2);
@@ -159,6 +164,10 @@ public class OnlineGameBoardView extends AnchorPane {
         borderPane.setMinWidth(600.0);
         borderPane.setPrefHeight(700.0);
         borderPane.setPrefWidth(600.0);
+        
+        BackgroundFill backgroundFill = new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, null);
+        Background background = new Background(backgroundFill);
+      //  gridPane.setBackground(background);
 
         BorderPane.setAlignment(boardPane, javafx.geometry.Pos.CENTER);
         BorderPane.setMargin(boardPane, new Insets(0.0));
@@ -509,6 +518,11 @@ public class OnlineGameBoardView extends AnchorPane {
          
          labelList.add(labelPlayer1Score);
          labelList.add(labelPlayer2Score);
+        Boolean player1Turn;
+        player1Turn  = (player1.getCoin()==1) ? true : false;
+
+        
+         ogc = new OnlineGameController(  linesList,labelList , imageViewList , player1 , player2 , player1Turn);
   
     }
 }
