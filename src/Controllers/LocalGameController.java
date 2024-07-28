@@ -1,11 +1,8 @@
 package Controllers;
 /// controller for each mode 
 
-import Controllers.OnlineControllers.SaveGameController;
 import Model.GameBoard;
 import Model.Player;
-import Views.AiViews.DrawPageClass;
-import Views.AiViews.WinPageClass;
 import Views.LocalViews.DialogView;
 import java.util.List;
 import javafx.application.Platform;
@@ -13,7 +10,6 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Line;
-import javafx.animation.PauseTransition;
 
 public class LocalGameController  {
     
@@ -160,7 +156,6 @@ public class LocalGameController  {
         Image imageX = new Image("/Images/X.png", true);
         Image imageO = new Image("/Images/O.png", true);
         gb.playPosition(row, col, currentPlayer);
-        SaveGameController.saveMove(row, col , currentPlayer, "LocalTwoPlayers");
         Image img = currentPlayer.getCoin() == 1 ? imageX : imageO;
         Platform.runLater(() -> {
             imageViewList.get(index).setImage(img);

@@ -28,6 +28,7 @@ public class OnlineGameController implements Controllers {
     Player player1;
     Player player2;
     boolean player1Turn;
+    SaveGameController sgc;
     Player currentPlayer;
     String move;
 
@@ -40,6 +41,7 @@ public class OnlineGameController implements Controllers {
         this.player2 = player2;
         this.player1Turn = player1Turn;
         this.playedCells = new ArrayList<Integer>();
+        sgc = new SaveGameController(player1, player2);
         ClientThreadHandler.controllersMap.put("game", this);
         initPlayer1();
         initPlayer2();
@@ -90,9 +92,10 @@ public class OnlineGameController implements Controllers {
         disableAllImageViews();
     }
 
-    private void showLose() {
+    private void sendLose() {
         // playedmove,ahmed8,abd9,false,index
-        ClientThreadHandler.queryQueue.add("lose," + player1.getUsername() + "," + player2.getUsername() + "," + player1Turn + "," + move);
+               sgc.saveMatch(gb);
+        ClientThreadHandler.queryQueue.add("lose," + player1.getUsername() + "," + player2.getUsername() );
         disableAllImageViews();
     }
 
@@ -242,29 +245,30 @@ public class OnlineGameController implements Controllers {
         move = Integer.toString(index);
         playedCells.add(index);
         gb.playPosition(row, col, player1);
+        sgc.saveMove(row, col, player1);
         //    SaveGameController.saveMove(row, col , currentPlayer, "Two Players");
 
         Platform.runLater(() -> {
             boardImageViews.get(index).setImage(player1CoinImage);
         });
         if (gb.checkWin()) {
-
+            sgc.saveMatch(gb);
             drawWinningLine();
             disableAllImageViews();
             currentPlayer.scoreIncrement();
             setScoreBoard();
-            System.out.println("Winning");
-       //     sendWin();
+ 
+            sendWin();
 
             PauseTransition pause = new PauseTransition(javafx.util.Duration.seconds(1));
             pause.setOnFinished((e) -> ChangeSceneController.switchSceneWithStage(new OnlineWinPageClass(player1, player2)));
             pause.play();
-
+            return ;
 //            return;
             //  DialogView dv = new DialogView(player1 , player2  , gb);         
         } else if (gb.numberPlays == 9) {
             sendDraw();
-
+        sgc.saveMatch(gb);
             PauseTransition pause = new PauseTransition(javafx.util.Duration.seconds(1));
             pause.setOnFinished((e) -> ChangeSceneController.switchSceneWithStage(new OnlineDrawPageClass(player1, player2)));
             pause.play();
@@ -278,6 +282,7 @@ public class OnlineGameController implements Controllers {
 
     private void handleImageViewClickOpponent(int row, int col, int index) {
         gb.playPosition(row, col, player2);
+        sgc.saveMove(row, col, player2);
         Platform.runLater(() -> {
             boardImageViews.get(index).setImage(player2CoinImage);
             boardImageViews.get(index).setDisable(true);
@@ -299,17 +304,22 @@ public class OnlineGameController implements Controllers {
         Platform.runLater(() -> {
 
             handleImageViewClickOpponent(row, col, playedMove);
+            
             if (gb.checkWin()) {
                 drawWinningLine();
-                showLose();
+                sendLose();
                 PauseTransition pause = new PauseTransition(javafx.util.Duration.seconds(1));
                 pause.setOnFinished((e) -> ChangeSceneController.switchSceneWithStage(new OnlineLosePageClass(player1, player2)));
                 pause.play();
                 disableAllImageViews();
+                
 
             } else if (gb.numberPlays == 9) {
                 disableAllImageViews();
                 System.out.println("Draw Draw");
+                PauseTransition pause = new PauseTransition(javafx.util.Duration.seconds(1));
+            pause.setOnFinished((e) -> ChangeSceneController.switchSceneWithStage(new OnlineDrawPageClass(player1, player2)));
+            pause.play();
             }
 
         });
