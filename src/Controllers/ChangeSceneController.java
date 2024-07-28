@@ -1,5 +1,7 @@
 package Controllers;
 
+import Views.OnlineViews.onlinePageClass;
+import javafx.event.ActionEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -33,5 +35,6 @@ public class ChangeSceneController {
         stage.setScene(newScene);
         stage.show();
     } 
+
 
 }

@@ -53,7 +53,7 @@ public class OnlineLosePageClass extends AnchorPane {
         mediaView.setFitWidth(400.0);
         mediaView.setLayoutX(100.0);
         mediaView.setLayoutY(181.0);
-        String MEDIA_URL = "file:///" + System.getProperty("user.dir").replace("\\", "/") + "/src/Images/lose.mp4";
+        String MEDIA_URL = "file:///" + System.getProperty("user.dir").replace("\\", "/") + "/Images/lose.mp4";
         MediaPlayer mp = new MediaPlayer( new Media(MEDIA_URL));
         mediaView.setMediaPlayer(mp);
         mp.play();
