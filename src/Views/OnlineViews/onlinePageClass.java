@@ -4,7 +4,6 @@ import Views.GeneralViews.WelcomePageClass;
 import Controllers.ChangeSceneController;
 import Controllers.OnlineControllers.OnlinePageController;
 import javafx.event.EventHandler;
-import javafx.geometry.Orientation;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
@@ -13,7 +12,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.FlowPane;
 import javafx.scene.text.Font;
 
 public class onlinePageClass extends AnchorPane {

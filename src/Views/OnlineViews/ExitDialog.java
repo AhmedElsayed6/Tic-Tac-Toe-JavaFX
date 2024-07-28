@@ -1,9 +1,8 @@
 package Views.OnlineViews;
 
-import Views.GeneralViews.ChosePageClass;
 import Controllers.ChangeSceneController;
-import Model.GameBoard;
-import Model.Player;
+import Controllers.OnlineControllers.ClientThreadHandler;
+import Controllers.OnlineControllers.LoginController;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
@@ -20,25 +19,26 @@ import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 
-public class DialogView {
+public class ExitDialog {
 
     Alert dialog;
 
-    public DialogView(Player player1, Player player2, GameBoard gb) {
+    public ExitDialog(String invite)  {
+        String[] usersData = invite.split(",");
 
         final BorderPane dialogPane;
-    
+
         dialogPane = new BorderPane();
-     
-        Button menuBtn = new Button("Accept");
- 
-        Button rematchBtn = new Button("Reject");
-   
-       Label middleLabel = new Label("Player: User2 hase invited you to a game.");
-middleLabel.setStyle("-fx-font-size: 16;");
+
+        Button acceptBtn = new Button("ok");
+
+        Button rejectBtn = new Button("Cancle");
+
+        Label middleLabel = new Label("Yu Will lose The game");
+        middleLabel.setStyle("-fx-font-size: 16;");
 
         HBox buttonsBox = new HBox(20);
-        buttonsBox.getChildren().addAll(menuBtn, rematchBtn);
+        buttonsBox.getChildren().addAll(acceptBtn, rejectBtn);
         buttonsBox.setAlignment(javafx.geometry.Pos.CENTER);
 
         dialogPane.setCenter(middleLabel);
@@ -49,16 +49,15 @@ middleLabel.setStyle("-fx-font-size: 16;");
         dialog.setHeaderText(null);
         dialog.setContentText(null);
 
-        menuBtn.setMinSize(70, 20);
- 
-        rematchBtn.setMinSize(70, 20);
+        acceptBtn.setMinSize(70, 20);
 
-        menuBtn.setStyle("-fx-background-color: #1976d2; -fx-background-radius: 50px; -fx-border-color: #ffffff; -fx-border-radius: 50px; -fx-shape: url('Rec.svg');;");
-        menuBtn.setTextFill(javafx.scene.paint.Color.WHITE);
+        rejectBtn.setMinSize(70, 20);
 
+        acceptBtn.setStyle("-fx-background-color: #1976d2; -fx-background-radius: 50px; -fx-border-color: #ffffff; -fx-border-radius: 50px; -fx-shape: url('Rec.svg');;");
+        acceptBtn.setTextFill(javafx.scene.paint.Color.WHITE);
 
-        rematchBtn.setStyle("-fx-background-color: #1976d2; -fx-background-radius: 50px; -fx-border-color: #ffffff; -fx-border-radius: 50px; -fx-shape: url('Rec.svg');;");
-        rematchBtn.setTextFill(javafx.scene.paint.Color.WHITE);
+        rejectBtn.setStyle("-fx-background-color: #1976d2; -fx-background-radius: 50px; -fx-border-color: #ffffff; -fx-border-radius: 50px; -fx-shape: url('Rec.svg');;");
+        rejectBtn.setTextFill(javafx.scene.paint.Color.WHITE);
 
         dialog.initOwner(ChangeSceneController.getStage());
 
@@ -70,18 +69,18 @@ middleLabel.setStyle("-fx-font-size: 16;");
         dialog.getDialogPane().setContent(dialogPane);
 
         // Add event handler for exit button
-        menuBtn.addEventHandler(ActionEvent.ACTION, new EventHandler<ActionEvent>() {
+        acceptBtn.addEventHandler(ActionEvent.ACTION, new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+                ClientThreadHandler.queryQueue.add("surrender," + LoginController.getUsername() + "," + usersData[2]);
                 dialog.getDialogPane().getButtonTypes().addAll(ButtonType.CANCEL);
                 dialog.close();
 
             }
         });
 
-   
         // Add event handler for rematch button
-        rematchBtn.addEventHandler(ActionEvent.ACTION, new EventHandler<ActionEvent>() {
+        rejectBtn.addEventHandler(ActionEvent.ACTION, new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 dialog.getDialogPane().getButtonTypes().addAll(ButtonType.CANCEL);

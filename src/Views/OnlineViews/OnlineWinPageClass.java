@@ -2,10 +2,13 @@ package Views.OnlineViews;
 
 import Views.AiViews.*;
 import Controllers.ChangeSceneController;
-
 import Controllers.OnlineControllers.ClientThreadHandler;
 import Controllers.OnlineControllers.LoginController;
 
+
+
+import Controllers.OnlineControllers.ClientThreadHandler;
+import Controllers.OnlineControllers.LoginController;
 
 import Model.GameBoard;
 import Model.Player;
@@ -96,7 +99,9 @@ public class OnlineWinPageClass extends AnchorPane {
         btnPlayAgain.setTextFill(javafx.scene.paint.Color.WHITE);
         btnPlayAgain.setFont(new Font("System Bold", 18.0));
         btnPlayAgain.setOnMouseClicked((MouseEvent event) -> {
+
                ClientThreadHandler.queryQueue.add("playinvite," + player1.getUsername()+","+player2.getUsername());
+
 
         });
 

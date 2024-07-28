@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+<<<<<<< HEAD
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
         <file>
             <url>src/Views/OnlineViews/OnlineDrawPageClass.java</url>
@@ -22,5 +23,10 @@
             <file>file:/D:/Programs/NetBeansProjects/TicTacToe3/Tic-Tac-Toe-JavaFX/src/Model/Player.java</file>
             <file>file:/D:/Programs/NetBeansProjects/TicTacToe3/Tic-Tac-Toe-JavaFX/src/Views/OnlineViews/OnlineWinPageClass.java</file>
         </group>
+=======
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group/>
+>>>>>>> 105bcbd41d097aaedcd3bce7262b72fd578869ce
     </open-files>
 </project-private>

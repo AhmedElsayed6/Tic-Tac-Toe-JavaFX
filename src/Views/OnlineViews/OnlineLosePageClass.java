@@ -4,6 +4,10 @@ import Views.AiViews.*;
 import Views.AiViews.AIGameBoardView;
 import Controllers.ChangeSceneController;
 
+
+import Controllers.OnlineControllers.ClientThreadHandler;
+
+
 import Controllers.OnlineControllers.ClientThreadHandler;
 
 import Model.Player;
@@ -96,9 +100,9 @@ public class OnlineLosePageClass extends AnchorPane {
         btnPlayAgain.setFont(new Font("System Bold", 18.0));
         btnPlayAgain.setDisable(true);
         btnPlayAgain.setOnMouseClicked((MouseEvent event) -> {
-
               ClientThreadHandler.queryQueue.add("playinvite," + player1.getUsername()+","+player2.getUsername());
           //  ChangeSceneController.switchScene(new OnlineGameBoardView(player1 , player2  ),event);
+
 
         });
         PauseTransition pause = new PauseTransition(javafx.util.Duration.seconds(3));
