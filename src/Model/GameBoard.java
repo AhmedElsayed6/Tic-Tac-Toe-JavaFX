@@ -13,7 +13,7 @@ public class GameBoard {
     
     public GameBoard() {
         numberPlays = 0;
-        winningLine = new String();
+        winningLine = "";
 
         board = new Cell[3][3];
         for (int i = 0; i < 3; i++) {

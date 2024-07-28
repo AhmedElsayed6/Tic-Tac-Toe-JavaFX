@@ -87,7 +87,7 @@ public class OnlineDrawPageClass extends AnchorPane {
         btnPlayAgain.setStyle("-fx-background-color: #3f51b5; -fx-background-radius: 50; -fx-border-color: white; -fx-border-radius: 50; -fx-border-width: 2;");
         btnPlayAgain.setText("Play Again");
         btnPlayAgain.setTextFill(javafx.scene.paint.Color.WHITE);
-//        btnPlayAgain.setDisable(true);
+// btnPlayAgain.setDisable(true);
         btnPlayAgain.setFont(new Font("System Bold", 18.0));
         btnPlayAgain.setOnMouseClicked((MouseEvent event) -> {
             ChangeSceneController.switchScene(new OnlineGameBoardView(player1 , player2 ),event);
