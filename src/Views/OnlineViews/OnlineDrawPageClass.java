@@ -1,7 +1,9 @@
-package Views.AiViews;
+package Views.OnlineViews;
 
+import Views.AiViews.*;
 import Views.AiViews.AIGameBoardView;
 import Controllers.ChangeSceneController;
+import Controllers.OnlineControllers.ClientThreadHandler;
 import Model.Player;
 import Views.GeneralViews.WelcomePageClass;
 import javafx.animation.PauseTransition;
@@ -17,7 +19,7 @@ import javafx.scene.media.MediaView;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
-public class DrawPageClass extends AnchorPane {
+public class OnlineDrawPageClass extends AnchorPane {
 
     protected final ImageView imageView;
     protected final ImageView draw;
@@ -25,7 +27,7 @@ public class DrawPageClass extends AnchorPane {
     protected final Button btnMainMenu;
     protected final Button btnPlayAgain;
 
-    public DrawPageClass(Player player1, Player player2,int def) {
+    public OnlineDrawPageClass(Player player1, Player player2) {
 
         imageView = new ImageView();
         draw = new ImageView();
@@ -88,7 +90,8 @@ public class DrawPageClass extends AnchorPane {
 //        btnPlayAgain.setDisable(true);
         btnPlayAgain.setFont(new Font("System Bold", 18.0));
         btnPlayAgain.setOnMouseClicked((MouseEvent event) -> {
-            ChangeSceneController.switchScene(new AIGameBoardView(player1 , player2 , def ),event);
+              ClientThreadHandler.queryQueue.add("playinvite," + player1.getUsername()+","+player2.getUsername());
+          //  ChangeSceneController.switchScene(new OnlineGameBoardView(player1 , player2 ),event);
         });
       
         getChildren().add(imageView);

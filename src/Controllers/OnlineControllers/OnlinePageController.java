@@ -1,8 +1,11 @@
 package Controllers.OnlineControllers;
 
 import Controllers.ChangeSceneController;
+import Model.Player;
 import Views.OnlineViews.GameHistoryView;
 import Views.OnlineViews.InviteDialog;
+import Views.OnlineViews.OnlineGameBoardView;
+import Views.OnlineViews.RejectDialog;
 import java.io.ByteArrayInputStream;
 import java.util.Base64;
 
@@ -21,7 +24,7 @@ public class OnlinePageController implements Controllers {
     Button btnRequestGame ;
     ListView availablePlayersListView ;
     Hyperlink histoyHyperLink;
-    
+    Image img ;
     public OnlinePageController(ImageView profileImage, Label nameLabel, Label usernameLabel, Label scoreLabel, Label genderLabel, Button btnRequestGame, ListView avaiablePlayersListView, Hyperlink histoyHyperLink) {
 
 
@@ -55,11 +58,7 @@ public class OnlinePageController implements Controllers {
     }
     public void showInvite(String invite){
             System.out.println("got an invite");
-            Platform.runLater(()->{ InviteDialog db = new InviteDialog(invite);});
-   
-            // inv = new InviteDialog(null , null  , null);
-    
-    
+            Platform.runLater(()->{ InviteDialog db = new InviteDialog(invite);}); 
     }
     private void getUserDataRequest(){
  
@@ -73,8 +72,8 @@ public class OnlinePageController implements Controllers {
      genderLabel.setText(Boolean.parseBoolean(data[4]) == true ? "Male" : "Female" );
      scoreLabel.setText(data[5]);
      byte [] image = Base64.getDecoder().decode(data[6]) ;
-     Image im = new Image(new ByteArrayInputStream(image));
-     profileImage.setImage(im);
+      img = new Image(new ByteArrayInputStream(image));
+     profileImage.setImage(img);
      
      });
     }
@@ -90,9 +89,19 @@ public class OnlinePageController implements Controllers {
         }
           });
     }
+    public void showRejectDialog(String data){
+     Platform.runLater(()->{     RejectDialog rd = new RejectDialog(data);});
+
+    }
+    public void startGame(String playersData){
+        String [] data = playersData.split(",");
+        Player player1Me = new Player(nameLabel.getText(),usernameLabel.getText(),Integer.valueOf(data[2]) ,Integer.valueOf(data[12]) ,img );
     
-      public void showGameBoard(String invite){
-        System.out.println(invite);
+         byte [] image = Base64.getDecoder().decode(data[8]) ;
+        Image imgg = new Image(new ByteArrayInputStream(image));
+        Player player2Opponent = new Player(data[5]+" "+data[6],data[4],Integer.valueOf(data[3]) ,Integer.valueOf(data[7]) ,imgg );
+         Platform.runLater(()->{  ChangeSceneController.switchSceneWithStage(new OnlineGameBoardView(player1Me , player2Opponent ));});
+        System.out.println(playersData);
     
     }
     

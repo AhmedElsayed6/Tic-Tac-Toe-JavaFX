@@ -15,7 +15,7 @@ public class GameHistoryController implements Controllers{
         ClientThreadHandler.controllersMap.put("history", this);
     }
     public void setHistory(String history ){
-        System.out.println("tes"+ history);
+        System.out.println("TEST: "+ history);
     }
     
     

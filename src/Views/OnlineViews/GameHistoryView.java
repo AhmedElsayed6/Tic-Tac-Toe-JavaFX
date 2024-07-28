@@ -24,7 +24,7 @@ public class GameHistoryView extends AnchorPane {
     protected final Button button;
     GameHistoryController ghc;
     public GameHistoryView() {
-        
+
         imageView = new ImageView();
         label = new Label();
         scrollPane = new ScrollPane();

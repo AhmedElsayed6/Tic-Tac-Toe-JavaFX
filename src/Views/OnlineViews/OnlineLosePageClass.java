@@ -1,7 +1,9 @@
-package Views.AiViews;
+package Views.OnlineViews;
 
+import Views.AiViews.*;
 import Views.AiViews.AIGameBoardView;
 import Controllers.ChangeSceneController;
+import Controllers.OnlineControllers.ClientThreadHandler;
 import Model.Player;
 import Views.GeneralViews.WelcomePageClass;
 import javafx.animation.PauseTransition;
@@ -16,7 +18,7 @@ import javafx.scene.media.MediaView;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
-public class LosePageClass extends AnchorPane {
+public class OnlineLosePageClass extends AnchorPane {
 
     protected final ImageView imageView;
     protected final MediaView mediaView;
@@ -24,7 +26,7 @@ public class LosePageClass extends AnchorPane {
     protected final Button btnMainMenu;
     protected final Button btnPlayAgain;
 
-    public LosePageClass(Player player1, Player player2,int def) {
+    public OnlineLosePageClass(Player player1, Player player2) {
 
         imageView = new ImageView();
         mediaView = new MediaView();
@@ -90,7 +92,8 @@ public class LosePageClass extends AnchorPane {
         btnPlayAgain.setFont(new Font("System Bold", 18.0));
         btnPlayAgain.setDisable(true);
         btnPlayAgain.setOnMouseClicked((MouseEvent event) -> {
-            ChangeSceneController.switchScene(new AIGameBoardView(player1 , player2 , def ),event);
+              ClientThreadHandler.queryQueue.add("playinvite," + player1.getUsername()+","+player2.getUsername());
+          //  ChangeSceneController.switchScene(new OnlineGameBoardView(player1 , player2  ),event);
         });
         PauseTransition pause = new PauseTransition(javafx.util.Duration.seconds(3));
         pause.setOnFinished((e) -> {

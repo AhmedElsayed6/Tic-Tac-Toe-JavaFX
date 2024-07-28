@@ -45,7 +45,6 @@ public class SaveGameController {
     public  void declineSave(){
     move="";
     }
-    
-    
+
 
 }
