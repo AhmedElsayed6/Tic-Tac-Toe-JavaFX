@@ -130,6 +130,10 @@ public class ClientThreadHandler extends Thread {
                     OnlineGameController ogc = (OnlineGameController) controllersMap.get("game");
                     ogc.recievedPlay(query);                  
                     break;
+                case "win":
+                    OnlineGameController ogc1 = (OnlineGameController) controllersMap.get("game");
+                    ogc1.recievedPlay(query);                  
+                    break;
               
 
         }
