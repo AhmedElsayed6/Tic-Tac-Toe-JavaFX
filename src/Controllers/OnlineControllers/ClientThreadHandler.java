@@ -35,7 +35,7 @@ public class ClientThreadHandler extends Thread {
             String recievedQuery = null;
 
             try {
-                sentQuery = queryQueue.poll(1, TimeUnit.SECONDS);
+                sentQuery = queryQueue.poll(500, TimeUnit.MILLISECONDS);
                 if (sentQuery != null) {
                     querySender(sentQuery);
                 }
@@ -48,7 +48,7 @@ public class ClientThreadHandler extends Thread {
                 }
 
             } catch (Exception ex) {
-                System.out.print("An error occured");
+                ex.printStackTrace();
             }
         }
     }
@@ -57,7 +57,6 @@ public class ClientThreadHandler extends Thread {
         if (query == null) {
             return;
         }
-        // send to server
         ps.println(query);
     }
 
@@ -87,13 +86,13 @@ public class ClientThreadHandler extends Thread {
                 case "signupstatus":
                 SignupController sc = (SignupController) controllersMap.get("signup");
                 if (Boolean.parseBoolean(st[2])) {
-                        System.out.println("valid");
+                        System.out.println("valid signup");
                     sc.validSignup();
                     sc.setUsername(st[0]);
 
                 } else {
                      sc.inValidSignup();
-                      System.out.println( "invalid");
+                      System.out.println( "invalid signup");
                 }
                 break;
 
@@ -105,7 +104,6 @@ public class ClientThreadHandler extends Thread {
                 
                 case "getuserhistory":          
                 GameHistoryController ghc = (GameHistoryController) controllersMap.get("history");
-                 System.out.println("game history");
                 ghc.setHistory(query);
                 break;
 
@@ -117,11 +115,22 @@ public class ClientThreadHandler extends Thread {
                     break;
                 case "playinvite":
                     OnlinePageController oc3 = (OnlinePageController) controllersMap.get("online");
-                    if(st[2]!=null){
-                        oc3.showAvailablePlayers(st);
-                    }
+                    oc3.showInvite(query);                  
                     break;
-
+                case "rejectinvite":
+                    OnlinePageController oc5 = (OnlinePageController) controllersMap.get("online");
+                    oc5.showRejectDialog(query);                  
+                    break;
+                case "startmatch":
+                    OnlinePageController oc4 = (OnlinePageController) controllersMap.get("online");
+                    oc4.startGame(query);                  
+                    break;
+              
+                case "playedmove":
+                    OnlineGameController ogc = (OnlineGameController) controllersMap.get("game");
+                    ogc.recievedPlay(query);                  
+                    break;
+              
 
         }
     }

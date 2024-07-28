@@ -3,11 +3,23 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Programs/NetBeansProjects/TicTacToe3/Tic-Tac-Toe-JavaFX/src/Controllers/OnlineControllers/ClientThreadHandler.java</file>
-            <file>file:/D:/Programs/NetBeansProjects/TicTacToe3/Tic-Tac-Toe-JavaFX/src/Views/OnlineViews/GameHistoryView.java</file>
-            <file>file:/D:/Programs/NetBeansProjects/TicTacToe3/Tic-Tac-Toe-JavaFX/src/tictactoe/TicTacToe.java</file>
-            <file>file:/D:/Programs/NetBeansProjects/TicTacToe3/Tic-Tac-Toe-JavaFX/src/Controllers/OnlineControllers/LoginController.java</file>
-            <file>file:/D:/Programs/NetBeansProjects/TicTacToe3/Tic-Tac-Toe-JavaFX/src/Controllers/OnlineControllers/OnlinePageController.java</file>
+            <file>file:/D:/java%20project/server/Tic-Tac-Toe-JavaFX/src/Views/GeneralViews/ChosePageClass.java</file>
+            <file>file:/D:/java%20project/server/Tic-Tac-Toe-JavaFX/src/Views/OnlineViews/DialogView.java</file>
+            <file>file:/D:/java%20project/server/Tic-Tac-Toe-JavaFX/nbproject/jfx-impl.xml</file>
+            <file>file:/D:/java%20project/server/Tic-Tac-Toe-JavaFX/src/Views/LocalViews/LocalGameBoardView.java</file>
+            <file>file:/D:/java%20project/server/Tic-Tac-Toe-JavaFX/src/Controllers/OnlineControllers/ClientThreadHandler.java</file>
+            <file>file:/D:/java%20project/server/Tic-Tac-Toe-JavaFX/src/tictactoe/TicTacToe.java</file>
+            <file>file:/D:/java%20project/server/Tic-Tac-Toe-JavaFX/src/Controllers/ChangeSceneController.java</file>
+            <file>file:/D:/java%20project/server/Tic-Tac-Toe-JavaFX/src/Views/OnlineViews/SignUpPageClass.java</file>
+            <file>file:/D:/java%20project/server/Tic-Tac-Toe-JavaFX/src/Controllers/OnlineControllers/OnlinePageController.java</file>
+            <file>file:/D:/java%20project/server/Tic-Tac-Toe-JavaFX/src/Views/OnlineViews/onlinePageClass.java</file>
+            <file>file:/D:/java%20project/server/Tic-Tac-Toe-JavaFX/src/Controllers/OnlineControllers/SignupController.java</file>
+            <file>file:/D:/java%20project/server/Tic-Tac-Toe-JavaFX/src/Views/LocalViews/DialogView.java</file>
+            <file>file:/D:/java%20project/server/Tic-Tac-Toe-JavaFX/src/Controllers/OnlineControllers/LoginController.java</file>
+            <file>file:/D:/java%20project/server/Tic-Tac-Toe-JavaFX/src/Views/OnlineViews/IpPageClass.java</file>
+            <file>file:/D:/java%20project/server/Tic-Tac-Toe-JavaFX/src/local_matches/LocalTwoPlayers_2024-07-24-14-23-06.txt</file>
+            <file>file:/D:/java%20project/server/Tic-Tac-Toe-JavaFX/src/Views/GeneralViews/WelcomePageClass.java</file>
+            <file>file:/D:/java%20project/server/Tic-Tac-Toe-JavaFX/src/Controllers/OnlineControllers/Controllers.java</file>
         </group>
     </open-files>
 </project-private>

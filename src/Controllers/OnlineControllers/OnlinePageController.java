@@ -1,8 +1,11 @@
 package Controllers.OnlineControllers;
 
-import Views.OnlineViews.DialogView;
 import Controllers.ChangeSceneController;
+import Model.Player;
 import Views.OnlineViews.GameHistoryView;
+import Views.OnlineViews.InviteDialog;
+import Views.OnlineViews.OnlineGameBoardView;
+import Views.OnlineViews.RejectDialog;
 import java.io.ByteArrayInputStream;
 import java.util.Base64;
 
@@ -15,17 +18,15 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class OnlinePageController implements Controllers {
-
+    InviteDialog inv;
     ImageView profileImage;
     Label nameLabel , usernameLabel ,  scoreLabel , genderLabel ;
     Button btnRequestGame ;
     ListView availablePlayersListView ;
     Hyperlink histoyHyperLink;
-    
+    Image img ;
     public OnlinePageController(ImageView profileImage, Label nameLabel, Label usernameLabel, Label scoreLabel, Label genderLabel, Button btnRequestGame, ListView avaiablePlayersListView, Hyperlink histoyHyperLink) {
 
-
-        System.out.println("HIHIHI");
 
         this.profileImage = profileImage;
         this.nameLabel = nameLabel;
@@ -35,9 +36,9 @@ public class OnlinePageController implements Controllers {
         this.btnRequestGame = btnRequestGame;
         this.availablePlayersListView = avaiablePlayersListView;
         this.histoyHyperLink = histoyHyperLink;
-         this.btnRequestGame.setOnAction((event) -> { 
-              new DialogView(null, null, null);
-         });
+   
+    
+
         ClientThreadHandler.controllersMap.put("online",this);
          getUserDataRequest();
          getAvailablePlayers();
@@ -55,12 +56,15 @@ public class OnlinePageController implements Controllers {
     
     });
     }
+    public void showInvite(String invite){
+            System.out.println("got an invite");
+            Platform.runLater(()->{ InviteDialog db = new InviteDialog(invite);}); 
+    }
     private void getUserDataRequest(){
  
      ClientThreadHandler.queryQueue.add("getuserdata," + LoginController.getUsername());
     }
     public void setUserData(String userData){
-     System.out.println("Recieced " + userData);
      String []data = userData.split(",");
      Platform.runLater(()->{
      usernameLabel.setText(data[0]);
@@ -68,8 +72,8 @@ public class OnlinePageController implements Controllers {
      genderLabel.setText(Boolean.parseBoolean(data[4]) == true ? "Male" : "Female" );
      scoreLabel.setText(data[5]);
      byte [] image = Base64.getDecoder().decode(data[6]) ;
-     Image im = new Image(new ByteArrayInputStream(image));
-     profileImage.setImage(im);
+      img = new Image(new ByteArrayInputStream(image));
+     profileImage.setImage(img);
      
      });
     }
@@ -81,10 +85,26 @@ public class OnlinePageController implements Controllers {
          Platform.runLater(() -> {
                availablePlayersListView.getItems().clear();
         for (int i =2 ; i < st.length; i++) {
-            System.out.println(st[i]);
                availablePlayersListView.getItems().add(new Label(st[i]));
         }
           });
     }
+    public void showRejectDialog(String data){
+     Platform.runLater(()->{     RejectDialog rd = new RejectDialog(data);});
+
+    }
+    public void startGame(String playersData){
+        String [] data = playersData.split(",");
+      
+        Player player1Me = new Player(nameLabel.getText(),usernameLabel.getText(),Integer.valueOf(data[2]) ,Integer.valueOf(scoreLabel.getText()) ,img );
+    
+         byte [] image = Base64.getDecoder().decode(data[8]) ;
+        Image imgg = new Image(new ByteArrayInputStream(image));
+        Player player2Opponent = new Player(data[5]+" "+data[6],data[4],Integer.valueOf(data[3]) ,Integer.valueOf(data[7]) ,imgg );
+         Platform.runLater(()->{  ChangeSceneController.switchSceneWithStage(new OnlineGameBoardView(player1Me , player2Opponent ));});
+        System.out.println(playersData);
+    
+    }
+    
 
 }

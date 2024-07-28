@@ -1,15 +1,30 @@
 package Model;
+
+import javafx.scene.image.Image;
+
 public class Player {
-private String name,username,gender,password;
 
-
+    @Override
+    public String toString() {
+        return "Player{" + "name=" + name + ", username=" + username + ", coin=" + coin + ", score=" + score + ", profilePicture=" + profilePicture + '}';
+    }
+private String name,username;
 private int coin ; 
 private int score;
+private Image profilePicture;
+    public Image getProfilePicture() {
+        return profilePicture;
+    }
+
+    public void setProfilePicture(Image profilePicture) {
+        this.profilePicture = profilePicture;
+    }
+
 
 
     public void scoreIncrement(){
     score++;
-            }
+    }
     public String getName() {
         return name;
     }
@@ -26,21 +41,6 @@ private int score;
         this.username = username;
     }
 
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
     public int getCoin() {
         return coin;
     }
@@ -61,14 +61,13 @@ private int score;
         this.score =0;
     }
     
-    
-    public Player(String name, String username, String gender, String password , int coin , int score ) {
+    //online
+    public Player(String name, String username , int coin , int score ,Image profilePicture ) {
         this.score = score;
         this.name = name;
         this.username = username;
-        this.gender = gender;
-        this.password = password;
         this.coin = coin;
+        this.profilePicture = profilePicture;
     }
 
     //Ai
@@ -76,8 +75,6 @@ private int score;
         this.score = score;
         this.name = name;
         this.username = null;
-        this.gender = null;
-        this.password = null;
         this.coin = coin;
     }
 

@@ -1,6 +1,7 @@
 package Views.GeneralViews;
 
 import Controllers.ChangeSceneController;
+import Views.OnlineViews.RejectDialog;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -16,7 +17,6 @@ public class WelcomePageClass extends AnchorPane {
     protected final Text iconVersion;
 
     public WelcomePageClass() {
-
         imageView = new ImageView();
         btnLocalCoop = new Button();
         iconVersion = new Text();
