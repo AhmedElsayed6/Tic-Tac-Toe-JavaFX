@@ -1,5 +1,6 @@
 package Controllers.OnlineControllers;
 
+import Controllers.ChangeSceneController;
 import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.PrintStream;
@@ -8,6 +9,11 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.event.EventHandler;
+import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 public class ClientThreadHandler extends Thread {
     public static String username;
@@ -18,7 +24,9 @@ public class ClientThreadHandler extends Thread {
     public static LinkedBlockingQueue<String> queryQueue = new LinkedBlockingQueue<>();
     public static Map<String, Controllers> controllersMap = new ConcurrentHashMap<>();
 
-    public ClientThreadHandler(String ip) {
+    public ClientThreadHandler(String ip ) {
+        
+      
         try {
             mySocket = new Socket(ip, 5005);
             dis = new DataInputStream(mySocket.getInputStream());
@@ -27,6 +35,23 @@ public class ClientThreadHandler extends Thread {
             System.out.print("Can't connect to stream");
         }
         start();
+        
+        
+        ChangeSceneController.getStage().setOnCloseRequest(new EventHandler<WindowEvent>() {
+            @Override
+         synchronized  public void handle(WindowEvent event) {
+                
+                   ClientThreadHandler.queryQueue.add("setloggedoff," +LoginController.getUsername()+","+LoginController.getUsername());
+                   
+                try {
+                    sleep(1000);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(ClientThreadHandler.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                    stop();
+                    System.exit(0);
+            }
+        });
     }
 
     public void run() {
@@ -105,7 +130,7 @@ public class ClientThreadHandler extends Thread {
 
                 case "getavailableplayers":
                     OnlinePageController oc2 = (OnlinePageController) controllersMap.get("online");
-                    if(st[2]!=null){
+                    if(st.length>2){
                         oc2.showAvailablePlayers(st);
                     }
                     break;
@@ -131,7 +156,16 @@ public class ClientThreadHandler extends Thread {
                     ogc1.recievedPlay(query);                  
                     break;
                 case "surrender":
-                    //setTwoPlayersAvailable();                  
+
+        
+                     OnlineGameController ogc2 = (OnlineGameController) controllersMap.get("game");
+                   ogc2.showSurrDialog();
+                    break;
+                case "leftgame":
+
+            
+                     OnlineGameController ogc3 = (OnlineGameController) controllersMap.get("game");
+                    ogc3.showLeaveDialog();
                     break;
 
               

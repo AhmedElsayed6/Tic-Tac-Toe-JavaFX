@@ -22,6 +22,7 @@ public class LoginController  implements Controllers {
     Text txtLength;
     Text txtPassLength;
     Text invalidText;
+    
 
     public static String getUsername() {
         return username;
@@ -105,7 +106,12 @@ public class LoginController  implements Controllers {
     
     public void validLogin(){
        
-        Platform.runLater(()->{ChangeSceneController.switchSceneWithStage(new onlinePageClass());});
+        Platform.runLater(()->{
+             ClientThreadHandler.queryQueue.add("setloggedin,"+ this.usernameField.getText());
+            ChangeSceneController.switchSceneWithStage(new onlinePageClass());
+        
+        
+        });
         
     }
     public void inValidLogin(){

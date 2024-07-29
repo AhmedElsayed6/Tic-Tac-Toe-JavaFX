@@ -180,7 +180,9 @@ public class SignupController implements Controllers {
         }
     }
         public void validSignup(){
-        Platform.runLater(()->{ChangeSceneController.switchSceneWithStage(new onlinePageClass());});
+        Platform.runLater(()->{
+             ClientThreadHandler.queryQueue.add("setloggedin,"+ this);
+            ChangeSceneController.switchSceneWithStage(new onlinePageClass());});
         
     }
          public void inValidSignup(){

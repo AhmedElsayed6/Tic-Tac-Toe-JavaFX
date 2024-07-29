@@ -391,6 +391,11 @@ public class OnlineGameBoardView extends AnchorPane {
         btnSurrunder.setStyle("-fx-background-color: #1976d2; -fx-background-radius: 50px; -fx-border-color: #ffffff; -fx-border-radius: 50px; -fx-shape: url('Rec.svg');;");
         btnSurrunder.setText("Surrunder ");
         btnSurrunder.setTextFill(javafx.scene.paint.Color.WHITE);
+        btnSurrunder.setOnMouseClicked((e)->{
+        ExitDialog ed = new ExitDialog(player2.getUsername());
+        
+        });
+        
         borderPane.setTop(player1InfoPane);
         
         btnSave.setLayoutX(14.0);
@@ -539,7 +544,7 @@ public class OnlineGameBoardView extends AnchorPane {
         player1Turn  = (player1.getCoin()==1) ? true : false;
 
         
-         ogc = new OnlineGameController(  linesList,labelList , imageViewList , player1 , player2 , player1Turn);
+         ogc = new OnlineGameController(  linesList,labelList , imageViewList , player1 , player2 , player1Turn , btnSave);
   
     }
 }

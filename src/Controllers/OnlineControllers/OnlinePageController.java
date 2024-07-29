@@ -2,20 +2,25 @@ package Controllers.OnlineControllers;
 
 import Controllers.ChangeSceneController;
 import Model.Player;
+import Views.GeneralViews.WelcomePageClass;
 import Views.OnlineViews.GameHistoryView;
 import Views.OnlineViews.InviteDialog;
 import Views.OnlineViews.OnlineGameBoardView;
 import Views.OnlineViews.RejectDialog;
 import java.io.ByteArrayInputStream;
 import java.util.Base64;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javafx.application.Platform;
+import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 
 public class OnlinePageController implements Controllers {
     InviteDialog inv;
@@ -25,7 +30,8 @@ public class OnlinePageController implements Controllers {
     ListView availablePlayersListView ;
     Hyperlink histoyHyperLink;
     Image img ;
-    public OnlinePageController(ImageView profileImage, Label nameLabel, Label usernameLabel, Label scoreLabel, Label genderLabel, Button btnRequestGame, ListView avaiablePlayersListView, Hyperlink histoyHyperLink) {
+    ImageView backBtn;
+    public OnlinePageController(ImageView profileImage, Label nameLabel, Label usernameLabel, Label scoreLabel, Label genderLabel, Button btnRequestGame, ListView avaiablePlayersListView, Hyperlink histoyHyperLink , ImageView backButton) {
 
 
         this.profileImage = profileImage;
@@ -36,13 +42,29 @@ public class OnlinePageController implements Controllers {
         this.btnRequestGame = btnRequestGame;
         this.availablePlayersListView = avaiablePlayersListView;
         this.histoyHyperLink = histoyHyperLink;
-   
+   this.backBtn  = backButton;
     
 
         ClientThreadHandler.controllersMap.put("online",this);
          getUserDataRequest();
          getAvailablePlayers();
-         setHandlers();     
+         setHandlers(); 
+         
+         new Thread(()->{
+             while(true){
+                getAvailablePlayers();
+                 System.out.println("GET AV PLAYERS");
+                 try {
+                     Thread.sleep(5000);
+                 } catch (InterruptedException ex) {
+                     Logger.getLogger(OnlinePageController.class.getName()).log(Level.SEVERE, null, ex);
+                 }
+               
+             
+             }
+             
+         
+         }).start();
     
      
     }
@@ -55,6 +77,15 @@ public class OnlinePageController implements Controllers {
      ClientThreadHandler.queryQueue.add("playinvite," + LoginController.getUsername()+","+opponentLabel.getText());
     
     });
+    
+    
+     backBtn.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                  ClientThreadHandler.queryQueue.add("setloggedoff," +LoginController.getUsername()+","+LoginController.getUsername());
+                ChangeSceneController.switchScene(new WelcomePageClass(),event);
+            }
+        });
     }
     public void showInvite(String invite){
             System.out.println("got an invite");
@@ -85,6 +116,10 @@ public class OnlinePageController implements Controllers {
          Platform.runLater(() -> {
                availablePlayersListView.getItems().clear();
         for (int i =2 ; i < st.length; i++) {
+            if(st[i].compareToIgnoreCase(usernameLabel.getText())==0)
+            {
+                continue;
+            }
                availablePlayersListView.getItems().add(new Label(st[i]));
         }
           });

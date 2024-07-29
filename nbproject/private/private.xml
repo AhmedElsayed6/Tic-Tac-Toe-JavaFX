@@ -1,32 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-<<<<<<< HEAD
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
         <file>
             <url>src/Views/OnlineViews/OnlineDrawPageClass.java</url>
             <bookmark id="1">
                 <name/>
-                <line>90</line>
+                <line>89</line>
                 <key/>
             </bookmark>
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Programs/NetBeansProjects/TicTacToe3/Tic-Tac-Toe-JavaFX/src/Views/OnlineViews/OnlineDrawPageClass.java</file>
-            <file>file:/D:/Programs/NetBeansProjects/TicTacToe3/Tic-Tac-Toe-JavaFX/src/Controllers/OnlineControllers/SaveGameController.java</file>
-            <file>file:/D:/Programs/NetBeansProjects/TicTacToe3/Tic-Tac-Toe-JavaFX/src/Views/OnlineViews/OnlineLosePageClass.java</file>
-            <file>file:/D:/Programs/NetBeansProjects/TicTacToe3/Tic-Tac-Toe-JavaFX/src/Controllers/OnlineControllers/OnlineGameController.java</file>
-            <file>file:/D:/Programs/NetBeansProjects/TicTacToe3/Tic-Tac-Toe-JavaFX/src/tictactoe/TicTacToe.java</file>
-            <file>file:/D:/Programs/NetBeansProjects/TicTacToe3/Tic-Tac-Toe-JavaFX/src/Controllers/OnlineControllers/GameHistoryController.java</file>
-            <file>file:/D:/Programs/NetBeansProjects/TicTacToe3/Tic-Tac-Toe-JavaFX/src/Controllers/OnlineControllers/OnlinePageController.java</file>
-            <file>file:/D:/Programs/NetBeansProjects/TicTacToe3/Tic-Tac-Toe-JavaFX/src/Model/Player.java</file>
+            <file>file:/D:/Programs/NetBeansProjects/TicTacToe3/Tic-Tac-Toe-JavaFX/src/Controllers/OnlineControllers/ClientThreadHandler.java</file>
+            <file>file:/D:/Programs/NetBeansProjects/TicTacToe3/Tic-Tac-Toe-JavaFX/src/Controllers/OnlineControllers/IpController.java</file>
+            <file>file:/D:/Programs/NetBeansProjects/TicTacToe3/Tic-Tac-Toe-JavaFX/src/Views/OnlineViews/ExitDialog.java</file>
+            <file>file:/D:/Programs/NetBeansProjects/TicTacToe3/Tic-Tac-Toe-JavaFX/src/Views/OnlineViews/OnlineGameBoardView.java</file>
             <file>file:/D:/Programs/NetBeansProjects/TicTacToe3/Tic-Tac-Toe-JavaFX/src/Views/OnlineViews/OnlineWinPageClass.java</file>
         </group>
-=======
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
-    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
->>>>>>> 105bcbd41d097aaedcd3bce7262b72fd578869ce
     </open-files>
 </project-private>

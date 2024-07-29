@@ -7,6 +7,7 @@ import Views.OnlineViews.IpPageClass;
 import Views.OnlineViews.LoginPageClass;
 import Views.OnlineViews.ReplayGameBoardView;
 import Views.OnlineViews.SignUpPageClass;
+import Views.OnlineViews.SurDialog;
 import Views.OnlineViews.onlinePageClass;
 import javafx.application.Application;
 import javafx.scene.Parent;

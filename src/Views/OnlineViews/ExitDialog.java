@@ -23,18 +23,18 @@ public class ExitDialog {
 
     Alert dialog;
 
-    public ExitDialog(String invite)  {
-        String[] usersData = invite.split(",");
+    public ExitDialog(String enemy)  {
+   
 
         final BorderPane dialogPane;
 
         dialogPane = new BorderPane();
 
-        Button acceptBtn = new Button("ok");
+        Button acceptBtn = new Button("YES");
 
-        Button rejectBtn = new Button("Cancle");
+        Button rejectBtn = new Button("NO");
 
-        Label middleLabel = new Label("Yu Will lose The game");
+        Label middleLabel = new Label("Are you sure you want to surrunder ?");
         middleLabel.setStyle("-fx-font-size: 16;");
 
         HBox buttonsBox = new HBox(20);
@@ -72,7 +72,10 @@ public class ExitDialog {
         acceptBtn.addEventHandler(ActionEvent.ACTION, new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                ClientThreadHandler.queryQueue.add("surrender," + LoginController.getUsername() + "," + usersData[2]);
+               ClientThreadHandler.queryQueue.add("surrender," + LoginController.getUsername() + "," + enemy);
+                   ClientThreadHandler.queryQueue.add("setav," +LoginController.getUsername()+","+enemy);
+
+                        ChangeSceneController.switchSceneWithStage(new onlinePageClass());
                 dialog.getDialogPane().getButtonTypes().addAll(ButtonType.CANCEL);
                 dialog.close();
 

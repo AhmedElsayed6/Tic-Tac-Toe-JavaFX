@@ -84,7 +84,9 @@ public class OnlineLosePageClass extends AnchorPane {
         btnMainMenu.setText("Main Menu");
         btnMainMenu.setDisable(true);
         btnMainMenu.setOnMouseClicked((MouseEvent event) -> {
-            ChangeSceneController.switchScene(new WelcomePageClass(),event);
+            ChangeSceneController.switchScene(new onlinePageClass(),event);
+                ClientThreadHandler.queryQueue.add("setav," + player1.getUsername()+","+player2.getUsername());
+  ClientThreadHandler.queryQueue.add("leftgame," + player1.getUsername()+","+player2.getUsername());
         });
         btnMainMenu.setTextFill(javafx.scene.paint.Color.WHITE);
         btnMainMenu.setFont(new Font("System Bold", 18.0));
