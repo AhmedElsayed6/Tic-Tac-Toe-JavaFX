@@ -2,6 +2,7 @@ package Controllers.OnlineControllers;
 
 import Controllers.ChangeSceneController;
 import Model.Player;
+import Views.GeneralViews.WelcomePageClass;
 import Views.OnlineViews.GameHistoryView;
 import Views.OnlineViews.InviteDialog;
 import Views.OnlineViews.OnlineGameBoardView;
@@ -10,12 +11,14 @@ import java.io.ByteArrayInputStream;
 import java.util.Base64;
 
 import javafx.application.Platform;
+import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 
 public class OnlinePageController implements Controllers {
     InviteDialog inv;
@@ -25,7 +28,8 @@ public class OnlinePageController implements Controllers {
     ListView availablePlayersListView ;
     Hyperlink histoyHyperLink;
     Image img ;
-    public OnlinePageController(ImageView profileImage, Label nameLabel, Label usernameLabel, Label scoreLabel, Label genderLabel, Button btnRequestGame, ListView avaiablePlayersListView, Hyperlink histoyHyperLink) {
+    ImageView backImageView;
+    public OnlinePageController(ImageView profileImage, Label nameLabel, Label usernameLabel, Label scoreLabel, Label genderLabel, Button btnRequestGame, ListView avaiablePlayersListView, Hyperlink histoyHyperLink,ImageView backImageView) {
 
 
         this.profileImage = profileImage;
@@ -47,6 +51,12 @@ public class OnlinePageController implements Controllers {
      
     }
     private void setHandlers(){
+         backImageView.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                ChangeSceneController.switchScene(new WelcomePageClass(),event);
+            }
+        });
     histoyHyperLink.setOnMouseClicked((e)->{
     ChangeSceneController.switchSceneWithStage(new GameHistoryView() );
     });

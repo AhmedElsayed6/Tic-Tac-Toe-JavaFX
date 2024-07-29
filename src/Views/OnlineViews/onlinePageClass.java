@@ -96,12 +96,12 @@ public class onlinePageClass extends AnchorPane {
         backImageView.setFitWidth(78.0);
         backImageView.setPickOnBounds(true);
         backImageView.setPreserveRatio(true);
-        backImageView.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                ChangeSceneController.switchScene(new WelcomePageClass(),event);
-            }
-        });
+//        backImageView.setOnMouseClicked(new EventHandler<MouseEvent>() {
+//            @Override
+//            public void handle(MouseEvent event) {
+//                ChangeSceneController.switchScene(new WelcomePageClass(),event);
+//            }
+//        });
         backImageView.setImage(new Image(getClass().getResource("/Images/backArrow.png").toExternalForm()));
 
         availablePlayersLabel.setAlignment(javafx.geometry.Pos.CENTER);
@@ -296,7 +296,7 @@ public class onlinePageClass extends AnchorPane {
         getChildren().add(label4);
         getChildren().add(imageView3);
         opc = new OnlinePageController (profilePicture , nameField ,usernameField, scoreField , genderField
-                ,btnRequestJoin , listViewAvailable , histoyBtn );
+                ,btnRequestJoin , listViewAvailable , histoyBtn,backImageView );
 
     }
 }
