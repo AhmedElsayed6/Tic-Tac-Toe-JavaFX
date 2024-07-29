@@ -1,4 +1,4 @@
-Tic-Tac-Toe network based game. Made with MVC design pattern. 
+Tic-Tac-Toe network based game. Made with MVC architectural pattern. 
 
 ![1](https://github.com/user-attachments/assets/51e87390-4637-4629-af22-758dd3cacd3e)
 
@@ -9,3 +9,9 @@ The application displays a list of the online or availableusers. So, the player 
 The application should give the user an option to record the game and store it for replay later
 The application stores the player score.
 The user can Register and Login to the server.
+
+Made by:
+Ahmed Elsayed
+Abdelrhman mustafa
+Musatfa elkomy
+Ahmed Eid
