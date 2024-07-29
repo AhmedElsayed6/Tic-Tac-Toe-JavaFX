@@ -336,7 +336,7 @@ public class ReplayGameBoardView extends AnchorPane {
         labelPlayer1Name.setMaxWidth(351.0);
         labelPlayer1Name.setPrefHeight(58.0);
         labelPlayer1Name.setPrefWidth(184.0);
-        labelPlayer1Name.setText("Ahmed Eid");
+     //   labelPlayer1Name.setText("Ahmed Eid");
         labelPlayer1Name.setOpacity(0);
         labelPlayer1Name.setTextFill(javafx.scene.paint.Color.WHITE);
         labelPlayer1Name.setFont(new Font("Rockwell Italic", 26.0));
@@ -347,7 +347,7 @@ public class ReplayGameBoardView extends AnchorPane {
         labelPlayer1.setMaxWidth(351.0);
         labelPlayer1.setPrefHeight(58.0);
         labelPlayer1.setPrefWidth(158.0);
-        labelPlayer1.setText("Player1 ");
+      //  labelPlayer1.setText("Player1 ");
         labelPlayer1.setTextFill(javafx.scene.paint.Color.WHITE);
         labelPlayer1.setFont(new Font("Rockwell Italic", 26.0));
 
@@ -357,7 +357,7 @@ public class ReplayGameBoardView extends AnchorPane {
         labelPlayer1Score.setMaxWidth(351.0);
         labelPlayer1Score.setPrefHeight(23.0);
         labelPlayer1Score.setPrefWidth(98.0);
-        labelPlayer1Score.setText("6");
+     //   labelPlayer1Score.setText("6");
         labelPlayer1Score.setTextFill(javafx.scene.paint.Color.WHITE);
         labelPlayer1Score.setFont(new Font("Rockwell Italic", 26.0));
 
@@ -367,7 +367,7 @@ public class ReplayGameBoardView extends AnchorPane {
         labelScore1.setMaxWidth(351.0);
         labelScore1.setPrefHeight(58.0);
         labelScore1.setPrefWidth(158.0);
-        labelScore1.setText("Score: ");
+    //    labelScore1.setText("Score: ");
         labelScore1.setTextFill(javafx.scene.paint.Color.WHITE);
         labelScore1.setFont(new Font("Rockwell Italic", 26.0));
 
@@ -392,7 +392,7 @@ public class ReplayGameBoardView extends AnchorPane {
         labelPlayer2Name.setMaxWidth(351.0);
         labelPlayer2Name.setPrefHeight(58.0);
         labelPlayer2Name.setPrefWidth(196.0);
-        labelPlayer2Name.setText("Nourhan Omar");
+      //  labelPlayer2Name.setText("Nourhan Omar");
         labelPlayer2Name.setOpacity(0);
         labelPlayer2Name.setTextFill(javafx.scene.paint.Color.WHITE);
         labelPlayer2Name.setFont(new Font("Rockwell Italic", 26.0));
@@ -403,7 +403,7 @@ public class ReplayGameBoardView extends AnchorPane {
         labelPlayer2.setMaxWidth(351.0);
         labelPlayer2.setPrefHeight(58.0);
         labelPlayer2.setPrefWidth(124.0);
-        labelPlayer2.setText("Player2 ");
+     //  labelPlayer2.setText("Player2 ");
         labelPlayer2.setTextFill(javafx.scene.paint.Color.WHITE);
         labelPlayer2.setTextOverrun(javafx.scene.control.OverrunStyle.CLIP);
         labelPlayer2.setFont(new Font("Rockwell Italic", 26.0));
@@ -414,7 +414,7 @@ public class ReplayGameBoardView extends AnchorPane {
         labelPlayer2Score.setMaxWidth(351.0);
         labelPlayer2Score.setPrefHeight(32.0);
         labelPlayer2Score.setPrefWidth(64.0);
-        labelPlayer2Score.setText("6");
+     //   labelPlayer2Score.setText("6");
         labelPlayer2Score.setTextFill(javafx.scene.paint.Color.WHITE);
         labelPlayer2Score.setFont(new Font("Rockwell Italic", 26.0));
 
@@ -424,7 +424,7 @@ public class ReplayGameBoardView extends AnchorPane {
         labelScore2.setMaxWidth(351.0);
         labelScore2.setPrefHeight(58.0);
         labelScore2.setPrefWidth(158.0);
-        labelScore2.setText("Score: ");
+  //      labelScore2.setText("Score: ");
         labelScore2.setTextFill(javafx.scene.paint.Color.WHITE);
         labelScore2.setFont(new Font("Rockwell Italic", 26.0));
         borderPane.setBottom(player2InfoPane);
